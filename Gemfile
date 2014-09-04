@@ -25,6 +25,12 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 # Amazon Web Services
 gem 'aws-sdk', '~> 1.20.0'
 
+# Turbolinks gem
+gem 'jquery-turbolinks'
+
+# Masonry gem so it looks like pinterest.
+gem 'masonry-rails', '~> 0.2.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
