@@ -7,7 +7,7 @@
         <div class="panel-body">
           <%= post.description %><br/>
           <strong><%= post.user.email if post.user %></strong>
-      <% if post.user == current_user %>
+      <% if post.user && current_user == current_user %>
         <div class="actions">
         <%= link_to edit_post_path(post) do %>
           <span class="glyphicon glyphicon-edit"></span>
