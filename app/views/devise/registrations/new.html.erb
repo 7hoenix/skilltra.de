@@ -23,6 +23,16 @@
       </div>
 
       <div class="form-group">
+       <%= f.label :company %>
+       <%= f.text_field :company, class: "form-control", :autofocus => true %>
+      </div>
+
+      <div class="form-group">
+       <%= f.label :avatar %>
+       <%= f.file_field :avatar, class: "form-control", :autofocus => true %>
+      </div>
+
+      <div class="form-group">
         <%= f.submit "Sign up", class: "btn btn-primary" %>
       </div>
     <% end %>

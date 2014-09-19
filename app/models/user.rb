@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
          has_many :posts
+         has_one :avatar
 
+ 
    validates :name, presence: true
+ 
+
 end

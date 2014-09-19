@@ -2,12 +2,20 @@
 
   <div id="posts" class="transitions-enabled">
     <% @posts.each do |post| %>
+
       <div class="box panel panel-default">
-        <%= link_to image_tag(post.image.url(:medium)), post %>
+        
+        <% if false %>
+        <%= link_to image_tag(user.image.url(:medium)), user %>
+        <% end %>
+
+
         <div class="panel-body">
+          <%= post.title %><br/>
           <%= post.description %><br/>
+          <%= post.category %><br/>
           <strong><%= post.user.name if post.user %></strong>
-      <% if post.user && current_user == current_user %>
+      <% if post.user == current_user %>
         <div class="actions">
         <%= link_to edit_post_path(post) do %>
           <span class="glyphicon glyphicon-edit"></span>
