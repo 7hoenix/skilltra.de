@@ -1,44 +1,11 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h1>Sign up</h1>
-  </div>
+<div class="jumbotron center">
 
-  <div class="panel-body">
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+    <div class="panel-body">
+      <%= link_to image_tag('facebook_login_button.png', id: 'facebook-login-image', alt: 'Login with Facebook'), user_omniauth_authorize_path(:facebook) %>
+    </div>
 
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, autofocus: true, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-       <%= f.label :company %>
-       <%= f.text_field :company, class: "form-control", :autofocus => true %>
-      </div>
-
-      <div class="form-group">
-       <%= f.label :avatar %>
-       <%= f.file_field :avatar, class: "form-control", :autofocus => true %>
-      </div>
-
-      <div class="form-group">
-        <%= f.submit "Sign up", class: "btn btn-primary" %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="panel-footer">
-    <%= render "devise/shared/links" %>
-  </div>
+    <div class="panel-body">
+      <h3>Note</h3>
+        <p>Hey, we gotta make sure you are who you say you are since people are trading their time, talents and ideas freely.</p>
+    </div>
 </div>

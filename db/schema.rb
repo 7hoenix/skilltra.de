@@ -11,17 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140919002050) do
+ActiveRecord::Schema.define(version: 20140923232245) do
+
+  create_table "accounts", force: true do |t|
+    t.string   "bio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "company"
+    t.string   "primarySkill"
+    t.string   "secondarySkill"
+  end
+
+  add_index "accounts", ["user_id"], name: "index_accounts_on_user_id"
+
+  create_table "bids", force: true do |t|
+    t.integer  "bid"
+    t.string   "bidinfo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "credits", force: true do |t|
+    t.integer  "debit"
+    t.integer  "credit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "credits", ["user_id"], name: "index_credits_on_user_id"
+
+  create_table "jobs", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "post_id"
+  end
+
+  add_index "jobs", ["post_id"], name: "index_jobs_on_post_id"
+  add_index "jobs", ["user_id"], name: "index_jobs_on_user_id"
 
   create_table "posts", force: true do |t|
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
     t.string   "title"
     t.string   "category"
   end

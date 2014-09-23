@@ -5,10 +5,12 @@
 		<div class="panel panel-default">
 		
 			<div class="panel-heading center"
-				<%= image_tag @user.image.url(:medium) %>
+
+				
 			</div>
 		
 			<div class="panel-body">
+				<p><%= image_tag @post.user.image if @post.user %></p>
 				<p><%= @post.title %></p>
 				<p><%= @post.description %></p>
 				<p><%= @post.category %></p>
@@ -17,8 +19,19 @@
 				<% if @post.user == current_user %>
 					<%= link_to edit_post_path(@post) do %>
 					<span class="glyphicon glyphicon-edit"></span>
-					Edit
 					<% end %>
+
+
+					
+					<%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <span class="glyphicon glyphicon-trash"></span>
+            Delete
+            <% end %>
+        <% else %>
+				<%= "bid on post" %>
+
+
+
 				<% end %>
 				</div>
 			</div>

@@ -1,10 +1,24 @@
 Rails.application.routes.draw do
+  resources :bids
+
+  resources :jobs
+
+  resources :credits
+
+  resources :accounts
+
+
   resources :posts
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   root 'posts#index'
 
   get "about" => 'pages#about'
+
+  get "profile" => 'pages#profile'
+
+  get "editaccount" => 'accounts#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

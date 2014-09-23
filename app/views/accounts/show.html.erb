@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+	<p>
+  	<strong>Bio:</strong>
+  	<%= @account.bio %>
+	</p>
+	<p>
+  	<strong>Company:</strong>
+  	<%= @account.company %>
+  </p>
+  <p>
+  	<strong>Primary Skill:</strong>
+  	<%= @account.primarySkill %>
+  </p>
+  <p>	
+  	<strong>Secondary Skill:</strong>
+  	<%= @account.secondarySkill %>
+	</p>
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>

@@ -1,0 +1,186 @@
+<div class="panel-body">
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+       <%= f.label :company %>
+       <%= f.text_field :company, class: "form-control", :autofocus => true %>
+      </div>
+
+      <div class="form-group">
+       <%= f.label :image %>
+       <%= f.file_field :image, class: "form-control", :autofocus => true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "Sign up", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+
+
+
+
+
+  <div class="panel-footer">
+    <%= render "devise/shared/links" %>
+  </div>
+
+
+
+
+   # This is for omniauth 
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.name = auth.info.name   # assuming the user model has a name
+      # user.image = auth.info.image # assuming the user model has an image
+    end
+  end
+
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+            
+
+      end
+    end
+
+
+
+
+
+  # Home Page previous
+
+      <p>
+        <%= link_to "Log in", new_user_session_path, class: "btn btn-default btn-lg" %>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+      </p>
+
+
+
+
+
+
+      <div class="form-group">
+        <%= image_tag @user.image.url(:medium) %>
+       <%= f.label :image %>
+       <%= f.file_field :avatar, class: "form-control", :autofocus => true %>
+      </div>
+
+
+
+
+
+
+
+      <img src= '<%= image_tag current_user.image %>' alt= "Facebook Picture" class="img-circle">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <p><strong>Primary Skill</strong></p>
+  <div class="col-lg-6">
+    <div class="input-group">
+        
+
+        <input type="radio" name="primarySkill" value="Programming">  Programming 
+        <br>
+         <input type="radio" name="primarySkill" value="Marketing">  Marketing
+         <br>
+          <input type="radio" name="primarySkill" value="Design">  Design 
+        <br>
+         <input type="radio" name="primarySkill" value="Biz Dev"> Biz Dev 
+         <br>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+
+  <p><strong>Secondary Skill</strong></p>
+  <div class="col-lg-6">
+    <div class="input-group">
+        <input type="radio" name="secondarySkill" value="Programming">  Programming 
+        <br>
+         <input type="radio" name="secondarySkill" value="Marketing">  Marketing
+         <br>
+          <input type="radio" name="secondarySkill" value="Design">  Design 
+        <br>
+         <input type="radio" name="secondarySkill" value="Biz Dev"> Biz Dev 
+         <br>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+
+
+
+
+
+
+
+  <% @accounts.each do |account| %>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="page-header">
+  <h1>Profile</br> <small>Tell Fellow Collaborators what You are Working on and what your strengths are.</small></h1>
+</div>
+
+<%= image_tag current_user.image %>
+ 
+  
+    <h2><%= current_user.name %></h2>
+    <p><%= current_user.email %></p>
+  
+
+    <% @accounts.each do |account| %>
+        <%= account.company %><br>
+        <%= account.bio %><br>
+        <%= account.primarySkill %><br>
+        <%= account.secondarySkill %><br>
+        <%= link_to 'Show', account %>
+        <%= link_to 'Edit', edit_account_path(account) %>
+        <%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+
+<br>
+
+      <p>
+        <%= link_to "Update Profile", editaccount_path, class: "btn btn-default btn-lg" %>
+      </p>

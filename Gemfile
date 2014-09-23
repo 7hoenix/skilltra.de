@@ -16,8 +16,17 @@ gem 'rails_12factor', group: :production
 # Make it pretty with bootstrap
 gem 'bootstrap-sass'
 
+# Might not need but testing either way
+gem 'omniauth'
+
+# Omniauth for Facebook login
+gem 'omniauth-facebook'
+
 # User Auth with DEVISE woot woot
 gem 'devise'
+
+# Figaro for managing credentials
+gem 'figaro'
 
 # Installing paperclip for IMAGES
 gem 'paperclip', github: 'thoughtbot/paperclip'
