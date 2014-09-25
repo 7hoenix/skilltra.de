@@ -3,6 +3,7 @@ class BidsController < ApplicationController
 
   def index
     @bids = Bid.all
+    @posts = Post.all
   end
 
   def show

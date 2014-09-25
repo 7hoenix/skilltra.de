@@ -3,17 +3,25 @@
 <table>
   <thead>
     <tr>
-      <th>Bid</th>
+      <th>Bid Amount</th>
       <th>Bidinfo</th>
+      <th>What needs to be done <th>
       <th colspan="3"></th>
     </tr>
   </thead>
+
 
   <tbody>
     <% @bids.each do |bid| %>
       <tr>
         <td><%= bid.bid %></td>
-        <td><%= bid.bidinfo %></td>
+         <td><%= bid.bidinfo %></td>
+           <% @posts.each do |post| %>
+            <% if post.id == bid.post_id %>
+            <td> <%= post.title%></td>
+               <% end %>
+                 <% end %>
+
         <td><%= link_to 'Show', bid %></td>
         <td><%= link_to 'Edit', edit_bid_path(bid) %></td>
         <td><%= link_to 'Destroy', bid, method: :delete, data: { confirm: 'Are you sure?' } %></td>

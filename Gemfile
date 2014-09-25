@@ -20,6 +20,7 @@ gem 'bootstrap-sass'
 gem 'omniauth'
 
 # Omniauth for Facebook login
+gem 'facebook'
 gem 'omniauth-facebook'
 
 # User Auth with DEVISE woot woot

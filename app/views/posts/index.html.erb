@@ -4,38 +4,33 @@
     <% @posts.each do |post| %>
 
       <div class="box panel panel-default">
-
-
         <div class="panel-body">
           <% if post.user %>
-          <%= link_to image_tag(post.user.image), post %>
-          <% end %>
-
-        <!-- <img src="https://graph.facebook.com/<?=post.auth.id?>/picture"> -->
+            <%= link_to image_tag(post.user.image), post %>
+            <% end %>
           <h2><%= post.title %></h2><br/>
           <p><%= post.description %></p><br/>
           <p><b><%= post.category %></b></p><br/>
           <strong><%= post.user.name if post.user %></strong>
       <% if post.user == current_user %>
         <div class="actions">
-        <%= link_to edit_post_path(post) do %>
-          <span class="glyphicon glyphicon-edit"></span>
-          Edit
-          <% end %>
-        <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <span class="glyphicon glyphicon-trash"></span>
-          Delete
-          <% end %>
-        <% else %>
-          <%= "Bid on Post" %>
-
-        </div>
-        <% end %>
-        </div>
+          <%= link_to edit_post_path(post) do %>
+            <span class="glyphicon glyphicon-edit"></span>
+            Edit
+            <% end %>
+          <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <span class="glyphicon glyphicon-trash"></span>
+            Delete
+            <% end %>
+      <% else %>
+        <%= "Bid on Post" %>
         </div>
       <% end %>
-    </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
   <div class="center">
    <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
-  </div>
+ </div>

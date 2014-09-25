@@ -1,3 +1,11 @@
+config.omniauth :facebook, Facebook.app_id, Facebook.secret
+
+
+
+
+
+
+
 <div class="panel-body">
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>

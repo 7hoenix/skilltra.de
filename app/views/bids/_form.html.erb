@@ -15,8 +15,10 @@
     <%= f.label :bid %><br>
     <%= f.number_field :bid %>
   </div>
+ <h4><%= current_user.credit.debit if current_user.credit %> Credits Max</h4>
+
   <div class="field">
-    <%= f.label :bidinfo %><br>
+    <%= f.label :bidinfo, "Enter information on your Bid" %><br>
     <%= f.text_field :bidinfo %>
   </div>
   <div class="actions">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923232245) do
+ActiveRecord::Schema.define(version: 20140924223440) do
 
   create_table "accounts", force: true do |t|
     t.string   "bio"
@@ -30,7 +30,10 @@ ActiveRecord::Schema.define(version: 20140923232245) do
     t.string   "bidinfo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "post_id"
   end
+
+  add_index "bids", ["post_id"], name: "index_bids_on_post_id"
 
   create_table "credits", force: true do |t|
     t.integer  "debit"
