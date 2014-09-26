@@ -11,6 +11,16 @@
     </div>
   <% end %>
 
+ 
+  <%= "display post id here " %>
+  <% @posts.each do |post| %>
+            <% if post.id == @bid.post_id %>
+            <td> <%= post.title%></td>
+               <% end %>
+                 <% end %>
+
+
+
   <div class="field">
     <%= f.label :bid %><br>
     <%= f.number_field :bid %>

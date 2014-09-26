@@ -7,10 +7,12 @@ class BidsController < ApplicationController
   end
 
   def show
+
   end
 
   def new
-    @bid = Bid.new
+    @bid = Bid.new(params[:bid])
+    @posts = Post.all
   end
 
   def edit

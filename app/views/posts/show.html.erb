@@ -17,11 +17,11 @@
 				<p><%= @post.id %></p>
 
  				<p><strong><%= @post.user.name if @post.user %></strong></p>
-				<%= link_to "Bid on Post", new_bid_path(:post_id => @post.id) %> 
+				<%= link_to "Bid on Post", new_bid_path(:PostIdToBid => {:post_id => @post.id}) %> 
 				<% if @post.user == current_user %>
 					<%= link_to edit_post_path(@post) do %>
 					<span class="glyphicon glyphicon-edit"></span>
-					<% end %>					
+					<% end %>
 					<%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do %>
             <span class="glyphicon glyphicon-trash"></span>
             Delete

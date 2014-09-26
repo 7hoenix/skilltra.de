@@ -23,7 +23,7 @@
             Delete
             <% end %>
       <% else %>
-        <%= "Bid on Post" %>
+        <%= link_to "Bid on Post", new_bid_path(:PostIdToBid => {:post_id => post.id}) %>
         </div>
       <% end %>
         </div>
