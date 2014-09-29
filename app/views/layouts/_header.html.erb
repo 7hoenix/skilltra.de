@@ -26,10 +26,8 @@
           </li>
             <li><%= link_to "Job Board", posts_path %></li>
             <li><%= link_to "Your Jobs", jobs_path %></li>
-          </ul>
+          </ul>  
         </li>
-
-
 
       <li><%= link_to "About", about_path %></li>
       <% if user_signed_in? %>
@@ -38,6 +36,7 @@
         <li><%= link_to current_user.name, accounts_path %></li>
           <li><%= link_to image_tag(current_user.image), accounts_path %></li>
           <li><%= current_user.credit.debit if current_user.credit %> Credits</li>
+            
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       <% else %>
         <li><%= link_to image_tag('facebook_login_button-header.png', id: 'facebook-login-image', alt: 'Login with Facebook'), user_omniauth_authorize_path(:facebook) %></li>

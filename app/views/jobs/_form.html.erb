@@ -1,3 +1,5 @@
+<%= debug(params) %>
+
 <%= form_for(@job) do |f| %>
   <% if @job.errors.any? %>
     <div id="error_explanation">
@@ -11,15 +13,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
+
+
+  <p>
+    <strong>Title</strong>
+    <%= params[:post_title]%>
+  </p>
+  
+<p>
+    <strong>bid users name</strong>
+    <%= params[:bid_user]%>
+  </p>
+  <p>
+<strong>bid users company</strong>
+    <%= params[:account_company]%>
+  </p>
+<p>
+<strong>bid amount</strong>
+    <%= params[:bid_amount]%>
+  </p>
+<p>
+  <strong>post description</strong>
+    <%= params[:post_description]%>
+  </p>
+
   <div class="actions">
-    <%= f.submit %>
+  <%= f.submit "Accept Bid", data: { confirm: "Are You Sure?" } %>
   </div>
 <% end %>

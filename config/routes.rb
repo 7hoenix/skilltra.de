@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :bids
 
   resources :jobs
 
@@ -8,7 +7,11 @@ Rails.application.routes.draw do
   resources :accounts
 
 
-  resources :posts
+  resources :posts do
+    resources :bids
+    
+  end
+
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 

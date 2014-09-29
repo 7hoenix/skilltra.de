@@ -1,4 +1,4 @@
-<%= form_for(@bid) do |f| %>
+<%= form_for [@post, @bid] do |f| %>
   <% if @bid.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@bid.errors.count, "error") %> prohibited this bid from being saved:</h2>
@@ -12,14 +12,10 @@
   <% end %>
 
  
-  <%= "display post id here " %>
-  <% @posts.each do |post| %>
-            <% if post.id == @bid.post_id %>
-            <td> <%= post.title%></td>
-               <% end %>
-                 <% end %>
-
-
+  
+  
+<% if @post.user != current_user %>
+               
 
   <div class="field">
     <%= f.label :bid %><br>
@@ -31,7 +27,12 @@
     <%= f.label :bidinfo, "Enter information on your Bid" %><br>
     <%= f.text_field :bidinfo %>
   </div>
+
+<%= f.hidden_field :post_id, :value => @post.id %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+  <% end %>
 <% end %>

@@ -56,6 +56,7 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+      @bids = @post.bids
     end
 
     def correct_user

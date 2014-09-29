@@ -1,9 +1,10 @@
 <%= render 'pages/trade' unless user_signed_in? %>  
 
   <div id="posts" class="transitions-enabled">
+    
     <% @posts.each do |post| %>
-
       <div class="box panel panel-default">
+        
         <div class="panel-body">
           <% if post.user %>
             <%= link_to image_tag(post.user.image), post %>
@@ -23,7 +24,7 @@
             Delete
             <% end %>
       <% else %>
-        <%= link_to "Bid on Post", new_bid_path(:PostIdToBid => {:post_id => post.id}) %>
+        <%= link_to("Bid on Post", new_post_bid_path(post)) %>
         </div>
       <% end %>
         </div>

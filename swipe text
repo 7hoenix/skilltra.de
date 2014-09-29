@@ -1,3 +1,58 @@
+   <th><strong>What needs to be done</strong></th>
+        <th><strong>Bid Amount</strong></th>   
+      </tr>
+
+
+   <%= post.bid %>
+         <%= @post.bid.bidinfo %>
+
+
+
+<p><strong><%= @post.user.name if @post.user %></strong></p>
+        <%= link_to("Bid on Post", new_post_bid_path(post)) %> 
+        <% if @post.user == current_user %>
+          <%= link_to edit_post_path(@post) do %>
+          <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+          <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <span class="glyphicon glyphicon-trash"></span>
+            Delete
+            <% end %>
+        <% else %>
+
+        <% end %> 
+
+
+
+
+
+
+
+(params[:id])
+
+
+
+ @bids = Bid.all
+    @posts = Post.all
+
+
+
+new_bid_path(:PostIdToBid => {:post_id => post.id})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 config.omniauth :facebook, Facebook.app_id, Facebook.secret
 
 

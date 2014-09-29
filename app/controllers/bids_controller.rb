@@ -4,15 +4,25 @@ class BidsController < ApplicationController
   def index
     @bids = Bid.all
     @posts = Post.all
+    @post = Post.find(params[:post_id])
+    @bids = @post.bids
+    @users =User.all
+    @accounts = Account.all
   end
 
   def show
-
+    @bids = Bid.all
+    @posts = Post.all
+    @post = Post.find(params[:post_id])
+    @bids = @post.bids
+    @users =User.all
   end
 
   def new
-    @bid = Bid.new(params[:bid])
+    @bid = Bid.new
     @posts = Post.all
+    @post = Post.find(params[:post_id])
+    @users = User.all
   end
 
   def edit
@@ -20,9 +30,9 @@ class BidsController < ApplicationController
 
   def create
     @bid = Bid.new(bid_params)
-
+    @users = User.all
       if @bid.save
-        redirect_to @bid, notice: 'Bid was successfully created.'
+        redirect_to post_bids_path, notice: 'Bid was successfully created.'
       else
         render :new
       end
@@ -49,6 +59,6 @@ class BidsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bid_params
-      params.require(:bid).permit(:bid, :bidinfo)
+      params.require(:bid).permit(:bid, :bidinfo, :post_id, :user_id)
     end
 end

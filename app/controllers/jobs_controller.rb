@@ -10,6 +10,9 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
+    @posts = Post.all
+    @users = User.all
+    @bids = Bid.all
   end
 
   def edit
@@ -45,6 +48,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:title, :description)
+      params.require(:job).permit(:title, :description, :post_id)
     end
 end

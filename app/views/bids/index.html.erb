@@ -1,35 +1,68 @@
-<h1>Listing bids</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Bid Amount</th>
-      <th>Bidinfo</th>
-      <th>What needs to be done <th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
 
-  <tbody>
-    <% @bids.each do |bid| %>
-      <tr>
-        <td><%= bid.bid %></td>
-         <td><%= bid.bidinfo %></td>
-           <% @posts.each do |post| %>
-            <% if post.id == bid.post_id %>
-            <td> <%= post.title%></td>
-               <% end %>
-                 <% end %>
-
-        <td><%= link_to 'Show', bid %></td>
-        <td><%= link_to 'Edit', edit_bid_path(bid) %></td>
-        <td><%= link_to 'Destroy', bid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<h3>Bids</h3>
+  
+  <% if @post.user %>
+      <%= link_to image_tag(@post.user.image), @post %>
     <% end %>
-  </tbody>
-</table>
-
+  <h1><%= @post.title %> </h1>
+   
 <br>
+            
+  
+   <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><strong>Choose Wisely!</strong></th>
+        <th><strong>Bids</strong></th>
+        <th><strong>User</strong></th>   
+        <th><strong>Additional Info</strong></th>   
+      </tr>
+    </thead>
 
-<%= link_to 'New Bid', new_bid_path %>
+ <% @bids.each do |bid| %>
+    <tbody>
+      <tr>
+         <% @users.each do |user| %>
+  <% if user.id == bid.user_id %>
+  <% $BidUserId = bid.user_id%>
+<%  $BidUserName = user.name %>
+  <% end %>
+          <% end %>
+
+      <% @accounts.each do |account| %>
+ <% if account.user_id =$BidUserId %>
+  <% $account_company = account.company %>
+  <% end %>
+  <% end %>
+
+
+
+        <td><%= link_to new_job_path(:post_id => @post.id,:post_title => @post.title, :post_description => @post.description, :bid_amount => bid.bid, :bid_user => 
+        $BidUserName, :account_company =>$account_company ) do %>
+          <span class="glyphicon glyphicon-plus"></span> Review
+            <% end %></td>
+        <td><%= bid.bid %></td>
+            <% @users.each do |user| %>
+            <% if user.id == bid.user_id %>
+        <td> <%= user.name%></td>
+                <% end %>
+                <% end %>
+        <td><%= bid.bidinfo %></td>
+      </tr>
+    </tbody>
+      <% end %>
+  </table>
+
+<% if false %> 
+
+        <%= link_to 'Show', post_bid_path(post) %>
+        <%= link_to 'Edit', edit_bid_path(bid) %>
+        <%= link_to 'Destroy', bid, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+
+
+<br> 
+
+
+<%= link_to 'New Bid', new_post_bid_path %>
