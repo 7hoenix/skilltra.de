@@ -1,4 +1,4 @@
-<%= render 'pages/trade' unless user_signed_in? %>  
+<%= render 'pages/home' unless user_signed_in? %>  
 
   <div id="posts" class="transitions-enabled">
     
@@ -6,13 +6,16 @@
       <div class="box panel panel-default">
         
         <div class="panel-body">
+          <div class="col-md-6">
+
           <% if post.user %>
-            <%= link_to image_tag(post.user.image), post %>
+            <p><%= link_to image_tag(post.user.image), post %></p>
             <% end %>
-          <h2><%= post.title %></h2><br/>
-          <p><%= post.description %></p><br/>
-          <p><b><%= post.category %></b></p><br/>
-          <strong><%= post.user.name if post.user %></strong>
+          </div>
+          <h2><%= post.title %></h2><br>
+          <p><%= post.description %></p><br>
+          <p><b><%= post.category %></b></p><br>
+          <P><strong><%= post.user.name if post.user %></strong></P>
       <% if post.user == current_user %>
         <div class="actions">
           <%= link_to edit_post_path(post) do %>
@@ -23,16 +26,18 @@
             <span class="glyphicon glyphicon-trash"></span>
             Delete
             <% end %>
+          </div>
       <% else %>
         <%= link_to("Bid on Post", new_post_bid_path(post)) %>
-        </div>
       <% end %>
       <%= link_to 'Show Bids', post_bids_path(post) %>
+
+
         </div>
       </div>
     <% end %>
   </div>
 
-  <div class="center">
+  
    <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
- </div>
+ 

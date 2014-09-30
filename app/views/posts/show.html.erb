@@ -4,16 +4,16 @@
 	<div class="col-md-offset-2 col-md-8">
 		<div class="panel panel-default">
 		
-			<div class="panel-heading center"
+			<div class="panel-heading center">
 
 				
-			</div>
+			
 		
 			<div class="panel-body">
 				<p><%= image_tag @post.user.image if @post.user %></p>
-				<p><%= @post.title %></p>
+				<h1><%= @post.title %></h1>
 				<p><%= @post.description %></p>
-				<p><%= @post.category %></p>
+				<p><strong><%= @post.category %></strong></p>
 				<p><%= @post.id %></p>
 
 
@@ -31,7 +31,7 @@
         <%= link_to("Bid on Post", new_post_bid_path(@post)) %>
         </div>
       <% end %>
-
+      			</div>
  				
 				</div>
 			</div>
