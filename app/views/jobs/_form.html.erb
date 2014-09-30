@@ -15,9 +15,13 @@
 
 
 
-  <p>
+  <h1>
     <strong>Title</strong>
     <%= params[:post_title]%>
+  </h1>
+  <p>
+  <strong>post description</strong>
+    <%= params[:post_description]%>
   </p>
   
 <p>
@@ -32,10 +36,7 @@
 <strong>bid amount</strong>
     <%= params[:bid_amount]%>
   </p>
-<p>
-  <strong>post description</strong>
-    <%= params[:post_description]%>
-  </p>
+
 
   <div class="actions">
   <%= f.submit "Accept Bid", data: { confirm: "Are You Sure?" } %>

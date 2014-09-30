@@ -1,3 +1,13 @@
+ 
+<% if false %> 
+        <%= link_to 'Show', post_bid_path(post) %>
+        <%= link_to 'Edit', edit_post_bid_path(bid.id ) %>
+        <%= link_to 'Destroy', bid, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+
+
+
    <th><strong>What needs to be done</strong></th>
         <th><strong>Bid Amount</strong></th>   
       </tr>

@@ -1,6 +1,8 @@
 class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
 
+
+
   def index
     @bids = Bid.all
     @posts = Post.all
@@ -26,13 +28,23 @@ class BidsController < ApplicationController
   end
 
   def edit
+   @bid = Bid.new
+    @posts = Post.all
+    @post = Post.find(params[:post_id])
+    @users = User.all
+
+
   end
 
   def create
+    @bids = Bid.all
     @bid = Bid.new(bid_params)
     @users = User.all
-      if @bid.save
-        redirect_to post_bids_path, notice: 'Bid was successfully created.'
+    @credits =Credit.all
+
+if
+       @bid.save
+        redirect_to post_bids_path,  notice: 'Bid was successfully created.'
       else
         render :new
       end
@@ -61,4 +73,5 @@ class BidsController < ApplicationController
     def bid_params
       params.require(:bid).permit(:bid, :bidinfo, :post_id, :user_id)
     end
+ 
 end
