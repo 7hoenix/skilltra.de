@@ -37,8 +37,11 @@
     <%= params[:bid_amount]%>
   </p>
 
+<%= f.hidden_field :job, :value => :post_id %>
+
+
 
   <div class="actions">
-  <%= f.submit "Accept Bid", data: { confirm: "Are You Sure?" } %>
+  <%= f.submit "Accept Bid", :job => :post_id , data: { confirm: "Are You Sure?" } %>
   </div>
 <% end %>

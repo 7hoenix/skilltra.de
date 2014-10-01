@@ -1,5 +1,6 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
+  
 
   def index
     @accounts = Account.all
@@ -19,9 +20,9 @@ class AccountsController < ApplicationController
     @account = Account.new(account_params)
 
       if @account.save
-        redirect_to @account, notice: 'Account was successfully created.'
+        redirect_to @account, notice: 'Account was successfully created. cake 1'
       else
-        render :new
+        render :new, notice: 'Account was successfully created. cake 3'
       end
   end
 
@@ -46,4 +47,5 @@ class AccountsController < ApplicationController
     def account_params
       params.require(:account).permit(:bio, :primarySkill, :secondarySkill, :company)
     end
+
 end

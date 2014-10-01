@@ -35,7 +35,7 @@
        <!-- Account settings commented out  <li><%= link_to "Account Settings", edit_user_registration_path %></li> ---->
         <li><%= link_to current_user.name, accounts_path %></li>
           <li><%= link_to image_tag(current_user.image), accounts_path %></li>
-          <li><%= current_user.credit.debit if current_user.credit %> Credits</li>
+          <li><%= current_user.balance if current_user.balance %> Credits</li>
             
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       <% else %>

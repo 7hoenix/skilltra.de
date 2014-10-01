@@ -7,12 +7,11 @@ class User < ActiveRecord::Base
         :recoverable, :rememberable, :trackable
        # :validatable,
  
-
-         has_many :posts
-         has_one :account
+         has_many :posts, dependent: :destroy
+         has_one :account, dependent: :destroy
          has_one :credit
-         has_many :jobs
-         has_many :bids
+         has_many :jobs, dependent: :destroy
+         has_many :bids, dependent: :destroy
 
 
  

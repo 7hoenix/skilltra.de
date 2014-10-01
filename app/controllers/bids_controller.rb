@@ -8,7 +8,7 @@ class BidsController < ApplicationController
     @posts = Post.all
     @post = Post.find(params[:post_id])
     @bids = @post.bids
-    @users =User.all
+    @users = User.all
     @accounts = Account.all
   end
 
@@ -17,7 +17,7 @@ class BidsController < ApplicationController
     @posts = Post.all
     @post = Post.find(params[:post_id])
     @bids = @post.bids
-    @users =User.all
+    @users = User.all
   end
 
   def new
@@ -40,9 +40,9 @@ class BidsController < ApplicationController
     @bids = Bid.all
     @bid = Bid.new(bid_params)
     @users = User.all
-    @credits =Credit.all
+    @credits = Credit.all
 
-if
+  if
        @bid.save
         redirect_to post_bids_path,  notice: 'Bid was successfully created.'
       else

@@ -23,6 +23,7 @@ gem 'omniauth'
 gem 'facebook'
 gem 'omniauth-facebook'
 
+
 # User Auth with DEVISE woot woot
 gem 'devise'
 

@@ -1,3 +1,12 @@
+<%= f.hidden_field :current_credits, :value => current_user.credit.debit %>
+
+
+
+
+
+
+
+
  
 <% if false %> 
         <%= link_to 'Show', post_bid_path(post) %>
