@@ -1,4 +1,4 @@
-
+<%= debug(params) %>
 
 
 <h3>Bids</h3>
@@ -42,8 +42,7 @@
 
 
     <% if @post.user == current_user %>
-        <td><%= link_to new_job_path(:post_id => @post.id,:post_title => @post.title, :post_description => @post.description, :bid_amount => bid.bid, :bid_user => 
-        $BidUserName, :account_company =>$account_company ) do %>
+        <td><%= link_to new_job_path(:post_id => @post.id, :post_title => @post.title, :post_description => @post.description, :bid_amount => bid.bid, :bid_user => $BidUserName, :BidUserId => $BidUserId, :account_company => $account_company ) do %>
           <span class="glyphicon glyphicon-plus"></span> Review
             <% end %></td>
             <% end %>

@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
  
          has_many :posts, dependent: :destroy
          has_one :account, dependent: :destroy
-         has_one :credit
          has_many :jobs, dependent: :destroy
          has_many :bids, dependent: :destroy
 

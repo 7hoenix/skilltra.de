@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   resources :jobs
 
-    resources :credits
-
   resources :accounts
 
 

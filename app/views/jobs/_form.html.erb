@@ -13,7 +13,7 @@
     </div>
   <% end %>
 
-
+<% $BUID = params[:BidUserId] %>
 
   <h1>
     <strong>Title</strong>
@@ -37,11 +37,13 @@
     <%= params[:bid_amount]%>
   </p>
 
+
 <%= f.hidden_field :job, :value => :post_id %>
-
-
+<%= f.hidden_field :CurrentUserBalance, :value => current_user.balance %>
+<%= f.hidden_field  :id , :value => current_user.id %> 
+<%= f.hidden_field :bid_user_id, :value => $BUID %> 
 
   <div class="actions">
-  <%= f.submit "Accept Bid", :job => :post_id , data: { confirm: "Are You Sure?" } %>
+  <%= f.submit "Accept Bid", :job => :post_id, data: { confirm: "Are You Sure?" } %>
   </div>
 <% end %>

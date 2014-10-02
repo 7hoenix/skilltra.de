@@ -40,7 +40,7 @@ class BidsController < ApplicationController
     @bids = Bid.all
     @bid = Bid.new(bid_params)
     @users = User.all
-    @credits = Credit.all
+    
 
   if
        @bid.save

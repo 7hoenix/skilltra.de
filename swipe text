@@ -1,3 +1,19 @@
+def set_balance_for_current_user
+      @user = User.find(params[:CurrentUserId])
+      @user.balance = :CurrentUserBalance - :bid_amount
+    end
+
+    def set_balance_for_bid_user
+      @user = User.find(:BidUserId)
+      @user.balance = :BidUserBalance + :bid_amount
+    end
+
+
+
+
+
+
+
 <%= f.hidden_field :current_credits, :value => current_user.credit.debit %>
 
 
