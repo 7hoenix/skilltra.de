@@ -50,12 +50,17 @@ class JobsController < ApplicationController
 
     def set_balance_for_current_user
       @user = User.find(job_params[:id])
-      @user.balance = :CurrentUserBalance
+      @bid = Bid.find(job_params[:bid_user_id])
+       $newvalue = (@user.balance - @bid.bid)
+      @user.update_attribute(:balance, $newvalue)
+
+     
     end
 
     def set_balance_for_bid_user
       @user = User.find(job_params[:bid_user_id])
-      @user.balance = :BidUserBalance
+      $bidvalue = (@user.balance + @bid.bid)
+      @user.update_attribute(:balance, $bidvalue)
     end
 
 
