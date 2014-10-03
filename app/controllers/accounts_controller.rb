@@ -4,6 +4,7 @@ class AccountsController < ApplicationController
 
   def index
     @accounts = Account.all
+    @account = Account.find(params[:id])
   end
 
   def show

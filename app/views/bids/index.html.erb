@@ -30,7 +30,7 @@
   <% if user.id == bid.user_id %>
   <% $BidUserId = bid.user_id%>
 <%  $BidUserName = user.name %>
-
+<% $bid_id_send = bid.id %>
   <% end %>
           <% end %>
 
@@ -42,7 +42,18 @@
 
 
     <% if @post.user == current_user %>
-        <td><%= link_to new_job_path(:post_id => @post.id, :post_title => @post.title, :post_description => @post.description, :bid_amount => bid.bid, :bid_user => $BidUserName, :BidUserId => $BidUserId, :account_company => $account_company ) do %>
+        <td><%= link_to new_job_path(
+
+          :post_id => @post.id,
+          :post_title => @post.title, 
+          :post_description => @post.description, 
+          :bid_amount => bid.bid,  
+          :bid_user => $BidUserName, 
+          :BidUserId => $BidUserId, 
+          :account_company => $account_company,
+          :bid_id => $bid_id_send
+
+        ) do %>
           <span class="glyphicon glyphicon-plus"></span> Review
             <% end %></td>
             <% end %>
@@ -53,6 +64,8 @@
                 <% end %>
                 <% end %>
         <td><%= bid.bidinfo %></td>
+
+  
         
 <% if bid.user_id == current_user.id %>
         <td> <%= link_to 'Edit', edit_post_bid_path(@post, bid) %> </td>

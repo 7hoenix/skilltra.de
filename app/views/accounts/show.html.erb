@@ -18,4 +18,4 @@
 	</p>
 
 <%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', accounts_path %>
+<%= link_to 'Back', accounts_path(:id => current_user.id  ) %>

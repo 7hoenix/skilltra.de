@@ -16,7 +16,7 @@
 <% $BUID = params[:BidUserId] %>
 
   <h1>
-    <strong>Title</strong>
+    <strong> Job Title:</strong>
     <%= params[:post_title]%>
   </h1>
   <p>
@@ -40,9 +40,15 @@
 
 <%= f.hidden_field :job, :value => :post_id %>
 <%= f.hidden_field :CurrentUserBalance, :value => current_user.balance %>
-<%= f.hidden_field  :id , :value => current_user.id %> 
+<%= f.hidden_field  :user_id , :value => current_user.id %> 
 <%= f.hidden_field :bid_user_id, :value => $BUID %>
 <%= f.hidden_field :bid_amount, :value => params[:bid_amount] %>
+<%= f.hidden_field  :id , :value => params[:bid_id] %>
+<%= f.hidden_field :post_id, :value => params[:post_id] %>
+
+<%= f.hidden_field :title, :value => params[:post_title] %>
+
+<%= f.hidden_field :description, :value => params[:post_description] %>
 
   <div class="actions">
   <%= f.submit "Accept Bid", :job => :post_id, data: { confirm: "Are You Sure?" } %>

@@ -1,0 +1,38 @@
+body {
+	font-family: 'Lato', sans-serif;
+  line-height: 1.5;
+  color: white;
+  /* Full Page Background Receipe */
+  /*background-image: image-url("scenic-route.jpg");*/
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.container-about {
+  width: 600px;
+  margin: 40px;
+  background: rgba(0,0,0,0.5);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+h1 {
+	font-size: 65px;
+	margin-bottom: -40px;
+	text-align: center;
+}
+
+h2 {
+	font-size: 35px;
+	text-align: center;
+}
+
+p {
+	font-size: 17px;
+}
+
+a {
+	color: #BFE35B;
+	text-decoration: none;
+}

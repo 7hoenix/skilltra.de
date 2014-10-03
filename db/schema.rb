@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141002162611) do
+ActiveRecord::Schema.define(version: 20141002215749) do
 
   create_table "accounts", force: true do |t|
     t.string   "bio"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20141002162611) do
     t.integer  "bid_user_id"
   end
 
-  add_index "jobs", ["bid_user_id"], name: "index_jobs_on_bid_user_id"
   add_index "jobs", ["post_id"], name: "index_jobs_on_post_id"
   add_index "jobs", ["user_id"], name: "index_jobs_on_user_id"
 
