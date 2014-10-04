@@ -21,9 +21,9 @@ class AccountsController < ApplicationController
     @account = Account.new(account_params)
 
       if @account.save
-        redirect_to @account, notice: 'Account was successfully created. cake 1'
+        redirect_to @account, notice: 'Account was successfully created.'
       else
-        render :new, notice: 'Account was successfully created. cake 3'
+        render :new, notice: 'Account was successfully created.'
       end
   end
 

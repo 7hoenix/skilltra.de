@@ -257,4 +257,14 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"]
+
+
+ #omniauth 1 linked in 
+ require 'omniauth-linkedin'
+config.omniauth :linkedin, ENV["LINKEDIN_API_KEY"], ENV["LINKEDIN_SECRET_KEY"]
+
+
+  # linkedin oauth2 info
+  #Rails.application.config.middleware.use OmniAuth::Builder do
+  #provider :linkedin, ENV['LINKEDIN_API_KEY'], ENV['LINKEDIN_SECRET_KEY'], :scope => 'r_fullprofile r_emailaddress r_network'
 end

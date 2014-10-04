@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :omniauthable, :omniauth_providers => [:facebook]
+  devise :omniauthable
  
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :trackable
@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
          has_one :account, dependent: :destroy
          has_many :jobs, dependent: :destroy
          has_many :bids, dependent: :destroy
-
 
  
  # This is for omniauth 
@@ -25,7 +24,6 @@ class User < ActiveRecord::Base
     end
   end
 
-
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
@@ -34,4 +32,27 @@ class User < ActiveRecord::Base
         end
       end
     end
- end
+
+#linked in omni auth
+    def self.connect_to_linkedin(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    if user
+      return user
+    else
+      registered_user = User.where(:email => auth.info.email).first
+      if registered_user
+        return registered_user
+      else
+
+        user = User.create(name: auth.info.first_name,
+                            provider: auth.provider,
+                            uid: auth.uid,
+                            email: auth.info.email,
+                           image: auth.info.image,
+                            password: Devise.friendly_token[0,20],
+                          )
+      end
+
+    end
+  end   
+end

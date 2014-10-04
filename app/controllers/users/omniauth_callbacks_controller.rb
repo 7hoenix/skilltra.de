@@ -23,10 +23,4 @@ attr_accessor :name
       session["devise.facebook_data"] = request.env["omniauth.auth"]
       redirect_to edit_user_registration_url
     end
-
-
-    def name 
-      @name
-    end
-  end
 end 

@@ -22,6 +22,11 @@ gem 'omniauth'
 # Omniauth for Facebook login
 gem 'facebook'
 gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
+
+
+# OAuth 2
+#gem 'omniauth-linkedin-oauth2'
 
 
 # User Auth with DEVISE woot woot
