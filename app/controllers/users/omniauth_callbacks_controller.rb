@@ -13,7 +13,7 @@ attr_accessor :name
 
       else
       @user.create_account
-      @user.balance = 100
+      @user.balance = 5
       sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
       set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
       end
