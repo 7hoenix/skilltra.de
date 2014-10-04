@@ -1,3 +1,12 @@
+$brand-primary:               #c0392b;
+
+
+
+
+
+
+
+
 def set_balance_for_current_user
       @user = User.find(params[:CurrentUserId])
       @user.balance = :CurrentUserBalance - :bid_amount

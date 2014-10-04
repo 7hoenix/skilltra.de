@@ -1,12 +1,20 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 
-$body-bg:                     #ecf0f1;
+
+$body-bg:                     #BCBCBC;
 $font-family-sans-serif:      'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $navbar-height:               45px;
-$navbar-default-bg:           white;
-$navbar-default-brand-color:  #c0392b;
-$brand-primary:               #c0392b;
+$navbar-default-bg:           #E9E9E9;
+
+// Show Text on Posts
+$brand-primary:               #3299BB;
+
+// Logo
+$navbar-default-brand-color:  #FF9900;
+
 $jumbotron-bg:                white;
+
 
 @import 'bootstrap';
 
@@ -16,8 +24,16 @@ $jumbotron-bg:                white;
 
 .navbar-brand {
      font-weight: bold;
+     font-family:	'Roboto Condensed', sans-serif;
+     font-size:		35px;
+     padding: 22px;
 }
 
 .table-striped {
 
 }
+
+
+
+
+

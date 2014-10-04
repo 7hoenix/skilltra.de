@@ -1,38 +1,53 @@
-body {
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+
+.body-about {
 	font-family: 'Lato', sans-serif;
   line-height: 1.5;
-  color: white;
+  
   /* Full Page Background Receipe */
-  /*background-image: image-url("scenic-route.jpg");*/
+  background-image: image-url("scenic-route.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 .container-about {
-  width: 600px;
+  color: white;
+  width: 500px;
   margin: 40px;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.2);
   padding: 15px;
   border-radius: 10px;
 }
 
-h1 {
-	font-size: 65px;
-	margin-bottom: -40px;
+.h1-about {
+	font-size: 62px;
+	margin-bottom: -20px;
 	text-align: center;
 }
 
-h2 {
-	font-size: 35px;
+.orange {
+  color: #FF9900;
+  font-size: 62px;
+  margin-bottom: -20px;
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.h2-about {
+	font-size: 30px;
 	text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-p {
-	font-size: 17px;
+.p-about {
+	font-size: 19px;
 }
 
-a {
-	color: #BFE35B;
+.a-about {
+	color: #3299BB;
 	text-decoration: none;
 }
