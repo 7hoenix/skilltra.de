@@ -43,7 +43,7 @@
           :id => current_user.id
 
           ) %></li>
-          <li><%= current_user.balance if current_user.balance %> Credits</li>
+          <li><br><br><%= current_user.balance if current_user.balance %> Credits</li>
             
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       <% else %>
