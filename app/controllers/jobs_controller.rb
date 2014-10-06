@@ -53,7 +53,7 @@ class JobsController < ApplicationController
       @user = User.find(job_params[:user_id])
       @bid = Bid.find(job_params[:id])
 
-      if @user.balance > @bid.bid && @bid.bid > 0
+      if @user.balance >= @bid.bid && @bid.bid > 0
         set_balance_for_current_user
         set_balance_for_bid_user
 

@@ -45,7 +45,7 @@ class BidsController < ApplicationController
     @post = Post.find(bid_params[:post_id])
     
 
-  if @user.balance > @bid.bid && @bid.bid > 0
+  if @user.balance >= @bid.bid && @bid.bid > 0
 
     if @bid.save 
           redirect_to post_bids_path,  notice: 'Bid was successfully created.'
