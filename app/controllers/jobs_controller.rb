@@ -1,7 +1,8 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_action :set_balance_for_current_user, only: [:create]
-  before_action :set_balance_for_bid_user, only: [:create]
+  before_action :check_balance, only: [:create]
+ # before_action :set_balance_for_current_user, only: [:check_balance]
+ # before_action :set_balance_for_bid_user, only: [:check_balance]
 
   def index
     @jobs = Job.all
@@ -48,28 +49,34 @@ class JobsController < ApplicationController
       @job = Job.find(params[:id])
     end
 
+    def check_balance
+      @user = User.find(job_params[:user_id])
+      @bid = Bid.find(job_params[:id])
+
+      if @user.balance > @bid.bid && @bid.bid > 0
+        set_balance_for_current_user
+        set_balance_for_bid_user
+
+      elsif @user.balance > @bid.bid
+        redirect_to jobs_url, notice: "Stay Positive Bro"
+      
+      else
+        redirect_to jobs_url, notice: "Need More Credits!"
+      
+      end
+
+    end
+
     def set_balance_for_current_user
     
       @user = User.find(job_params[:user_id])
       
       @bid = Bid.find(job_params[:id])
 
-      if @user.balance > @bid.bid
         $newvalue = (@user.balance - @bid.bid)
         @user.update_attribute(:balance, $newvalue)
         Post.find(params[:job][:post_id]).delete
-            
 
-      
-
-      else
-        @user = User.find(job_params[:bid_user_id])
-        $bidvalue = (@user.balance - @bid.bid)
-        @user.update_attribute(:balance, $bidvalue)
-
- 
-        redirect_to jobs_url, notice: "Not enough credits"
-      end
     end
     
     def set_balance_for_bid_user

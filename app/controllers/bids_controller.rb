@@ -1,5 +1,6 @@
 class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
+  #before_action :check_balance, only: [:create]
 
 
 
@@ -40,14 +41,22 @@ class BidsController < ApplicationController
     @bids = Bid.all
     @bid = Bid.new(bid_params)
     @users = User.all
+    @user = User.find(bid_params[:user_id])
+    @post = Post.find(bid_params[:post_id])
     
 
-  if
-       @bid.save
-        redirect_to post_bids_path,  notice: 'Bid was successfully created.'
-      else
-        render :new
-      end
+  if @user.balance > @bid.bid && @bid.bid > 0
+
+    if @bid.save 
+          redirect_to post_bids_path,  notice: 'Bid was successfully created.'
+        else
+          render :new
+    end
+
+    else
+      render :new
+
+    end
   end
 
   def update
@@ -68,6 +77,10 @@ class BidsController < ApplicationController
     def set_bid
       @bid = Bid.find(params[:id])
     end
+
+
+
+  
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bid_params
