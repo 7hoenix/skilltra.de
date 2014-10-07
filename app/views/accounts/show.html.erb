@@ -3,7 +3,6 @@
 <div class="jumbotron">
   <h3><%= image_tag(@user.image) %>
   	<%= @user.name %></h3></br>
-    <h2 class="align-center"><%= @account.company %></h2>
   
   <div class="container-account">
     <h3 class="col-lg-6"> 
@@ -13,6 +12,7 @@
     <%= @account.secondarySkill %></h3>
   </div>
   
+  <h2 class="align-center"><%= @account.company %></h2>
   <p>
   	<%= @account.bio %>
 	</p>
