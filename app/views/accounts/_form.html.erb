@@ -1,3 +1,4 @@
+<% if @account.user == current_user %>
 <%= form_for(@account) do |f| %>
   <% if @account.errors.any? %>
     <div id="error_explanation">
@@ -12,7 +13,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label "What's Your StartUp Called?" %><br>
+    <%= f.label "What's Your Company Called?" %><br>
     <%= f.text_field :company, class: "form-control" %>
   </div>
 
@@ -35,4 +36,7 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+<% else %>
+<h3>You can't edit other peoples stuff!<br> Otherwise no one can have nice things. . .</h3>
 <% end %>

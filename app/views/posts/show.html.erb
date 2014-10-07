@@ -16,12 +16,10 @@
 
 				<% if @post.user == current_user %>
         <div class="actions">
-          <%= link_to edit_post_path(@post) do %>
-            <span class="glyphicon glyphicon-edit"></span>
+          <%= link_to edit_post_path(@post), class: "btn btn-default btn-lg" do %>  
             Edit
             <% end %>
-          <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <span class="glyphicon glyphicon-trash"></span>
+          <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-lg" do %>
             Delete
             <% end %>
       <% else %>

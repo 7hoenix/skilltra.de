@@ -4,10 +4,15 @@ class AccountsController < ApplicationController
 
   def index
     @accounts = Account.all
-    @account = Account.find(params[:id])
+   #commeneted out -- didnt need? might break something else
+   # @account = Account.find(params[:id])
+   # @user = User.find(params[:id])
+    @users = User.all
   end
 
   def show
+    @user = User.find(params[:id])
+    @account = Account.find(params[:id])
   end
 
   def new

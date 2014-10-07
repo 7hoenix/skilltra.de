@@ -1,23 +1,33 @@
-<div class="page-header">
-  <h1>Profile</br> <small>Tell Fellow Collaborators what You are Working on and what your strengths are.</small></h1>
-</div>
+
+	<h1>Collaborators</h1>
 
 
+	<table class="table table-striped">
+    <thead>
+      <tr>
+      	<th><strong>Mug Shot</strong></th>
+        <th><strong>Company</strong></th>
+        <th><strong>What it Does</strong></th>
+        <th><strong>Your Primary Superpower</strong></th>   
+        <th><strong>2ndairy Superpower</strong></th>   
+      </tr>
+    </thead>
+    <tbody>
+		  <tr>
+		  	<% @accounts.each do |account| %>
+				<td><%= image_tag account.user.image %></td>
+		    <td><%= account.company %></td>
+		    <td><%= account.bio %></td>
+		    <td><%= account.primarySkill %></td>
+		    <td><%= account.secondarySkill %></td>
 
-<%= image_tag current_user.image %>
- 
-  
-    <h2><%= current_user.name %></h2>
-    <p><%= current_user.email %></p>
-    
-    <%= @account.company %><br>
-    <%= @account.bio %><br>
-    <%= @account.primarySkill %><br>
-    <%= @account.secondarySkill %><br>
-    <%= link_to 'View Profile', @account %>
-
-<br>
-
-    <%= link_to "Update Profile", edit_account_path(@account), class: "btn btn-default btn-lg" %>
-
-
+		    <% if account.user==current_user %>
+		    <td><%= link_to "Update Profile", edit_account_path(account), class: "btn btn-default btn-lg" %>
+		    <% else %>
+		    <td><%= link_to 'View Profile', account, class: "btn btn-default btn-lg" %></td> 
+		    <% end %>
+				 </td>
+	    </tr>
+  </tbody>
+<% end %>
+</table>

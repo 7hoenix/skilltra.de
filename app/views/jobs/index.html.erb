@@ -1,4 +1,4 @@
-<h1>Listing jobs</h1>
+<h1>Your jobs</h1>
 
 <table class="table table-striped">
   <thead>
@@ -15,9 +15,9 @@
       <tr>
         <td><%= job.title %></td>
         <td><%= job.description %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', job, class: "btn btn-default btn-lg" %></td>
+        <td><%= link_to 'Edit', edit_job_path(job), class: "btn btn-default btn-lg" %></td>
+        <td><%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-lg" %></td>
       </tr>
     <% end %>
     <% end %>

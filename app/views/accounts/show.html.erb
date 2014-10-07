@@ -1,21 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-	<p>
-  	<strong>Bio:</strong>
+<div class="jumbotron">
+  <h3><%= image_tag(@user.image) %>
+  	<%= @user.name %></h3></br>
+    <h2 class="align-center"><%= @account.company %></h2>
+  
+    <h3 class="col-lg-6"> 
+      <%=  @account.primarySkill %> 
+    </h3>
+    <h3 class="col-lg-6">
+    <%= @account.secondarySkill %></h3>
+  
+  
+  <p>
   	<%= @account.bio %>
 	</p>
-	<p>
-  	<strong>Company:</strong>
-  	<%= @account.company %>
-  </p>
-  <p>
-  	<strong>Primary Skill:</strong>
-  	<%= @account.primarySkill %>
-  </p>
-  <p>	
-  	<strong>Secondary Skill:</strong>
-  	<%= @account.secondarySkill %>
-	</p>
 
-<%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', accounts_path(:id => current_user.id  ) %>
+
+
+  <div class="btn-group btn-group-justified">
+    <div class="btn-group">
+      <%= button_to('Edit', edit_account_path(@account), :class => "btn btn-default") %>
+    </div>
+    <div class="btn-group">
+      <%= button_to('Back', accounts_path(:id => current_user.id), :class => "btn btn-default") %>
+    </div>
+  </div>
+</div>
