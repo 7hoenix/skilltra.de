@@ -5,12 +5,13 @@
   	<%= @user.name %></h3></br>
     <h2 class="align-center"><%= @account.company %></h2>
   
+  <div class="container-account">
     <h3 class="col-lg-6"> 
       <%=  @account.primarySkill %> 
     </h3>
     <h3 class="col-lg-6">
     <%= @account.secondarySkill %></h3>
-  
+  </div>
   
   <p>
   	<%= @account.bio %>
@@ -27,3 +28,6 @@
     </div>
   </div>
 </div>
+
+
+<%= link_to "split", split_dashboard_path, class: "btn btn-default btn-lg" %>

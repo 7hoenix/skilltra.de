@@ -15,14 +15,14 @@
                
 
   <div class="field">
-    <%= f.label :bid %><br>
-    <%= f.number_field :bid %>
+    <%= f.label :bid, "How many credits would you do this for?" %>
+    <%= f.number_field :bid, class: "form-control" %>
   </div>
- <h4><%= current_user.balance %> Credits Max</h4>
+ 
 
   <div class="field">
-    <%= f.label :bidinfo, "Enter information on your Bid" %><br>
-    <%= f.text_field :bidinfo %>
+    <%= f.label :bidinfo, "What do you bring to the table for this project specifically?"  %><br>
+    <%= f.text_field :bidinfo, class: "form-control" %>
   </div>
 
 <%= f.hidden_field :post_id, :value => @post.id %>

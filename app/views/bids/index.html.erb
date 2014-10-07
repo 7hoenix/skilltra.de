@@ -1,4 +1,4 @@
-<h3>Bids</h3>
+<h3>Offers</h3>
   
   <% if @post.user %>
       <%= link_to image_tag(@post.user.image), @post %>
@@ -14,9 +14,9 @@
         <% if @post.user == current_user %>
         <th><strong>Choose Wisely!</strong></th>
         <% end %>
-        <th><strong>Bids</strong></th>
-        <th><strong>User</strong></th>   
-        <th><strong>Additional Info</strong></th>   
+        <th><strong>Offer</strong></th>
+        <th><strong>Collaborator</strong></th>   
+        <th><strong>Strengths</strong></th>   
       </tr>
     </thead>
 
@@ -50,7 +50,7 @@
           :account_company => $account_company,
           :bid_id => $bid_id_send
 
-        ) do %>
+        ), class: "btn btn-default btn-lg" do %>
           <span class="glyphicon glyphicon-plus"></span> Review
             <% end %></td>
             <% end %>
@@ -65,7 +65,7 @@
   
         
 <% if bid.user_id == current_user.id %>
-        <td> <%= link_to 'Edit', edit_post_bid_path(@post, bid) %> </td>
+        <td> <%= link_to 'Edit', edit_post_bid_path(@post, bid), class: "btn btn-default btn-lg" %> </td>
           <td>
 
         <% end %>
@@ -80,6 +80,6 @@
 <br> 
 
 
-<%= link_to 'New Bid', new_post_bid_path %>
-<br>
-<%= link_to 'Jobs', posts_path %>
+<%= link_to 'Offer to Help', new_post_bid_path, class: "btn btn-default btn-lg" %>
+
+<%= link_to 'Browse', posts_path, class: "btn btn-default btn-lg" %>

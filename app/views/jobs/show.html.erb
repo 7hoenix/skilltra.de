@@ -1,7 +1,29 @@
 <p id="notice"><%= notice %></p>
 
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+		<div class="panel panel-default">
+		
+			<div class="panel-heading center">
+		
+			<div class="panel-body">
+
+				<p><%= image_tag @job.user.image  %></p>
+				<h1><%= @job.title %></h1>
+				<p><%= @job.description %></p>
+				
+
+
 
 
 
 <%= link_to 'Edit', edit_job_path(@job), class: "btn btn-default btn-lg" %> 
 <%= link_to 'Back', jobs_path, class: "btn btn-default btn-lg" %>
+
+
+					</div>
+ 				
+				</div>
+			</div>
+		</div>
+	</div>
