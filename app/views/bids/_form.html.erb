@@ -13,7 +13,7 @@
  
   <% $bid_user_id = @post.user_id %>
   <% $bid_AR = User.find($bid_user_id) %>
-  <%= $bid_AR.email %>
+  <% $bid_AR.email %>
 
 <% if @post.user != current_user %>
                
