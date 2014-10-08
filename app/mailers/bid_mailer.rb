@@ -4,15 +4,19 @@ class BidMailer < ActionMailer::Base
 	default from: "SkillTra.de <jpholzmann@gmail.com>"
 	
 	
-	def new_bid_mail(post) 
+	def new_bid_mail(post)
+#@post = post
 
-@email = :bid_user_email
+#@email = @post.user.email
+#:bid_user_email
 
 #	@email = @post.user.email
+
+$bid_user_id = post.user_id
+$bid_AR = User.find($bid_user_id)
+$bid_AR.email
+
 	
-		mail(
-			to: @email,
-			subject: "You got some help!"
-		)
+		mail to: $bid_AR.email, subject: "You got some help!"
 	end
 end
