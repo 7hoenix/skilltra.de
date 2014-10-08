@@ -17,6 +17,6 @@ $bid_AR = User.find($bid_user_id)
 $bid_AR.email
 
 	
-		mail to: $bid_AR.email, subject: "You got some help!"
+		mail to: $bid_AR.email, subject: "Help is on the Way"
 	end
 end

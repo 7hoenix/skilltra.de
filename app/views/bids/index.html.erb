@@ -65,7 +65,9 @@
   
         
 <% if bid.user_id == current_user.id %>
-        <td> <%= link_to 'Edit', edit_post_bid_path(@post, bid), class: "btn btn-default btn-lg" %> </td>
+        <td> <%= link_to 'Edit', edit_post_bid_path(@post, bid), class: "btn btn-default btn-lg" %>
+          <%= link_to 'Delete', post_bid_path(@post, bid), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-lg" %>
+        </td>
           <td>
 
         <% end %>

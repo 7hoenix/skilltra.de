@@ -69,7 +69,7 @@ class BidsController < ApplicationController
 
   def destroy
     @bid.destroy
-      redirect_to bids_url, notice: 'Bid was successfully destroyed.'
+      redirect_to post_bids_url, notice: 'Bid was successfully destroyed.'
   end
 
   private
