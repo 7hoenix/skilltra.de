@@ -2,11 +2,17 @@ class BidMailer < ActionMailer::Base
 	layout 'new_bid_mailer'
 
 	default from: "SkillTra.de <jpholzmann@gmail.com>"
+	
+	
+	def new_bid_mail(post) 
 
-	def new_bid_mail bid
-		@bid = bid
+@email = :bid_user_email
 
-		mail to: "phillip.matthew.phoenix@gmail.com", subject: "You got some help!"
-
+#	@email = @post.user.email
+	
+		mail(
+			to: @email,
+			subject: "You got some help!"
+		)
 	end
 end

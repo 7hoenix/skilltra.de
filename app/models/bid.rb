@@ -7,7 +7,7 @@ class Bid < ActiveRecord::Base
 	private 
 
 		def email_poster_bid
-			BidMailer.new_bid_mail(@user).deliver
+			BidMailer.new_bid_mail(post).deliver
 		end
 
 end

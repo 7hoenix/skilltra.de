@@ -78,8 +78,6 @@ class BidsController < ApplicationController
       @bid = Bid.find(params[:id])
     end
 
-
-
   
 
     # Never trust parameters from the scary internet, only allow the white list through.
