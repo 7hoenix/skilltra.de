@@ -1,0 +1,5 @@
+functions
+
+def is_admin
+	<% if current_user %>
+end
