@@ -35,6 +35,9 @@ gem 'devise'
 # Figaro for managing credentials
 gem 'figaro'
 
+# Add letter opener for handling emails in development
+gem 'letter_opener', group: :development
+
 # Installing paperclip for IMAGES
 gem 'paperclip', github: 'thoughtbot/paperclip'
 
