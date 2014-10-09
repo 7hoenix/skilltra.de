@@ -12,13 +12,11 @@ class BidMailer < ActionMailer::Base
 
 #	@email = @post.user.email
 
-#@users = User.all
-#@posts = Post.all
-#$bid_user_id = @post.user_id
-#$bid_AR = User.find(:user_id)
-#$bid_AR.email
+$bid_user_id = post.user_id
+$bid_AR = User.find($bid_user_id)
+$bid_AR.email
 
 	
-		mail  subject: "Help is on the Way"
+		mail to: $bid_AR.email, subject: "Help is on the way!"
 	end
 end
