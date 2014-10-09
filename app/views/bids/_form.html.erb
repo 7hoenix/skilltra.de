@@ -11,11 +11,12 @@
     </div>
   <% end %>
  
+<% $bid_user_id = post.user_id %>
+<% $bid_AR = User.find($bid_user_id) %>
+<% $bid_AR.email %>
 
 <% if @post.user != current_user %>
- 
-
-           
+               
 
   <div class="field">
     <%= f.label :bid, "How many credits would you do this for?" %>
@@ -31,7 +32,7 @@
 <%= f.hidden_field :post_id, :value => @post.id %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 <%= f.hidden_field :bididsend, :value => :bid_id %>
-
+<%= f.hidden_field :bid_user_email, :value => $bid_AR.email %>
 
 
   
