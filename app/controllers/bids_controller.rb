@@ -47,8 +47,13 @@ class BidsController < ApplicationController
 
   if @bid.bid > 0
 
-    if @bid.save 
-          redirect_to post_bids_path,  notice: 'Bid was successfully created.'
+    if @bid.save
+
+      BidMailer.new_bid_mail(@post).deliver
+
+      redirect_to post_bids_path,  notice: 'Bid was successfully created.'
+
+
         else
           render :new
     end
