@@ -7,17 +7,16 @@
         
         <div class="panel-body">
           <h2 class="post-title"><%= link_to post.title, post %></h2><br>
+          <p><b><%= post.category %></b></p><br>
           <div class="col-md-6">
-
           <% if post.user %>
             <p><%= link_to image_tag(post.user.image), post %></p>
             <% end %>
           </div>
           <P><strong><%= post.user.name if post.user %></strong></P>
-          
+
           <p><%= post.description %></p><br>
-          <p><b><%= post.category %></b></p><br>
-          
+
       <% if post.user == current_user %>
         <div class="actions">
           <%= link_to "Edit", edit_post_path(post), class: "btn btn-default btn-lg" %>
@@ -27,13 +26,13 @@
             
             
           </div>
-      <% else %>
+      <% elsif current_user %>
         <%= link_to "Offer to Help", new_post_bid_path(post), class: "btn btn-default btn-lg" %>
-      <% end %>
-      
-      <%= link_to 'Look at Offers', post_bids_path(post), class: "btn btn-default btn-lg" %>
-          
 
+
+      <%= link_to 'Look at Offers', post_bids_path(post), class: "btn btn-default btn-lg" %>
+          <% end %>
+            
         </div>
       </div>
     <% end %>
