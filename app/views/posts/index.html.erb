@@ -1,7 +1,10 @@
 <%= render 'pages/home' unless user_signed_in? %>  
 
+
+<div class="container-home">
+
+    <h1 class="front-and-center">I Need. . .</h1>
   <div id="posts" class="transitions-enabled">
-    
     <% @posts.each do |post| %>
       <div class="box panel panel-default">
         
@@ -35,6 +38,6 @@
     <% end %>
   </div>
 
-  
+
    <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
- 
+</div>
