@@ -24,6 +24,10 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
       if @job.save
+
+        @user = User.find(job_params[:bid_user_id])
+
+          JobMailer.new_job_mail(@user).deliver
         redirect_to @job, notice: 'Job was successfully created.'
       else
         render :new

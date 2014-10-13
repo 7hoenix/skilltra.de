@@ -53,7 +53,6 @@ class BidsController < ApplicationController
 
       redirect_to post_bids_path,  notice: 'Bid was successfully created.'
 
-
         else
           render :new
     end
@@ -82,8 +81,6 @@ class BidsController < ApplicationController
     def set_bid
       @bid = Bid.find(params[:id])
     end
-
-  
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bid_params

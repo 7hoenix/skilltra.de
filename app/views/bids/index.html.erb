@@ -24,11 +24,11 @@
     <tbody>
       <tr>
          <% @users.each do |user| %>
-  <% if user.id == bid.user_id %>
-  <% $BidUserId = bid.user_id%>
-<%  $BidUserName = user.name %>
-<% $bid_id_send = bid.id %>
-  <% end %>
+   <% if user.id == bid.user_id %>
+    <% $BidUserId = bid.user_id%>
+    <%  $BidUserName = user.name %>
+    <% $bid_id_send = bid.id %>
+    <% end %>
           <% end %>
 
       <% @accounts.each do |account| %>
