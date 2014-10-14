@@ -13,11 +13,13 @@
 }
 
 .container-account {
-  width: 1000px;
-  height: 100px;
-  margin: 10px;
-  background: rgba(0,0,0,0.3);
-  padding: 15px;
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-bottom: 10%;
+  background: rgba(0,0,0,0.1);
+  padding: 5%;
+  padding-top: 2%;
   border-radius: 10px;
 }
 
@@ -56,9 +58,4 @@
   color: #FF9900;
   text-align: left;
   margin-left: 175px;
-}
-
-.col-lg-6 {
-  text-align: center;
-  color: #FF9900;
 }

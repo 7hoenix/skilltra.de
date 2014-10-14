@@ -1,9 +1,25 @@
-<div class="jumbotron">
 
-	<h1>New Project</h1>
 
-	<%= render 'form' %>
 
-	<%= link_to 'Back', jobs_path, class: "btn btn-default btn-lg" %>
 
-</div>
+    <div class="container-home">
+      <p id="notice"><%= notice %></p>
+      <%= link_to 'Back', jobs_path %>
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <div class="panel panel-default">
+
+            <div class="panel-heading center">
+
+              <div class="panel-body">
+
+                <%= render 'form' %>
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

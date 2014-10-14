@@ -1,7 +1,8 @@
-<h1>Your projects</h1>
+<div class="container-home">
+<h1 class="heading">Projects I'm Working On</h1>
 
 <table class="table table-striped">
-  <thead>
+  <thead class="heading">
     <tr>
       <th>Title</th>
       <th>Description</th>
@@ -16,10 +17,10 @@
         <td><%= job.title %></td>
         <td><%= job.description %></td>
         <td><%= link_to 'Show', job, class: "btn btn-default btn-lg" %>
-        <%= link_to 'Edit', edit_job_path(job), class: "btn btn-default btn-lg" %>
         <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-lg" %></td>
       </tr>
     <% end %>
     <% end %>
   </tbody>
 </table>
+</div>

@@ -1,6 +1,8 @@
-<h1>Edit Profile</h1>
+<div class="container-home">
+  <h1 class="heading">Edit Profile</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @account, class: "btn btn-default btn-lg" %>
 <%= link_to 'Back', accounts_path(:id => current_user.id), class: "btn btn-default btn-lg"  %>
+    </div>

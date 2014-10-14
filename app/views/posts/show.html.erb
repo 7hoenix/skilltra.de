@@ -1,34 +1,36 @@
+
+<div class="container-home">
 <%= link_to 'Back', posts_path %>
 
-<div class="row">
-	<div class="col-md-offset-2 col-md-8">
-		<div class="panel panel-default">
-		
-			<div class="panel-heading center">
-		
-			<div class="panel-body">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <div class="panel panel-default">
 
-				<p><%= image_tag @post.user.image if @post.user %></p>
-				<h1><%= @post.title %></h1>
-				<p><%= @post.description %></p>
-				<p><strong><%= @post.category %></strong></p>
+                <div class="panel-heading center">
+
+                <div class="panel-body">
+
+                    <p><%= image_tag @post.user.image if @post.user %></p>
+                    <h1><%= @post.title %></h1>
+                    <p><%= @post.description %></p>
+                    <p><strong><%= @post.category %></strong></p>
 
 
-				<% if @post.user == current_user %>
-        <div class="actions">
-          <%= link_to edit_post_path(@post), class: "btn btn-default btn-lg" do %>  
-            Edit
-            <% end %>
-          <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-lg" do %>
-            Delete
-            <% end %>
-      <% else %>
-        <%= link_to "Offer to Help", new_post_bid_path(@post), class: "btn btn-default btn-lg" %>
+                    <% if @post.user == current_user %>
+            <div class="actions">
+              <%= link_to edit_post_path(@post), class: "btn btn-default btn-lg" do %>
+                Edit
+                <% end %>
+              <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-lg" do %>
+                Delete
+                <% end %>
+          <% else %>
+            <%= link_to "Offer to Help", new_post_bid_path(@post), class: "btn btn-default btn-lg" %>
+            </div>
+          <% end %>
+                    </div>
+                </div>
+            </div>
         </div>
-      <% end %>
-      			</div>
- 				
-				</div>
-			</div>
-		</div>
-	</div>
+    </div>
+</div>

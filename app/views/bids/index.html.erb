@@ -1,3 +1,4 @@
+<div class="container-home">
 <h3>Offers</h3>
   
   <% if @post.user %>
@@ -51,7 +52,7 @@
           :bid_id => $bid_id_send
 
         ), class: "btn btn-default btn-lg" do %>
-          <span class="glyphicon glyphicon-plus"></span> Review
+          <span class="glyphicon glyphicon-plus"></span> Check It Out
             <% end %></td>
             <% end %>
         <td><%= bid.bid %> Credits</td>
@@ -85,3 +86,4 @@
 <%= link_to 'Offer to Help', new_post_bid_path, class: "btn btn-default btn-lg" %>
 
 <%= link_to 'Browse', posts_path, class: "btn btn-default btn-lg" %>
+    </div>

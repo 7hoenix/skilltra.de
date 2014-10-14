@@ -11,18 +11,19 @@
     </div>
   <% end %>
 
+
   <div class="form-group">
-    <%= f.label :title %><br>
+    <%= f.label :title, class: "heading" %><br>
     <%= f.text_field :title, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :description %><br>
+    <%= f.label :description, class: "heading" %><br>
     <%= f.text_field :description, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :category %><br>
+    <%= f.label :category, class: "heading" %><br>
     <%= f.select :category, [['Programming','Programming'],['Marketing','Marketing'],['Design','Design'],['User Experience','User Experience'],['Business','Business']] %>
   </div>
 

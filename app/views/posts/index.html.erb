@@ -3,7 +3,7 @@
 
 <div class="container-home">
 
-    <h1 class="front-and-center">I Need. . .</h1>
+    <%= link_to new_post_path do %><h1 class="front-and-center">I Need. . .</h1><% end %>
   <div id="posts" class="transitions-enabled">
     <% @posts.each do |post| %>
       <div class="box panel panel-default">

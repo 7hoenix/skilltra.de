@@ -43,7 +43,7 @@ $jumbotron-bg:                white;
 
 
 .front-and-center {
-  color: white;
+  color:  #3299BB;
   font-family:	'Roboto Condensed', sans-serif;
   font-size:  55px;
   text-align: center;
@@ -51,13 +51,39 @@ $jumbotron-bg:                white;
 
 
 .container-home {
-
   width: 90%;
   margin-right: 5%;
   margin-left: 5%;
   margin-bottom: 10%;
-  background: rgba(0,0,0,0.2);
+  background: #E9E9E9;
   padding: 5%;
   padding-top: 2%;
   border-radius: 10px;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+.container-white {
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-bottom: 10%;
+  background: #E9E9E9;
+  padding: 5%;
+  padding-top: 2%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+.heading {
+  color: black;
+  font-family:      'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.inline {
+  display: inline;
+  font-size: 30px;
+}
+
+.align-left {
+  align-content: left;
 }

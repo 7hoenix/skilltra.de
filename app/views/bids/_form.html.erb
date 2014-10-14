@@ -18,13 +18,13 @@
 <% if @post.user != current_user %>
                
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :bid, "How many credits would you do this for?" %>
     <%= f.number_field :bid, class: "form-control" %>
   </div>
  
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :bidinfo, "What do you bring to the table for this project specifically?"  %><br>
     <%= f.text_field :bidinfo, class: "form-control" %>
   </div>
@@ -36,7 +36,7 @@
 
 
   
-  <div class="actions">
+  <div class="form-group">
     <%= f.submit class: "btn btn-primary" %>
   </div>
  

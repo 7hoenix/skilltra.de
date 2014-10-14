@@ -16,31 +16,25 @@
 <% $BUID = params[:BidUserId] %>
 
   <h1>
-    <strong> Job Title:</strong>
     <%= params[:post_title]%>
   </h1>
-  <p>
-  <strong>post description</strong>
+
+    <p>
     <%= params[:post_description]%>
   </p>
-  
-<p>
-    <strong>bid users name</strong>
+
+    <h3>
     <%= params[:bid_user]%>
-  </p>
-  <p>
-<strong>bid users company</strong>
-    <%= params[:account_company]%>
-  </p>
-<p>
-<strong>bid amount</strong>
-    <%= params[:bid_amount]%>
-  </p>
+  </h3>
+
+    <h3>
+      <%= params[:bid_amount]%> Credits
+    </h3>
 
 
 <%= f.hidden_field :job, :value => :post_id %>
 <%= f.hidden_field :CurrentUserBalance, :value => current_user.balance %>
-<%= f.hidden_field  :user_id , :value => current_user.id %> 
+<%= f.hidden_field  :user_id , :value => current_user.id %>
 <%= f.hidden_field :bid_user_id, :value => $BUID %>
 <%= f.hidden_field :bid_amount, :value => params[:bid_amount] %>
 <%= f.hidden_field  :id , :value => params[:bid_id] %>
@@ -50,7 +44,8 @@
 
 <%= f.hidden_field :description, :value => params[:post_description] %>
 
-  <div class="actions">
-  <%= f.submit "Accept Bid", :job => :post_id, data: { confirm: "Are You Sure?" } %>
+  <div class="form-group">
+  <%= f.submit "Yeah, this one!", :job => :post_id, data: { confirm: "Are You Sure?" } %>
   </div>
+
 <% end %>
