@@ -16,13 +16,12 @@
 <% $bid_AR.email %>
 
 <% if @post.user != current_user %>
-               
 
-  <div class="form-group">
-    <%= f.label :bid, "How many credits would you do this for?" %>
-    <%= f.number_field :bid, class: "form-control" %>
-  </div>
- 
+        <div class="form-group">
+          <%= f.label :bid, "How many credits would you do this for?" %>
+          <br>
+          <%= f.select :bid, [['1 Credit','1'],['2 Credits','2'],['3 Credits','3']], class: "form-control" %>
+        </div>
 
   <div class="form-group">
     <%= f.label :bidinfo, "What do you bring to the table for this project specifically?"  %><br>

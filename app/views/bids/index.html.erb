@@ -17,11 +17,11 @@
         <% end %>
         <th><strong>Offer</strong></th>
         <th><strong>Collaborator</strong></th>   
-        <th><strong>Strengths</strong></th>   
+        <th><strong>Why Me?</strong></th>
       </tr>
     </thead>
 
- <% @bids.each do |bid| %>
+ <% @bids.reverse_each do |bid| %>
     <tbody>
       <tr>
          <% @users.each do |user| %>
