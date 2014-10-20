@@ -1,4 +1,7 @@
-<nav class="navbar navbar-static-top navbar-default" role="navigation">
+
+
+
+<nav class="navbar navbar-fixed-top navbar-default" role="navigation">
 	<div class="container">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
@@ -14,7 +17,7 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav navbar-right">
-        
+
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
           Get Started <span class="caret"></span>
@@ -26,7 +29,7 @@
           </li>
             <li><%= link_to "Browse", posts_path %></li>
             <li><%= link_to "My Projects", jobs_path %></li>
-          </ul>  
+          </ul>
         </li>
 
       <li><%= link_to "About", about_path %></li>
@@ -42,12 +45,12 @@
             </li>
             <li><%= link_to "Top Collaborators", accounts_path %></li>
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-          </ul>  
+          </ul>
         </li>
-          <li><%= link_to image_tag(current_user.image), account_path(          
+          <li><%= link_to image_tag(current_user.image), account_path(
           :id => current_user.id
           ) %></li>
-          <li class="credit-big"><%= current_user.balance if current_user.balance %> Credits</li>
+          <li class="credit-big"><%= current_user.balance if current_user.balance %> Favors</li>
 
       <% else %>
         <li><%= link_to image_tag('linkedin-icon75-header.png', id: 'linkedin-login-image', alt: 'Login with LinkedIn'), user_omniauth_authorize_path(:linkedin) %></li>

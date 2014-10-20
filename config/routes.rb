@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :jobs
+  resources :jobs do
+    resources :reviews
+  end
 
   resources :accounts
 
@@ -8,6 +10,10 @@ Rails.application.routes.draw do
   resources :posts do
     resources :bids
   end
+
+
+
+
 
 devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
  #makes fb work 
@@ -21,7 +27,11 @@ devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks"
 
   get "editaccount" => 'accounts#new'
 
+  get "main" => 'pages#main'
 
+  get "reviews" => 'reviews#my_reviews'
+
+  get "reviewer" => 'reviews#people_reviewed'
 
   
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141002215749) do
+ActiveRecord::Schema.define(version: 20141017191757) do
 
   create_table "accounts", force: true do |t|
     t.string   "bio"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20141002215749) do
     t.integer  "user_id"
     t.integer  "post_id"
     t.integer  "bid_user_id"
+    t.boolean  "completed"
   end
 
   add_index "jobs", ["post_id"], name: "index_jobs_on_post_id"
@@ -60,6 +61,15 @@ ActiveRecord::Schema.define(version: 20141002215749) do
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "reviews", force: true do |t|
+    t.integer "score"
+    t.integer "reviewee_id"
+    t.integer "reviewer_id"
+    t.integer "job_id"
+  end
+
+  add_index "reviews", ["job_id"], name: "index_reviews_on_job_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -80,6 +90,7 @@ ActiveRecord::Schema.define(version: 20141002215749) do
     t.string   "uid"
     t.string   "image"
     t.integer  "balance"
+    t.float    "average_score"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

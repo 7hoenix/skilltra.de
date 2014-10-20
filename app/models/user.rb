@@ -11,8 +11,19 @@ class User < ActiveRecord::Base
          has_one :account, dependent: :destroy
          has_many :jobs, dependent: :destroy
          has_many :bids, dependent: :destroy
+        has_many :reviews
 
- 
+
+  # def self.set_average_score(score)
+  #   user.average_score = user.average_score + score.score
+  # end
+
+
+
+
+
+
+
  # This is for omniauth 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

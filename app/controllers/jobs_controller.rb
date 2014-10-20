@@ -6,9 +6,11 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.all
+
   end
 
   def show
+    @job = Job.find(params[:id])
   end
 
   def new
@@ -28,7 +30,7 @@ class JobsController < ApplicationController
         @user = User.find(job_params[:bid_user_id])
 
           JobMailer.new_job_mail(@user).deliver
-        redirect_to @job, notice: 'Job was successfully created.'
+        redirect_to @job, notice: 'Project was successfully created.'
       else
         render :new
       end
@@ -36,7 +38,7 @@ class JobsController < ApplicationController
 
   def update
       if @job.update(job_params)
-        redirect_to @job, notice: 'Job was successfully updated.'
+        redirect_to @job, notice: 'Project was successfully updated.'
       else
         render :edit
       end
@@ -44,7 +46,7 @@ class JobsController < ApplicationController
 
   def destroy
     @job.destroy
-      redirect_to jobs_url, notice: 'Job was successfully destroyed.'
+      redirect_to jobs_url, notice: 'Project was successfully destroyed.'
   end
 
   private

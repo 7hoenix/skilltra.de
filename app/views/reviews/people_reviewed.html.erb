@@ -1,0 +1,32 @@
+<div class="container-home">
+  <h1 class="heading">People I've Reviewed</h1>
+
+  <table class="table table-striped">
+    <thead class="heading">
+    <tr>
+      <th>Person I Reviewed</th>
+      <th>Job Title</th>
+      <th>Description</th>
+      <th>Score</th>
+      <th>Who I reviewed</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @reviews.each do |review| %>
+
+        <% if review.reviewer_id == current_user.id %>
+            <tr>
+              <td><%= image_tag @account.find(review.reviewee_id).user.image %></td>
+              <td><%= @job.find(review.job_id).title %></td>
+              <td><%= @job.find(review.job_id).description %></td>
+              <td><%= review.score %></td>
+              <td><%= @user.find(review.reviewee_id).name %></td>
+            </tr>
+
+        <% end %>
+    <% end %>
+
+    </tbody>
+  </table>
+</div>

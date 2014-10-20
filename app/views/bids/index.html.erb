@@ -55,7 +55,10 @@
           <span class="glyphicon glyphicon-plus"></span> Check It Out
             <% end %></td>
             <% end %>
-        <td><%= bid.bid %> Credits</td>
+        <td><%= bid.bid %>
+          <% if bid.bid != 1 %> Favors</td>
+          <% else %> Favor
+              <% end %>
             <% @users.each do |user| %>
             <% if user.id == bid.user_id %>
         <td> <%= user.name%></td>

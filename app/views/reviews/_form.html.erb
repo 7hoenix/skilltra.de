@@ -1,0 +1,31 @@
+<%= form_for [@job, @review] do |f| %>
+    <% if @review.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+          <ul>
+            <% @review.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :score, "How was working with this person?" %>
+      <br>
+      <%= f.select :score, [['Loved it!','10'],['Somewhere in between','0'],['Hated it!','-10']], class: "form-control" %>
+    </div>
+
+    <!--<%= f.hidden_field :completed, :value => true %>-->
+
+    <%= f.hidden_field :reviewer_id, :value => @job.user_id %>
+    <%= f.hidden_field :reviewee_id, :value => @job.bid_user_id %>
+    <%= f.hidden_field :job_id, :value => @job.id %>
+
+
+    <div class="form-group">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+
+<% end %>
