@@ -19,7 +19,7 @@ devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks"
  #makes fb work 
  #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  root 'posts#index'
+  root 'pages#main'
 
   get "about" => 'pages#about'
 
@@ -27,7 +27,7 @@ devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks"
 
   get "editaccount" => 'accounts#new'
 
-  get "main" => 'pages#main'
+
 
   get "reviews" => 'reviews#my_reviews'
 
