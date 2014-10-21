@@ -27,8 +27,6 @@ devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks"
 
   get "editaccount" => 'accounts#new'
 
-
-
   get "reviews" => 'reviews#my_reviews'
 
   get "reviewer" => 'reviews#people_reviewed'

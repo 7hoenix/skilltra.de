@@ -43,7 +43,7 @@ h6 {
 
 .intro-message > h1 {
   margin: 0;
-  text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+  text-shadow: 0px 0px 43px rgba(0,0,0,0.4);
   font-size: 5em;
 }
 
@@ -54,7 +54,7 @@ h6 {
 }
 
 .intro-message > h3 {
-  text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+  text-shadow: 0px 0px 13px rgba(0,0,0,0.6);
 }
 
 @media(max-width:767px) {
@@ -109,12 +109,12 @@ h6 {
   border-top: 3px solid #e7e7e7;
 }
 
-.banner {
-  padding: 100px 0;
-  color: #f8f8f8;
-  background: url(../img/banner-bg.jpg) no-repeat center center;
-  background-size: cover;
-}
+//.banner {
+//  padding: 100px 0;
+//  color: #f8f8f8;
+//  background: url(../img/banner-bg.jpg) no-repeat center center;
+//  background-size: cover;
+//}
 
 .banner h2 {
   margin: 0;
@@ -141,7 +141,7 @@ h6 {
 @media(max-width:767px) {
   .banner h2 {
     margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    text-shadow: 0px 0px 13px rgba(0,0,0,0.6);
     font-size: 3em;
   }
 
@@ -163,4 +163,13 @@ footer {
 
 p.copyright {
   margin: 15px 0 0;
+}
+
+
+
+
+
+
+.navbar navbar-fixed-top navbar-default {
+  opacitity: 0;
 }
