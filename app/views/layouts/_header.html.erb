@@ -17,7 +17,7 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav navbar-right">
-
+      <% if user_signed_in? %>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
           Get Started <span class="caret"></span>
@@ -31,8 +31,9 @@
             <li><%= link_to "My Projects", jobs_path %></li>
           </ul>
         </li>
-
+    <% end %>
       <li><%= link_to "About", about_path %></li>
+      <li><%= link_to "Contact Us", contact_path %></li>
 
       <% if user_signed_in? %>
 

@@ -50,7 +50,7 @@ class PostsController < ApplicationController
 
     def correct_user
       @post = current_user.posts.find_by(id: params[:id])
-      redirect_to posts_path, notice: "Not authorized to edit this post" if @post.nil?
+      redirect_to posts_path, notice: "You can't do that! You need to login first :(" if @post.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
