@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
          has_one :account, dependent: :destroy
          has_many :jobs, dependent: :destroy
          has_many :bids, dependent: :destroy
-        has_many :reviews
+          has_many :reviews
 
 
   # def self.set_average_score(score)

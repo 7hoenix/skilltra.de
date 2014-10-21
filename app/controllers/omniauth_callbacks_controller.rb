@@ -8,13 +8,13 @@ def linkedin
     	if @user.balance
               sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
       set_flash_message(:notice, :success, :kind => "linkedin") if is_navigational_format?
-
     	else 
     		@user.create_account
       	@user.balance = 2
 
           sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
       set_flash_message(:notice, :success, :kind => "linkedin") if is_navigational_format?
+
     	end
     	
     else
