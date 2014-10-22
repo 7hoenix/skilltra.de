@@ -24,8 +24,6 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(account_params)
-
-
       if @account.save
         redirect_to @account, notice: 'Account was successfully created.'
       else

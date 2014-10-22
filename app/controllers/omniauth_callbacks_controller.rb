@@ -11,6 +11,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
                 set_flash_message(:notice, :success, :kind => "linkedin") if is_navigational_format?
         else
           @user.create_account
+          @user.account_completed = false
           @user.balance = 2
 
             sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
