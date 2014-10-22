@@ -20,7 +20,7 @@
 		    <td><%= account.secondarySkill %></td>
 
 		    <% if account.user==current_user %>
-		    <td><%= link_to "Update Profile", edit_account_path(account), class: "btn btn-default btn-lg" %>
+		    <td><%= link_to "Update Profile", edit_account_path(account), class: "btn btn-primary btn-lg" %>
 		    <% else %>
 		    <td><%= link_to 'View Profile', account, class: "btn btn-default btn-lg" %></td> 
 		    <% end %>

@@ -27,9 +27,9 @@
             
           </div>
       <% elsif current_user %>
-        <%= link_to "Offer to Help", new_post_bid_path(post), class: "btn btn-default btn-lg" %>
+        <%= link_to "I can Help!", new_post_bid_path(post), class: "btn btn-primary btn-lg" %>
           <% end %>
-          <%= link_to 'Look at Offers', post_bids_path(post), class: "btn btn-default btn-lg" %>
+          <%= link_to 'Closer look', post_bids_path(post), class: "btn btn-default btn-lg" %>
         </div>
       </div>
     <% end %>

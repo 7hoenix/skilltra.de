@@ -14,7 +14,7 @@
 				<p><%= @job.description %></p>
 
               <% if @job.user == current_user %>
-                  <%= link_to 'Its all finished! Woo hoo', new_job_review_path(@job), class: "btn btn-default btn-lg" %>
+                  <%= link_to 'Its all finished! Woo hoo', new_job_review_path(@job), class: "btn btn-primary btn-lg" %>
 
               <% end %>
 

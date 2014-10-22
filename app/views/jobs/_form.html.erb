@@ -43,7 +43,7 @@
 <%= f.hidden_field :description, :value => params[:post_description] %>
 
   <div class="form-group">
-  <%= f.submit "Yeah, this one!", :job => :post_id, data: { confirm: "Are You Sure?" } %>
+  <%= f.submit "Yeah, this one!", :job => :post_id, data: { confirm: "Are You Sure?" }, class: "btn btn-primary btn-lg" %>
   </div>
 
 <% end %>
