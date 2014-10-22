@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
 
+  def main
+  end
+
   def home
   end
 
@@ -12,7 +15,8 @@ class PagesController < ApplicationController
   def profile
   end
 
-  def accounts 
+  def accounts
   end
+
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017191757) do
+ActiveRecord::Schema.define(version: 20141021221603) do
 
   create_table "accounts", force: true do |t|
     t.string   "bio"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20141017191757) do
     t.string   "company"
     t.string   "primarySkill"
     t.string   "secondarySkill"
+    t.boolean  "completed"
   end
 
   add_index "accounts", ["user_id"], name: "index_accounts_on_user_id"
@@ -91,6 +92,7 @@ ActiveRecord::Schema.define(version: 20141017191757) do
     t.string   "image"
     t.integer  "balance"
     t.float    "average_score"
+    t.boolean  "account_completed"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

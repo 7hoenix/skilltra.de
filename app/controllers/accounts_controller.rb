@@ -25,6 +25,7 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(account_params)
 
+
       if @account.save
         redirect_to @account, notice: 'Account was successfully created.'
       else
@@ -33,8 +34,15 @@ class AccountsController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
+
       if @account.update(account_params)
-        redirect_to @account, notice: 'Account was successfully updated.'
+        @user.account_completed = true
+        @user.save
+
+        @account.completed = true
+        @account.save
+        redirect_to @account, notice: 'Thank you for updating your account. Keep being awesome.'
       else
         render :edit
       end
@@ -51,7 +59,7 @@ class AccountsController < ApplicationController
     end
 
     def account_params
-      params.require(:account).permit(:bio, :primarySkill, :secondarySkill, :company)
+      params.require(:account).permit(:bio, :primarySkill, :secondarySkill, :company, :completed)
     end
 
 end
