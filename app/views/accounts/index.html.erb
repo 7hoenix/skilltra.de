@@ -13,8 +13,12 @@
     <tbody>
 		  <tr>
 		  	<% @accounts.each do |account| %>
-				<td><%= image_tag account.user.image %></td>
-		    <td><%= account.company %></td>
+			<% if account.user.image %>
+            <td><%= image_tag account.user.image %></td>
+		    <% else %>
+            <td><%= image_tag('userdefaultimage.png')</td>
+            <% end %>
+            <td><%= account.company %></td>
 		    <td><%= account.bio %></td>
 		    <td><%= account.primarySkill %></td>
 		    <td><%= account.secondarySkill %></td>
