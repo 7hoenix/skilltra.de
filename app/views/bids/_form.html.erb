@@ -17,11 +17,13 @@
 
 <% if @post.user != current_user %>
 
-        <div class="form-group">
-          <%= f.label :bid, "How many favors would you do this for?" %>
-          <br>
-          <%= f.select :bid, [['1 Favor','1'],['2 Favors','2'],['3 Favors','3']], class: "form-control" %>
-        </div>
+        <!--<div class="form-group">-->
+          <!--<%= f.label :bid, "How many favors would you do this for?" %>-->
+          <!--<br>-->
+          <!--<%= f.select :bid, [['1 Favor','1'],['2 Favors','2'],['3 Favors','3']], class: "form-control" %>-->
+        <!--</div>-->
+
+        <%= f.hidden_field :bid, :value => 1 %>
 
   <div class="form-group">
     <%= f.label :bidinfo, "What do you bring to the table for this project specifically?"  %><br>
