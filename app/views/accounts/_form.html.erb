@@ -1,3 +1,8 @@
+<script type="text/javascript">
+    mixpanel.track("User Created");
+</script>
+
+
 <% if @account.user == current_user %>
 <%= form_for(@account) do |f| %>
   <% if @account.errors.any? %>
@@ -34,7 +39,7 @@
 
 
   <div class="actions">
-    <%= f.submit 'Complete Profile', class: "btn-primary btn-lg" %>
+    <%= f.submit 'Complete Profile', class: "btn btn-primary btn-lg" %>
   </div>
 <% end %>
 <% else %>
