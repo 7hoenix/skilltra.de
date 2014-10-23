@@ -29,6 +29,9 @@ gem 'omniauth-linkedin'
 #gem 'omniauth-linkedin-oauth2'
 
 
+
+
+
 # User Auth with DEVISE woot woot
 gem 'devise'
 
