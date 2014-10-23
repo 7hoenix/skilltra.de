@@ -10,7 +10,14 @@
 
                 <div class="panel-body">
 
-                    <p><%= image_tag @post.user.image if @post.user %></p>
+                  <% if @post.user %>
+                      <% if @post.user.image %>
+                          <p><%= image_tag(@post.user.image) %></p>
+                      <% else %>
+                          <p><%= image_tag('userdefaultimagesm.png') %></p>
+                      <% end %>
+                  <% end %>
+                
                     <h1><%= @post.title %></h1>
                     <p><%= @post.description %></p>
                     <p><strong><%= @post.category %></strong></p>
