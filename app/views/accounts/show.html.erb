@@ -12,7 +12,13 @@
 
             <p id="notice"><%= notice %></p>
 
-            <h3 class="align-left"><%= image_tag(@user.image) %>
+            <h3 class="align-left">
+                  <% if @user.image %>
+                    <%= image_tag(@user.image) %>
+                      <p><%= image_tag(@user.image) %></p>
+                  <% else %>
+                      <p><%= image_tag('userdefaultimagesm.png') %></p>
+                  <% end %>
               <%= @user.name %></h3>
             <h3 class="inline">
               <%=  @account.primarySkill %>
