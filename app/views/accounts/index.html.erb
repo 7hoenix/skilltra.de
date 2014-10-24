@@ -19,7 +19,11 @@
             <td><%= image_tag('userdefaultimagesm.png') %></td>
             <% end %>
             <td><%= account.primarySkill %></td>
+                <% if account.user.jobs_completed %>
             <td><%= account.user.jobs_completed %></td>
+                <% else %>
+                <td>I haven't done any favors yet!</td>
+                    <% end %>
 		    <td><%= account.user.balance %></td>
 
             <% if account.user.jobs_completed >= 2 %>
