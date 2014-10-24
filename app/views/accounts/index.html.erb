@@ -14,9 +14,15 @@
 		  <tr>
 		  	<% @accounts.each do |account| %>
 			<% if account.user.image %>
-            <td><%= image_tag account.user.image %></td>
+            <td><%= image_tag account.user.image %>
+            <br>
+            <%= account.user.name %>
+            </td>
 		    <% else %>
-            <td><%= image_tag('userdefaultimagesm.png') %></td>
+            <td><%= image_tag('userdefaultimagesm.png') %>
+            <br>
+            <%= account.user.name %>
+            </td>
             <% end %>
             <td><%= account.primarySkill %></td>
                 <% if account.user.jobs_completed %>
