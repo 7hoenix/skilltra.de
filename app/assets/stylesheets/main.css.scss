@@ -33,6 +33,7 @@ h6 {
   color: #f8f8f8;
   background: image-url("main-image.jpg") no-repeat center center;
   background-size: cover;
+  height: 600px;
 }
 
 .intro-message {
@@ -118,7 +119,7 @@ h6 {
 
 .banner h2 {
   margin: 0;
-  text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+  text-shadow: 0px 0px 0px rgba(0,0,0,0.6);
   font-size: 3em;
 }
 
