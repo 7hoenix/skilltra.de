@@ -23,6 +23,8 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
   end
 
+  #CURRENT: Currently displays
+
   def new
     @account = Account.new
   end
