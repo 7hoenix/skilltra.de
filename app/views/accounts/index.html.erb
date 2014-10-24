@@ -25,13 +25,15 @@
                 <td>I haven't done any favors yet!</td>
                     <% end %>
 		    <td><%= account.user.balance %></td>
-
+         <% if account.user.jobs_completed %>
             <% if account.user.jobs_completed >= 2 %>
                 <td><%= account.user.average_score %></td>
             <% else %>
                 <td>I'm Still New!</td>
             <% end %>
-
+        <% else %>
+             <td>I'm Still New!</td>
+         <% end %>
 
 		    <% if account.user==current_user %>
 		    <td><%= link_to "Update Profile", edit_account_path(account), class: "btn btn-primary btn-lg" %>
