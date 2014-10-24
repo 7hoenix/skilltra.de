@@ -14,25 +14,23 @@
 
             <h3 class="align-left">
                   <% if @user.image %>
-                      <p><%= image_tag(@user.image) %></p>
+                      <%= image_tag(@user.image) %>
                   <% else %>
-                      <p><%= image_tag('userdefaultimagesm.png') %></p>
+                      <%= image_tag('userdefaultimagesm.png') %>
                   <% end %>
               <%= @user.name %></h3>
             <h3 class="inline">
               <%=  @account.primarySkill %>
             </h3>
+                <% if @account.primarySkill && @account.secondarySkill %>
             <h3 class="inline"> & </h3>
+                <% end %>
             <h3 class="inline">
               <%= @account.secondarySkill %></h3>
             <h2><%= @account.company %></h2>
             <p>
               <%= @account.bio %>
             </p>
-
-
-
-
 
             </div>
 
