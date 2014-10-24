@@ -4,10 +4,10 @@
     <thead class="heading">
       <tr>
       	<th><strong>Mug Shot</strong></th>
-        <th><strong>Company</strong></th>
-        <th><strong>What it Does</strong></th>
-        <th><strong>Your Primary Superpower</strong></th>   
-        <th><strong>2ndary Superpower</strong></th>
+        <th><strong>Primary Superpower</strong></th>
+        <th><strong>Favors done</strong></th>
+        <th><strong># of Favors I have</strong></th>
+        <th><strong>Average Score</strong></th>
       </tr>
     </thead>
     <tbody>
@@ -18,17 +18,23 @@
 		    <% else %>
             <td><%= image_tag('userdefaultimagesm.png') %></td>
             <% end %>
-            <td><%= account.company %></td>
-		    <td><%= account.bio %></td>
-		    <td><%= account.primarySkill %></td>
-		    <td><%= account.secondarySkill %></td>
+            <td><%= account.primarySkill %></td>
+            <td><%= account.user.jobs_completed %></td>
+		    <td><%= account.user.balance %></td>
+
+            <% if account.user.jobs_completed >= 2 %>
+                <td><%= account.user.average_score %></td>
+            <% else %>
+                <td>I'm Still New!</td>
+            <% end %>
+
 
 		    <% if account.user==current_user %>
 		    <td><%= link_to "Update Profile", edit_account_path(account), class: "btn btn-primary btn-lg" %>
 		    <% else %>
 		    <td><%= link_to 'View Profile', account, class: "btn btn-default btn-lg" %></td> 
 		    <% end %>
-				 </td>
+			</td>
 	    </tr>
   </tbody>
 <% end %>

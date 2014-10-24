@@ -11,12 +11,18 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @job = Job.find_by_id(review_params[:job_id])
+    @user = User.find_by_id(review_params[:reviewee_id])
 
       if @review.save
         # @review.set_average
         @job.completed = true
         @job.save
-        redirect_to job_reviews_path, notice: 'Thank you! You are amazing.'
+        @user.jobs_completed += 1
+
+        @user.average_score = Review.where(reviewee_id: current_user.id).pluck(:score).sum / Review.where(reviewee_id: current_user.id).pluck(:score).count
+        @user.save
+
+        redirect_to posts_path, notice: 'Thank you! You are amazing.'
       else
         render :new
 
