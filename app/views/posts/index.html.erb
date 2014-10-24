@@ -1,6 +1,6 @@
 <div class="container-home">
 
-    <%= link_to new_post_path do %><h1 class="front-and-center">I Need. . .</h1><% end %>
+    <div class="align-center"><%= link_to "Get Help", new_post_path, class: "btn btn-primary btn-xl" %></div>
   <div id="posts" class="transitions-enabled">
     <% @posts.each do |post| %>
       <div class="box panel panel-default">
