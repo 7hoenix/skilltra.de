@@ -1,6 +1,9 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
   
+#CURRENT: index page displays all accounts. requires user.all
+#POSSIBLE:  - more formatting of the page  look nicer - more columns or details may end up being added to the user.
+
 
   def index
     @accounts = Account.all
@@ -10,6 +13,10 @@ class AccountsController < ApplicationController
     @users = User.all
 
   end
+
+  #CURRENT: show displays user
+  #POSSIBLE: It would be nice if clicking on a user profile displayed information on the jobs that have been complete - change in view
+            #may need to add @JOBS where userid = userid to display jobs worked on
 
   def show
     @user = User.find(params[:id])
