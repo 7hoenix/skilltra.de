@@ -14,9 +14,9 @@
 
             <h3 class="align-left">
                   <% if @user.image %>
-                      <%= image_tag(@user.image) %>
+                      <%= image_tag(@user.image, class: "circle") %>
                   <% else %>
-                      <%= image_tag('userdefaultimagesm.png') %>
+                      <%= image_tag('userdefaultimagesm.png', class: "circle") %>
                   <% end %>
               <%= @user.name %></h3>
             <h3 class="inline">

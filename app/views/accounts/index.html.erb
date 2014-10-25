@@ -14,7 +14,7 @@
 		  <tr>
 		  	<% @accounts.each do |account| %>
 			<% if account.user.image %>
-            <td><%= image_tag account.user.image %>
+            <td><%= image_tag account.user.image, class: "circle" %>
             <br>
             <%= account.user.name %>
             </td>

@@ -12,9 +12,9 @@
 
                   <% if @post.user %>
                       <% if @post.user.image %>
-                          <p><%= image_tag(@post.user.image) %></p>
+                          <p><%= image_tag(@post.user.image, class: "circle") %></p>
                       <% else %>
-                          <p><%= image_tag('userdefaultimagesm.png') %></p>
+                          <p><%= image_tag('userdefaultimagesm.png', class: "circle") %></p>
                       <% end %>
                   <% end %>
 

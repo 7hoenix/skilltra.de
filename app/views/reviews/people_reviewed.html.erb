@@ -17,7 +17,7 @@
 
         <% if review.reviewer_id == current_user.id %>
             <tr>
-              <td><%= image_tag @account.find(review.reviewee_id).user.image %></td>
+              <td><%= image_tag @account.find(review.reviewee_id).user.image, class: "circle" %></td>
               <td><%= @job.find(review.job_id).title %></td>
               <td><%= @job.find(review.job_id).description %></td>
               <td><%= review.score %></td>
