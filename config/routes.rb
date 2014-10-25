@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  mount RailsAdmin::Engine => '/adminview', as: 'rails_admin'
   resources :jobs do
     resources :reviews
   end

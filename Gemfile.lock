@@ -72,10 +72,6 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
-    font-awesome-rails (4.2.0.0)
-      railties (>= 3.2, < 5.0)
-    haml (4.0.5)
-      tilt
     hashie (3.3.1)
     hike (1.2.3)
     httpauth (0.2.1)
@@ -89,14 +85,9 @@ GEM
     jquery-turbolinks (2.0.2)
       railties (>= 3.1.0)
       turbolinks
-    jquery-ui-rails (5.0.2)
-      railties (>= 3.2.16)
     json (1.8.1)
     jwt (0.1.13)
       multi_json (>= 1.5)
-    kaminari (0.16.1)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     launchy (2.4.2)
       addressable (~> 2.3)
     letter_opener (1.2.0)
@@ -106,16 +97,10 @@ GEM
       treetop (~> 1.4.8)
     masonry-rails (0.2.1)
       rails
-    meta_search (0.5.4)
-      actionpack (>= 3.0.0.beta4)
-      activerecord (>= 3.0.0.beta4)
-      activesupport (>= 3.0.0.beta4)
-      arel (>= 0.4.0)
     mime-types (1.25.1)
     minitest (5.4.1)
     multi_json (1.10.1)
     multipart-post (2.0.0)
-    nested_form (0.3.2)
     nokogiri (1.5.11)
     oauth (0.4.7)
     oauth2 (0.8.1)
@@ -141,9 +126,6 @@ GEM
     pg (0.17.1)
     polyglot (0.3.5)
     rack (1.5.2)
-    rack-pjax (0.8.0)
-      nokogiri (~> 1.5)
-      rack (~> 1.1)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.2)
@@ -159,20 +141,6 @@ GEM
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_admin (0.6.5)
-      builder (~> 3.1)
-      coffee-rails (~> 4.0)
-      font-awesome-rails (>= 3.0, < 5)
-      haml (~> 4.0)
-      jquery-rails (~> 3.0)
-      jquery-ui-rails (~> 5.0)
-      kaminari (~> 0.14)
-      nested_form (~> 0.3)
-      rack-pjax (~> 0.7)
-      rails (~> 4.0)
-      remotipart (~> 1.0)
-      safe_yaml (~> 1.0)
-      sass-rails (~> 4.0)
     rails_serve_static_assets (0.0.2)
     rails_stdout_logging (0.0.3)
     railties (4.1.2)
@@ -183,8 +151,6 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
-    remotipart (1.2.1)
-    safe_yaml (1.0.4)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -240,7 +206,6 @@ DEPENDENCIES
   jquery-turbolinks
   letter_opener
   masonry-rails (~> 0.2.0)
-  meta_search
   omniauth
   omniauth-facebook
   omniauth-linkedin
@@ -248,7 +213,6 @@ DEPENDENCIES
   pg
   rails (= 4.1.2)
   rails_12factor
-  rails_admin
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring

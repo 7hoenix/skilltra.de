@@ -24,15 +24,8 @@ gem 'facebook'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
-
 # OAuth 2
 #gem 'omniauth-linkedin-oauth2'
-
-
-# active admin for db view and meta search (dependency)
-gem 'rails_admin'
-
-gem 'meta_search'
 
 # User Auth with DEVISE woot woot
 gem 'devise'
