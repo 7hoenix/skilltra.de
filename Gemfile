@@ -29,8 +29,10 @@ gem 'omniauth-linkedin'
 #gem 'omniauth-linkedin-oauth2'
 
 
+# active admin for db view and meta search (dependency)
+gem 'rails_admin'
 
-
+gem 'meta_search'
 
 # User Auth with DEVISE woot woot
 gem 'devise'
