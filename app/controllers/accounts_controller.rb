@@ -7,7 +7,7 @@ class AccountsController < ApplicationController
 
 
   def index
-    @accounts = Account.all.order("created_at DESC").paginate(:per_page => 8, :page => params[:page])
+    @accounts = Account.all.order("created_at DESC").paginate(:per_page => 22, :page => params[:page])
    #commeneted out -- didnt need? might break something else
    # @account = Account.find(params[:id])
    # @user = User.find(params[:id])
