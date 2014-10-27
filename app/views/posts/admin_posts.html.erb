@@ -1,0 +1,40 @@
+<div class="container-home">
+
+    <div class="align-center"><%= link_to "Get Help", new_post_path, class: "btn btn-primary btn-xl" %></div>
+
+
+     <div id="posts" class="transitions-enabled">
+    <% @posts.each do |post| %>
+      <div class="box panel panel-default">
+        
+        <div class="panel-body">
+          <h2 class="post-title"><%= link_to post.title, post %></h2><br>
+          <p><b><%= post.category %></b></p><br>
+          <div class="col-md-6">
+          <% if post.user %>
+                <% if post.user.image %>
+                <p><%= link_to image_tag(post.user.image, class: "circle"), post %></p>
+                <% else %>
+                <p><%= image_tag('userdefaultimagesm.png', class: "circle") %></p>
+                <% end %>
+          <% end %>
+          </div>
+          <p><strong><%= post.user.name if post.user %></strong></p>
+
+          <p><%= post.description %></p><br>
+
+        <div class="actions">
+          <%= link_to "Edit", edit_post_path(post), class: "btn btn-default btn-lg" %>
+
+
+          </div>
+        <%= link_to "I can Help!", new_post_bid_path(post), class: "btn btn-primary btn-lg" %>
+          <%= link_to 'Closer look', post_bids_path(post), class: "btn btn-default btn-lg" %>
+        </div>
+      </div>
+  </div>
+
+
+   <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+</div>
+  <% end %>

@@ -1,0 +1,86 @@
+
+<% if current_user.id==1 %>
+<div class="container-home">
+  <h1 class="heading">EDIT Collaborators</h1>
+  <table class="table table-striped">
+    <thead class="heading">
+    <tr>
+      <th><strong>USER ID</strong></th>
+      <th><strong>Creation Date and Last Updated</strong></th>
+      <th><strong>Mug Shot</strong></th>
+      <th><strong>Primary Superpower</strong></th>
+      <th><strong>Favors done</strong></th>
+      <th><strong># of Favors I have</strong></th>
+      <th><strong>Average Score</strong></th>
+      <th><strong>Company name</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <% @accounts.each do |account| %>
+          <td><%= account.user_id %>           </td>
+          <td>Created:<%= account.created_at %>   Last Updated: <%= account.updated_at %>          </td>
+
+          <%= form_for(account) do |f| %>
+          <% if account.user.image %>
+              <td><%= image_tag account.user.image %>
+                <br>
+                <%= account.user.name %>
+              </td>
+          <% else %>
+              <td><%= image_tag('userdefaultimagesm.png') %>
+                <br>
+                <%= account.user.name %>
+              </td>
+          <% end %>
+          <td><%= account.primarySkill %></td>
+          <% if account.user.jobs_completed %>
+              <td><%= account.user.jobs_completed %></td>
+          <% else %>
+              <td>I haven't done any favors yet!</td>
+          <% end %>
+          <td><%=   account.user.balance %></td>
+          <% if account.user.jobs_completed %>
+              <% if account.user.jobs_completed >= 2 %>
+                  <td><%= account.user.average_score %></td>
+              <% else %>
+                  <td>I'm Still New!</td>
+              <% end %>
+          <% else %>
+              <td>I'm Still New!</td>
+          <% end %>
+
+          </td>
+<td>
+        <div class="form-group">
+          <%= f.text_field :company, class: "form-control" %>
+        </div>
+      </td><td>
+        <div class="form-group">
+          <%= f.label "What does it do?", class: "heading" %><br>
+          <%= f.text_field :bio, class: "form-control" %>
+        </div>
+</td><td>
+        <div class="form-group">
+          <%= f.label :primarySkill, class: "heading" %><br>
+          <%= f.select :primarySkill, [['Programming','Programming'],['Marketing','Marketing'],['Design','Design'],['Biz Dev','Biz Dev']] %>
+        </div>
+</td><td>
+        <div class="form-group">
+          <%= f.label :secondarySkill, class: "heading" %><br>
+          <%= f.select :secondarySkill, [['Programming','Programming'],['Marketing','Marketing'],['Design','Design'],['Biz Dev','Biz Dev']] %>
+        </div>
+</td><td>
+
+        <div class="actions">
+          <%= f.submit 'Update Profile as Admin', class: "btn btn-primary btn-lg" %>
+        </div>
+          <% end %>
+        </td>
+
+            </tr>
+          </tbody>
+      <% end %>
+      </table>
+</div>
+<% end %>

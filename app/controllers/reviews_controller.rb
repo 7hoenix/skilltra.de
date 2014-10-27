@@ -33,6 +33,10 @@ class ReviewsController < ApplicationController
       end
   end
 
+  def admin_reviews
+    @reviews = Review.all
+    @job = Job.all
+  end
 
 
   def new

@@ -1,0 +1,13 @@
+<% if current_user.id==1 %>
+    <div class="container-home">
+  <table class="table table-striped">
+    <tbody>
+        <tr><td><%= link_to 'Accounts/Users', admin_accounts_path(@user) %></td></tr>
+        <tr><td><%= link_to 'Posts', admin_posts_path(@user) %></td></tr>
+        <tr><td><%= link_to 'Bids', admin_bids_path(@user) %></td></tr>
+        <tr><td><%= link_to 'Jobs', admin_jobs_path(@user) %></td></tr>
+        <tr><td><%= link_to 'Reviews', admin_reviews_path(@user) %></td></tr>
+    </tbody>
+  </table>
+</div>
+<% end %>

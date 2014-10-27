@@ -15,6 +15,14 @@ class AccountsController < ApplicationController
 
   end
 
+  def admin_accounts
+    @accounts = Account.all
+    #commeneted out -- didnt need? might break something else
+    # @account = Account.find(params[:id])
+    # @user = User.find(params[:id])
+    @users = User.all
+  end
+
   #CURRENT: show displays user
   #POSSIBLE: It would be nice if clicking on a user profile displayed information on the jobs that have been complete - change in view
             #may need to add @JOBS where userid = userid to display jobs worked on
@@ -60,6 +68,11 @@ class AccountsController < ApplicationController
   def destroy
     @account.destroy
       redirect_to accounts_url, notice: 'Account was successfully destroyed.'
+  end
+
+  def admin_edit
+    @account = Account.all
+    @user = User.all
   end
 
   private

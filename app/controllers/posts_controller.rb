@@ -41,10 +41,17 @@ class PostsController < ApplicationController
       redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
+<<<<<<< HEAD
   # def set_sort
   #   @sort = "All"
   # end
   # protected
+=======
+
+  def admin_posts
+    @posts = Post.all
+  end
+>>>>>>> b60fee9b2f7054454c3c17e2f63695907fadb0e0
 
 
   private
