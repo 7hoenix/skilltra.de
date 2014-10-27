@@ -2,8 +2,6 @@ class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
   #before_action :check_balance, only: [:create]
 
-
-
   def index
     @bids = Bid.all
     @posts = Post.all
@@ -74,6 +72,14 @@ class BidsController < ApplicationController
   def destroy
     @bid.destroy
       redirect_to post_bids_url, notice: 'Bid was successfully destroyed.'
+  end
+#for admin dashboard
+  def admin_bids
+    @bids = Bid.all
+    @posts = Post.all
+    @users = User.all
+    @accounts = Account.all
+
   end
 
   private

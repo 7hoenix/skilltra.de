@@ -52,6 +52,12 @@ class JobsController < ApplicationController
       redirect_to jobs_url, notice: 'Project was successfully destroyed.'
   end
 
+
+  #for admin dashboard
+  def admin_jobs
+    @jobs = Job.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_job

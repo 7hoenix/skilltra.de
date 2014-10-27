@@ -1,0 +1,19 @@
+<div class="container-home">
+  <h3>Reviews</h3>
+  <div class="col-md-6">
+
+    <% @reviews.reverse_each do |review| %>
+
+            <%= review.score %>
+            <%= @job.id %>
+
+
+          <div class="col-md-6">
+                who you reviewed (id)
+                <%= review.reviewee_id %>
+                <%= review.score %>
+                <%= @job.id %>
+          <% end %>
+        </div>
+  </div>
+</div>
