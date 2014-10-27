@@ -97,6 +97,10 @@ $jumbotron-bg:                white;
   text-align: center;
 }
 
+.align-right {
+  text-align: right;
+}
+
 
 .btn-xl {
   padding: 15px 22px;
@@ -104,4 +108,9 @@ $jumbotron-bg:                white;
   line-height: 1.33;
   border-radius: 6px;
   font-family:	'Roboto Condensed', sans-serif;
+}
+
+
+.circle {
+  border-radius: 300px;
 }

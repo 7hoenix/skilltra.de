@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
         @job.completed = true
         @job.save
         @user.jobs_completed += 1
+        @user.open_jobs -= 1
 
         @user.average_score = Review.where(reviewee_id: current_user.id).pluck(:score).sum / Review.where(reviewee_id: current_user.id).pluck(:score).count
         @user.save

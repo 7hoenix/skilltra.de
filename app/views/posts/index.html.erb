@@ -1,7 +1,9 @@
 <div class="container-home">
 
     <div class="align-center"><%= link_to "Get Help", new_post_path, class: "btn btn-primary btn-xl" %></div>
-  <div id="posts" class="transitions-enabled">
+
+
+     <div id="posts" class="transitions-enabled">
     <% @posts.each do |post| %>
       <div class="box panel panel-default">
         
@@ -11,24 +13,21 @@
           <div class="col-md-6">
           <% if post.user %>
                 <% if post.user.image %>
-                <p><%= link_to image_tag(post.user.image), post %></p>
+                <p><%= link_to image_tag(post.user.image, class: "circle"), post %></p>
                 <% else %>
-                <p><%= image_tag('userdefaultimagesm.png') %></p>
+                <p><%= image_tag('userdefaultimagesm.png', class: "circle") %></p>
                 <% end %>
           <% end %>
           </div>
-          <P><strong><%= post.user.name if post.user %></strong></P>
+          <p><strong><%= post.user.name if post.user %></strong></p>
 
           <p><%= post.description %></p><br>
 
       <% if post.user == current_user %>
         <div class="actions">
           <%= link_to "Edit", edit_post_path(post), class: "btn btn-default btn-lg" %>
-            
-            
-          <%= link_to "Delete", post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-lg" %>
-            
-            
+
+
           </div>
       <% elsif current_user %>
         <%= link_to "I can Help!", new_post_bid_path(post), class: "btn btn-primary btn-lg" %>

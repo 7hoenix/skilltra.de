@@ -2,7 +2,7 @@
 <h3>Offers</h3>
   
   <% if @post.user %>
-      <%= link_to image_tag(@post.user.image), @post %>
+      <%= link_to image_tag(@post.user.image, class: "circle"), @post %>
     <% end %>
   <h1><%= @post.title %> </h1>
   <p><%= @post.description %></p>
@@ -16,9 +16,8 @@
         <% if @post.user == current_user %>
         <th><strong>Choose Wisely!</strong></th>
         <% end %>
-        <th><strong>Offer</strong></th>
         <th><strong>Collaborator</strong></th>   
-        <th><strong>Why Me?</strong></th>
+        <th><strong>Qualifications</strong></th>
       </tr>
     </thead>
 
@@ -56,10 +55,7 @@
           <span class="glyphicon glyphicon-plus"></span> Check It Out
             <% end %></td>
             <% end %>
-        <td><%= bid.bid %>
-          <% if bid.bid != 1 %> Favors</td>
-          <% else %> Favor
-              <% end %>
+
             <% @users.each do |user| %>
             <% if user.id == bid.user_id %>
         <td> <%= user.name%></td>
