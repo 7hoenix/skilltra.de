@@ -22,7 +22,6 @@ class ReviewsController < ApplicationController
 
         if @user.jobs_completed > 1
           @user.average_score = Review.where(reviewee_id: current_user.id).pluck(:score).sum / Review.where(reviewee_id: current_user.id).pluck(:score).count
-
         end
           @user.save
 

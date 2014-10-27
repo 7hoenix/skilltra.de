@@ -17,27 +17,21 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label "What's Your Start-Up Called?", class: "heading" %><br>
-    <%= f.text_field :company, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label "In One Sentence, What does it do?", class: "heading" %><br>
-    <%= f.text_field :bio, class: "form-control" %>
-  </div>
 
  <div class="form-group">
-    <%= f.label "What's Your Primary Skill?", class: "heading" %><br>
+    <%= f.label "What do you do?", class: "heading" %><br>
     <%= f.select :primarySkill, [['Developer','Programming'],['Marketer','Marketing'],['Designer','Design'],['User Experience','User Experience'],['Biz Dev','Biz Dev']] %>
   </div>
 
   <div class="form-group">
-    <%= f.label "Things I'm good at:", class: "heading" %><br>
-    <%= f.text_field :secondarySkill, class: "form-control" %>
+    <%= f.label "Give a few examples of what skills you'd be willing to trade:", class: "heading" %><br>
+    <%= f.text_field :bio, class: "form-control" %>
   </div>
 
-
+  <div class="actions">
+    <%= f.submit 'Complete Profile', class: "btn btn-primary btn-lg" %>
+  </div>
+<% end %>
     <!-- Button trigger modal -->
     <button class="btn btn-warning btn-md" data-toggle="modal" data-target="#myModal">
       Example
@@ -63,13 +57,6 @@
         </div>
       </div>
     </div>
-        <br>
-        <br>
-
-  <div class="actions">
-    <%= f.submit 'Complete Profile', class: "btn btn-primary btn-lg" %>
-  </div>
-<% end %>
 <% else %>
 <h3>You can't edit other peoples stuff!<br> Otherwise no one can have nice things. . .</h3>
 <% end %>

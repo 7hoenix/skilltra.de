@@ -18,16 +18,22 @@
                   <% else %>
                       <%= image_tag('userdefaultimagesm.png', class: "circle") %>
                   <% end %>
-              <%= @user.name %></h3>
-            <h3 class="inline">
-              <%=  @account.primarySkill %>
+              <%= @user.name %><br>
+              Jobs Completed: <% if @user.jobs_completed %>
+                  <%= @user.jobs_completed %><br>
+              <% else %>
+                  I haven't done any favors yet!
+                  <% end %>
+
+              Average Score: <% if @user.average_score %>
+                  <%= @user.average_score %>
+                  <% else %>
+                    I'm too new!
+                  <% end %>
             </h3>
-                <% if @account.primarySkill && @account.secondarySkill %>
-            <h3 class="inline"> & </h3>
-                <% end %>
-            <h3 class="inline">
-              <%= @account.secondarySkill %></h3>
-            <h2><%= @account.company %></h2>
+            <h2>
+              <%=  @account.primarySkill %>
+            </h2>
             <p>
               <%= @account.bio %>
             </p>
