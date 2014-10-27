@@ -1,7 +1,7 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
 
-  
+
 
   def linkedin
       auth = env["omniauth.auth"]
