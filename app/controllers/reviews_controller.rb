@@ -17,7 +17,13 @@ class ReviewsController < ApplicationController
         # @review.set_average
         @job.completed = true
         @job.save
-        @user.jobs_completed += 1
+
+        if @user.jobs_completed
+          @user.jobs_completed += 1
+        else
+          @user.jobs_completed = 1
+        end
+
         @user.open_jobs -= 1
 
         if @user.jobs_completed > 1
