@@ -1,5 +1,8 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
+
+  acts_as_messageable
+
   def linkedin
       auth = env["omniauth.auth"]
       @user = User.connect_to_linkedin(request.env["omniauth.auth"], current_user)
