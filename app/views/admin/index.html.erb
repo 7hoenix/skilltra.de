@@ -1,0 +1,14 @@
+<% if current_user.id==1 %>
+    <div class="container-home">
+  <table class="table table-striped">
+    <thead class="heading">
+        <tr>
+          <th><strong>Resource Name</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        <td><%= link_to 'Accounts', admin_accounts_path(@user) %></td>
+    </tbody>
+  </table>
+</div>
+<% end %>

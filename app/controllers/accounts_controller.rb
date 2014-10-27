@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: [:show, :edit, :update, :destroy]
+  before_action :set_account, only: [:show, :edit, :update, :destroy, :admin_edit]
   
 #CURRENT: index page displays all accounts. requires user.all
 #POSSIBLE:  - more formatting of the page  look nicer - more columns or details may end up being added to the user.
@@ -12,6 +12,14 @@ class AccountsController < ApplicationController
    # @user = User.find(params[:id])
     @users = User.all
 
+  end
+
+  def admin_accounts
+    @accounts = Account.all
+    #commeneted out -- didnt need? might break something else
+    # @account = Account.find(params[:id])
+    # @user = User.find(params[:id])
+    @users = User.all
   end
 
   #CURRENT: show displays user
@@ -59,6 +67,11 @@ class AccountsController < ApplicationController
   def destroy
     @account.destroy
       redirect_to accounts_url, notice: 'Account was successfully destroyed.'
+  end
+
+  def admin_edit
+    @account = Account.all
+    @user = User.all
   end
 
   private

@@ -12,9 +12,6 @@ Rails.application.routes.draw do
   end
 
 
-
-
-
 devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
  #makes fb work 
  #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -32,6 +29,11 @@ devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks"
   get "reviews" => 'reviews#my_reviews'
 
   get "reviewer" => 'reviews#people_reviewed'
+
+
+  #admin dashboard routes below -- can probably be consolidated
+  get "admin_dashboard" => 'admin#index'
+  get "admin_accounts" => 'accounts#admin_accounts'
 
 
   
