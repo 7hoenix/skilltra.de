@@ -1,8 +1,9 @@
 <div class="container-home">
-<h1>Edit Your Offer</h1>
+   <%= link_to 'Back', post_bids_path %>
+    <h1>Edit Your Offer</h1>
 
-<%= render 'form' %>
+    <%= render 'form' %>
 
-<%= link_to 'Show Bids', post_bids_path, class: "btn btn-default btn-lg" %>
-<%= link_to 'Jobs', posts_path, class: "btn btn-default btn-lg" %>
-    </div>
+    <%= link_to 'Show Bids', post_bids_path, class: "btn btn-default btn-lg" %>
+    <%= link_to 'Jobs', posts_path, class: "btn btn-default btn-lg" %>
+</div>

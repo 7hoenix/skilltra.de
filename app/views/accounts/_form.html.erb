@@ -38,6 +38,34 @@
   </div>
 
 
+    <!-- Button trigger modal -->
+    <button class="btn btn-warning btn-md" data-toggle="modal" data-target="#myModal">
+      Example
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Take the 5 mins to write a great profile</h4>
+          </div>
+          <div class="modal-body">
+            <ul>
+              <li>Remember that some founders won't know technical terms in your area, try to use plain english. </li>
+              <li>Try to think in terms of what someone that doesn't know <strong>should</strong> be looking for (remember they may not know even what to ask for).</li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+        <br>
+        <br>
+
   <div class="actions">
     <%= f.submit 'Complete Profile', class: "btn btn-primary btn-lg" %>
   </div>

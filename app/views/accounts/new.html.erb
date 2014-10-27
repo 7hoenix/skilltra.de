@@ -1,7 +1,7 @@
 <div class="container-home">
-    <h1 class="heading">First things first. Brag a little bit about yourself.</h1>
+  <%= link_to 'Back', accounts_path %>
+  <h1 class="heading">First things first. Brag a little bit about yourself.</h1>
 
     <%= render 'form' %>
 
-    <%= link_to 'Back', accounts_path(:id => current_user.id, class: "btn btn-default btn-lg"  ) %>
 </div>

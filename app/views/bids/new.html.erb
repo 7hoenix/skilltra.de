@@ -1,11 +1,12 @@
 <div class="container-home">
-<h1><%= @post.title %></h1>
+  <%= link_to 'Back', post_bids_path %>
+  <h1><%= @post.title %></h1>
   <p><%= @post.description %></p>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
 
-<%= link_to 'Look at Offers', post_bids_path, class: "btn btn-default btn-lg" %>
+  <%= link_to 'Look at Offers', post_bids_path, class: "btn btn-default btn-lg" %>
 
-<%= link_to 'Browse', posts_path, class: "btn btn-default btn-lg" %>
-    </div>
+  <%= link_to 'Browse', posts_path, class: "btn btn-default btn-lg" %>
+</div>
