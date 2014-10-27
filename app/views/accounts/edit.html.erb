@@ -1,6 +1,9 @@
 <div class="container-home">
-    <h1 class="heading">Talk about yourself. It's okay to brag :)</h1>
-
+  <% if @user.account_completed == true %>
+      <h1 class="heading">Edit Profile</h1>
+  <% else %>
+    <h1 class="heading">Talk about yourself. Its ok to brag.</h1>
+    <% end %>
     <%= render 'form' %>
 
     <%= link_to 'Show', @account, class: "btn btn-default btn-lg" %>

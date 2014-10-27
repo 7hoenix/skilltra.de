@@ -1,61 +1,23 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
-@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
-
-.body-account {
-	font-family: 'Lato', sans-serif;
-  line-height: 1.5;
-  
-  /* Full Page Background Receipe */
-  background-image: image-url("scenic-route.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+#accounts {
+  margin: 0 auto;
 }
 
-.container-account {
-  width: 90%;
-  margin-right: 5%;
-  margin-left: 5%;
-  margin-bottom: 10%;
-  background: rgba(0,0,0,0.1);
-  padding: 5%;
-  padding-top: 2%;
-  border-radius: 10px;
+.box {
+  margin: 5px;
+  width: 214px;
 }
 
-.h1-account {
-	font-size: 62px;
-	margin-bottom: -20px;
-	text-align: center;
+.box img {
+  width: 100%;
 }
 
-.orange {
-  color: #FF9900;
-  font-size: 62px;
-  margin-bottom: -20px;
-  text-align: center;
-  font-weight: bold;
-  font-family: 'Roboto Condensed', sans-serif;
+#bids-table {
+  align: center;
+  border: 200;
+  cellpadding: 5px;
+
 }
 
-.h2-account {
-	font-size: 30px;
-	text-align: center;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.p-account {
-	font-size: 19px;
-}
-
-.a-account {
-	color: #3299BB;
-	text-decoration: none;
-}
-
-.align-left {
-  color: #FF9900;
-  text-align: left;
-  margin-left: 175px;
+.account-title {
+  font-size: 35px;
 }
