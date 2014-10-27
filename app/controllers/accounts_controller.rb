@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy, :admin_edit]
-  
+
 #CURRENT: index page displays all accounts. requires user.all
 #POSSIBLE:  - more formatting of the page  look nicer - more columns or details may end up being added to the user.
 

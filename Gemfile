@@ -24,6 +24,11 @@ gem 'facebook'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
+
+#adding private messagin
+
+gem "mailboxer"
+
 # OAuth 2
 #gem 'omniauth-linkedin-oauth2'
 
