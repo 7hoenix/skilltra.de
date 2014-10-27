@@ -30,8 +30,14 @@ class JobsController < ApplicationController
         @user = User.find_by_id(job_params[:bid_user_id])
         JobMailer.new_job_mail(@user).deliver
 
+        if @user.open_jobs
         @user.open_jobs += 1
-        @user.save
+
+        else
+          @user.open_jobs = 1
+        end
+        
+          @user.save
 
         redirect_to @job, notice: 'Project was successfully created.'
       else

@@ -22,7 +22,10 @@
           </li>
             </li>
            <li><%= link_to jobs_path do %>
-                 <span class="badge"><%= current_user.open_jobs %></span> Open Projects
+                 <span class="badge"><% if current_user.open_jobs %>
+                       <%= current_user.open_jobs %>
+                   <% end %>
+                 </span> Open Projects
                 <% end %>
            </li>
     <% end %>
