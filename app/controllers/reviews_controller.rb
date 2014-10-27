@@ -20,8 +20,11 @@ class ReviewsController < ApplicationController
         @user.jobs_completed += 1
         @user.open_jobs -= 1
 
-        @user.average_score = Review.where(reviewee_id: current_user.id).pluck(:score).sum / Review.where(reviewee_id: current_user.id).pluck(:score).count
-        @user.save
+        if @user.jobs_completed > 1
+          @user.average_score = Review.where(reviewee_id: current_user.id).pluck(:score).sum / Review.where(reviewee_id: current_user.id).pluck(:score).count
+
+        end
+          @user.save
 
         redirect_to posts_path, notice: 'Thank you! You are amazing.'
       else

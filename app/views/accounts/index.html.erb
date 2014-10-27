@@ -1,54 +1,48 @@
 <div class="container-home">
-<h1 class="heading">Top Collaborators</h1>
-	<table class="table table-striped">
-    <thead class="heading">
-      <tr>
-      	<th><strong>Mug Shot</strong></th>
-        <th><strong>Primary Superpower</strong></th>
-        <th><strong>Favors I've Done</strong></th>
-        <th><strong>Favors I Have</strong></th>
-        <th><strong>Average Score</strong></th>
-      </tr>
-    </thead>
-    <tbody>
-		  <tr>
-		  	<% @accounts.each do |account| %>
-			<% if account.user.image %>
-            <td><%= image_tag account.user.image, class: "circle" %>
-            <br>
-            <%= account.user.name %>
-            </td>
-		    <% else %>
-            <td><%= image_tag('userdefaultimagesm.png', class: "circle") %>
-            <br>
-            <%= account.user.name %>
-            </td>
-            <% end %>
-            <td><%= account.primarySkill %></td>
-                <% if account.user.jobs_completed %>
-            <td><%= account.user.jobs_completed %></td>
-                <% else %>
-                <td>I haven't done any favors yet!</td>
-                    <% end %>
-		    <td><%= account.user.balance %></td>
-         <% if account.user.jobs_completed %>
-            <% if account.user.jobs_completed >= 2 %>
-                <td><%= account.user.average_score %></td>
-            <% else %>
-                <td>I'm Still New!</td>
-            <% end %>
-        <% else %>
-             <td>I'm Still New!</td>
-         <% end %>
 
-		    <% if account.user==current_user %>
-		    <td><%= link_to "Update Profile", edit_account_path(account), class: "btn btn-primary btn-lg" %>
-		    <% else %>
-		    <td><%= link_to 'View Profile', account, class: "btn btn-default btn-lg" %></td>
-		    <% end %>
-			</td>
-	    </tr>
-  </tbody>
-<% end %>
-</table>
-  </div>
+  <h1 class="heading">Top Collaborators</h1>
+        <div id="accounts" class="transitions-enabled">
+        <% @accounts.each do |account| %>
+             <div class="box panel panel-default">
+               <div class="panel-body">
+
+        <%= account.user.name %>
+                 <div class="col-md-6">
+        <% if account.user.image %>
+            <p><%= image_tag account.user.image, class: "circle" %></p>
+        <% else %>
+            <p><%= image_tag('userdefaultimagesm.png', class: "circle") %></p>
+        <% end %>
+          </div>
+        <p><%= account.primarySkill %></p>
+            <% if account.user.jobs_completed %>
+        <p><%= account.user.jobs_completed %></p>
+            <% else %>
+            <p>I haven't done any favors yet!</p>
+                <% end %>
+        <p><%= account.user.balance %></p>
+     <% if account.user.jobs_completed %>
+        <% if account.user.jobs_completed >= 2 %>
+            <p><%= account.user.average_score %></p>
+        <% else %>
+            <p>I'm Still New!</p>
+        <% end %>
+    <% else %>
+         <p>I'm Still New!</p>
+     <% end %>
+
+        <% if account.user==current_user %>
+        <p><%= link_to "Update Profile", edit_account_path(account), class: "btn btn-primary btn-lg" %>
+        <% else %>
+        <p><%= link_to 'View Profile', account, class: "btn btn-default btn-lg" %></p>
+        <% end %>
+        </p>
+               </div>
+    <% end %>
+
+
+    </div>
+</div>
+  <%= will_paginate @accounts, renderer: BootstrapPagination::Rails %>
+</div>
+

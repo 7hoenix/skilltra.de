@@ -6,7 +6,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order("created_at DESC").paginate(:per_page => 8, :page => params[:page])
-
   end
 
   def show
@@ -42,10 +41,17 @@ class PostsController < ApplicationController
       redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
+<<<<<<< HEAD
+  # def set_sort
+  #   @sort = "All"
+  # end
+  # protected
+=======
 
   def admin_posts
     @posts = Post.all
   end
+>>>>>>> b60fee9b2f7054454c3c17e2f63695907fadb0e0
 
 
   private
@@ -55,9 +61,7 @@ class PostsController < ApplicationController
       @bids = @post.bids
     end
 
-  # def set_sort
-  #   @sort = "All"
-  # end
+
 
     def correct_user
       @post = current_user.posts.find_by(id: params[:id])
