@@ -8,8 +8,12 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
+    <% if user_signed_in? %>
     <a class="navbar-brand" href="/posts" >skilltra.de</a>
-  </div>
+    <% else %>
+    <a class="navbar-brand" href="/" >skilltra.de</a>
+    <% end %>
+   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -30,7 +34,7 @@
            </li>
     <% end %>
       <li><%= link_to "About", about_path %></li>
-      <!--<li><%= link_to "Contact Us", contact_path %></li>-->
+      <li><%= link_to "Contact Us", contact_path %></li>
 
       <% if user_signed_in? %>
 
