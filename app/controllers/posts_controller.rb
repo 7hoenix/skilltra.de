@@ -5,7 +5,12 @@ class PostsController < ApplicationController
   # before_action :set_sort, only: [:index]
 
   def index
+    if @sort
+    @posts = Post.all.order(:category)
+    else
     @posts = Post.all.order("created_at DESC").paginate(:per_page => 8, :page => params[:page])
+    end
+    @post = Post.all
   end
 
   def show

@@ -1,38 +1,38 @@
 <div class="container-home">
-        <div id="accounts" class="transitions-enabled">
-        <% @accounts.each do |account| %>
-             <div class="box panel panel-default">
-               <div class="panel-body">
-        <h3><%= account.user.name %></h3>
-                 <div class="col-md-6">
-        <% if account.user.image %>
-            <p><%= image_tag account.user.image, class: "circle" %></p>
-        <% else %>
-            <p><%= image_tag('userdefaultimagesm.png', class: "circle") %></p>
-        <% end %>
-          </div>
-                 <% if account.user.jobs_completed %>
-                     <p><%= account.user.jobs_completed %> Favors done</p>
-                 <% else %>
-                     <p>I haven't done any favors yet!</p>
-                 <% end %>
+    <div id="accounts" class="transitions-enabled">
+    <% @accounts.each do |account| %>
+         <div class="box panel panel-default">
+           <div class="panel-body">
+    <h3><%= account.user.name %></h3>
+             <div class="col-md-6">
+    <% if account.user.image %>
+        <p><%= image_tag account.user.image, class: "circle" %></p>
+    <% else %>
+        <p><%= image_tag('userdefaultimagesm.png', class: "circle") %></p>
+    <% end %>
+      </div>
+             <% if account.user.jobs_completed %>
+                 <p><%= account.user.jobs_completed %> Favors done</p>
+             <% else %>
+                 <p>I haven't done any favors yet!</p>
+             <% end %>
 
-                 <% if account.user.jobs_completed %>
-                 <p><%= account.user.average_score %> Average Score</p>
-                 <% else %>
-                 <p>I'm Still New!</p>
-                <% end %>
-        <h2><%= account.primarySkill %></h2>
-        <p><%= account.bio %></p>
+             <% if account.user.jobs_completed %>
+             <p><%= account.user.average_score %> Average Score</p>
+             <% else %>
+             <p>I'm Still New!</p>
+            <% end %>
+    <h2><%= account.primarySkill %></h2>
+    <p><%= account.bio %></p>
 
-        <% if account.user==current_user %>
-        <p><%= link_to "Update Profile", edit_account_path(account), class: "btn btn-primary btn-lg" %></p>
-        <% else %>
-        <p><%= link_to 'View Profile', account, class: "btn btn-default btn-lg" %></p>
-        <% end %>
-           </div>
-        </div>
-     <% end %>
+    <% if account.user==current_user %>
+    <p><%= link_to "Update Profile", edit_account_path(account), class: "btn btn-primary btn-lg" %></p>
+    <% else %>
+    <p><%= link_to 'View Profile', account, class: "btn btn-default btn-lg" %></p>
+    <% end %>
+       </div>
+    </div>
+    <% end %>
 
 
     </div>
