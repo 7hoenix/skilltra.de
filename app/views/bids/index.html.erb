@@ -1,29 +1,28 @@
 <div class="container-home">
-<h3>Offers</h3>
-  
-  <% if @post.user %>
-      <%= link_to image_tag(@post.user.image, class: "circle"), @post %>
-    <% end %>
-  <h1><%= @post.title %> </h1>
-  <p><%= @post.description %></p>
-   
-<br>
-            
-  
-   <table class="table table-striped">
-    <thead>
-      <tr>
-        <% if @post.user == current_user %>
-        <th><strong>Choose Wisely!</strong></th>
-        <% end %>
-        <th><strong>Collaborator</strong></th>   
-        <th><strong>Qualifications</strong></th>
-      </tr>
-    </thead>
 
- <% @bids.reverse_each do |bid| %>
-    <tbody>
-      <tr>
+    <div class="align-center">
+        <% if @post.user %>
+        <%= link_to image_tag(@post.user.image, class: "circle"), @post %>
+        <% end %>
+        <h1><%= @post.title %> </h1>
+        <p><%= @post.description %></p>
+    </div>
+
+      <% if @post.user != current_user %>
+      <div class="align-center"><%= link_to 'I can Help!', new_post_bid_path, class: "btn btn-primary btn-xl" %>
+      </div>
+      <% end %>
+
+
+    <div id="bids" class="transitions-enabled">
+
+     <% @bids.each do |bid| %>
+      <div class="box panel panel-default">
+
+
+        <div class="panel-body">
+
+
          <% @users.each do |user| %>
    <% if user.id == bid.user_id %>
     <% $BidUserId = bid.user_id%>
@@ -32,6 +31,7 @@
     <% end %>
           <% end %>
 
+
       <% @accounts.each do |account| %>
  <% if account.user_id =$BidUserId %>
   <% $account_company = account.company %>
@@ -39,51 +39,69 @@
   <% end %>
 
 
-    <% if @post.user == current_user %>
-        <td><%= link_to new_job_path(
-
-          :post_id => @post.id,
-          :post_title => @post.title, 
-          :post_description => @post.description, 
-          :bid_amount => bid.bid,  
-          :bid_user => $BidUserName, 
-          :BidUserId => $BidUserId, 
-          :account_company => $account_company,
-          :bid_id => $bid_id_send
-
-        ), class: "btn btn-default btn-lg" do %>
-          <span class="glyphicon glyphicon-plus"></span> Check It Out
-            <% end %></td>
-            <% end %>
 
             <% @users.each do |user| %>
             <% if user.id == bid.user_id %>
-        <td> <%= user.name%></td>
-                <% end %>
-                <% end %>
-        <td><%= bid.bidinfo %></td>
+           <h3><%= user.name%></h3>
+           <h4><%= user.account.primarySkill %></h4>
+                  <div class="col-md-6">
+              <% if user.image %>
+                  <p><%= image_tag user.image, class: "circle" %></p>
+              <% else %>
+                  <p><%= image_tag('userdefaultimagesm.png', class: "circle") %></p>
+              <% end %>
+                  </div>
+                  <% if user.jobs_completed %>
+                      <p><%= user.jobs_completed %> Favors done</p>
+                  <% else %>
+                      <p>I haven't done any favors yet!</p>
+                  <% end %>
 
-  
-        
-<% if bid.user_id == current_user.id %>
-        <td> <%= link_to 'Edit', edit_post_bid_path(@post, bid), class: "btn btn-default btn-lg" %>
+                  <% if user.jobs_completed %>
+                      <p><%= user.average_score %> Average Score</p>
+                  <% else %>
+                      <p>I'm Still New!</p>
+                  <% end %>
+           <h4>Strengths</h4>
+           <%= user.account.bio %>
+
+                <% end %>
+                <% end %>
+          <h4>Additional</h4>
+            <%= bid.bidinfo %>
+
+
+
+        <% if bid.user_id == current_user.id %>
+              <br>
+        <%= link_to 'Edit', edit_post_bid_path(@post, bid), class: "btn btn-default btn-lg" %>
           <%= link_to 'Delete', post_bid_path(@post, bid), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-lg" %>
-        </td>
-          <td>
 
-        <% end %>
 
-      </tr>
-    </tbody>
+        <% else %>
+            <br>
+                <% if @post.user == current_user %>
+                  <%= link_to new_job_path(
+
+                                      :post_id => @post.id,
+                                      :post_title => @post.title,
+                                      :post_description => @post.description,
+                                      :bid_amount => bid.bid,
+                                      :bid_user => $BidUserName,
+                                      :BidUserId => $BidUserId,
+                                      :account_company => $account_company,
+                                      :bid_id => $bid_id_send
+
+                              ), class: "btn btn-primary btn-lg" do %>
+                      <span class="glyphicon glyphicon-plus"></span> Check It Out
+                         <% end %>
+                <% end %>
+          <% end %>
+              </div>
+           </div>
+
       <% end %>
-  </table>
 
-
-
-<br> 
-
-
-<%= link_to 'Offer to Help', new_post_bid_path, class: "btn btn-primary btn-lg" %>
-
-<%= link_to 'Browse', posts_path, class: "btn btn-default btn-lg" %>
     </div>
+    <%= will_paginate @bidss, renderer: BootstrapPagination::Rails %>
+</div>

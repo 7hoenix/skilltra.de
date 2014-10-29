@@ -4,15 +4,16 @@
 
          <div id="posts" class="transitions-enabled">
     <% @posts.each do |post| %>
+
       <div class="box panel panel-default">
         
         <div class="panel-body">
-          <h2 class="post-title"><%= link_to post.title, post %></h2><br>
+          <h2 class="post-title"><%= link_to post.title, post_bids_path(post) %></h2><br>
           <p><b><%= post.category %></b></p><br>
           <div class="col-md-6">
           <% if post.user %>
                 <% if post.user.image %>
-                <p><%= link_to image_tag(post.user.image, class: "circle"), post %></p>
+                <p><%= link_to image_tag(post.user.image, class: "circle"), account_path(post.user_id) %></p>
                 <% else %>
                 <p><%= image_tag('userdefaultimagesm.png', class: "circle") %></p>
                 <% end %>
@@ -35,8 +36,6 @@
         </div>
       </div>
     <% end %>
-  </div>
-
-
+    </div>
    <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
 </div>

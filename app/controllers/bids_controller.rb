@@ -3,7 +3,7 @@ class BidsController < ApplicationController
   #before_action :check_balance, only: [:create]
 
   def index
-    @bids = Bid.all
+    @bidss = Bid.all.order("created at DESC").paginate(:per_page => 22, :page => params[:page])
     @posts = Post.all
     @post = Post.find(params[:post_id])
     @bids = @post.bids

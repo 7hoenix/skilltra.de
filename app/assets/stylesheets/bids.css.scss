@@ -1,10 +1,23 @@
+#bids {
+  margin: 0 auto;
+}
+
+.box {
+  margin: 5px;
+  width: 214px;
+}
+
+.box img {
+  width: 100%;
+}
+
 #bids-table {
-	align: center;
-	border: 200;
-	cellpadding: 5px;
+  align: center;
+  border: 200;
+  cellpadding: 5px;
 
 }
 
-.bid-orange {
-	color: orange;
+.account-title {
+  font-size: 35px;
 }
