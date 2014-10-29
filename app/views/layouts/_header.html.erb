@@ -39,6 +39,7 @@
             <li><%= link_to "My Account", account_path(:id => current_user.id) %>
             </li>
             <li><%= link_to "Top Collaborators", accounts_path %></li>
+            <li><%= link_to 'My Conversations', :conversations %></li>
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>

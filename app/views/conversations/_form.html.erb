@@ -1,0 +1,23 @@
+<%= form_for :message , method: :post do |f|%>
+
+    <div class="form-group">
+      <%= f.label 'Message going to...', class: "heading" %><br>
+<%= f.text_field :recipients  %>
+      </div>
+
+    <div class="form-group">
+      <%= f.label 'subject', class: "heading" %><br>
+    <%=f.text_field :subject %>
+    </div>
+
+
+    <div class="form-group">
+      <%= f.label 'Your Message', class: "heading" %><br>
+<%= f.text_area :body, as: :text %>
+      </div>
+
+
+    <div class="actions">
+    <%= f.button :submit, class: 'btn-primary' %>
+    </div>
+<% end %>

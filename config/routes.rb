@@ -6,14 +6,21 @@ Rails.application.routes.draw do
 
   resources :accounts
 
-
   resources :posts do
     resources :bids
   end
 
-
 devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
- #makes fb work 
+
+  resources :conversations, only: [:index, :show, :new, :create] do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+    end
+
+ #makes fb work
  #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root 'pages#main'
@@ -38,8 +45,6 @@ devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks"
   get "admin_bids" => 'bids#admin_bids'
   get "admin_jobs" => 'jobs#admin_jobs'
   get "admin_reviews" => 'reviews#admin_reviews'
-
-  
 
 
   # The priority is based upon order of creation: first created -> highest priority.

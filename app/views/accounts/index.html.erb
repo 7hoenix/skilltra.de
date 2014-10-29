@@ -35,6 +35,8 @@
         <p><%= link_to "Update Profile", edit_account_path(account), class: "btn btn-primary btn-lg" %>
         <% else %>
         <p><%= link_to 'View Profile', account, class: "btn btn-default btn-lg" %></p>
+        <p><%= link_to 'Message Me', new_conversation_path(account), class: "btn btn-success btn-lg" %></p>
+
         <% end %>
         </p>
                </div>

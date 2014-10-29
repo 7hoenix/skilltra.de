@@ -1,12 +1,6 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
 
-  
->>>>>>> ee04068b55c20c5d9fcb6d34662f76aa9b739199
-#CURRENT: index page displays all accounts. requires user.all
-#POSSIBLE:  - more formatting of the page  look nicer - more columns or details may end up being added to the user.
-
-
   def index
     @accounts = Account.all.order("created_at DESC").paginate(:per_page => 8, :page => params[:page])
    #commeneted out -- didnt need? might break something else

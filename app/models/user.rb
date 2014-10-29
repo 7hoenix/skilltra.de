@@ -18,10 +18,7 @@ class User < ActiveRecord::Base
   #   user.average_score = user.average_score + score.score
   # end
 
-
-
-
-
+  acts_as_messageable
 
 
  # This is for omniauth 
