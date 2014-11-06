@@ -1,14 +1,7 @@
 class ConversationsController < ApplicationController
   before_filter :authenticate_user!
   helper_method :mailbox, :conversation
-def new
-  @user = User.all
 
-end
-
-  def index
-    @conversations ||= current_user.mailbox.inbox.all
-  end
 
   def create
     recipient_emails = conversation_params(:recipients).split(',')
@@ -21,7 +14,7 @@ end
   end
 
   def reply
-    current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
+    current_user.reply_to_conversation(conversation, *message_params(:body))
     redirect_to conversation_path(conversation)
   end
 
@@ -46,8 +39,8 @@ end
   end
 
 
-  def conversation_params
-    params.permit(:recipients,:subject, :body, :account)
+  def conversation_params(*keys)
+    fetch_params(:conversation, *keys)
   end
 
   def message_params(*keys)

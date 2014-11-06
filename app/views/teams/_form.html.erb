@@ -1,0 +1,26 @@
+<%= form_for @team do |f| %>
+    <% if @team.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@team.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+          <ul>
+            <% @team.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label "What would you like to name your team?" %>
+      <br>
+      <%= f.text_area :team_name, class: "form-control" %>
+    </div>
+
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+
+    <div class="form-group">
+      <%= f.submit "Create My Team", class: "btn btn-primary btn-lg" %>
+    </div>
+
+<% end %>

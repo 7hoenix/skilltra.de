@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
         has_many :jobs, dependent: :destroy
         has_many :bids, dependent: :destroy
         has_many :reviews
+        has_many :teams, through: :team_members, dependent: :destroy
 
 
   # def self.set_average_score(score)
@@ -19,6 +20,16 @@ class User < ActiveRecord::Base
   # end
 
   acts_as_messageable
+
+
+  # You'd, probably, want to have a separate name column instead
+
+
+  def mailboxer_email(object)
+    email
+  end
+
+
 
 
  # This is for omniauth 

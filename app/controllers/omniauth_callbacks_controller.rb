@@ -20,6 +20,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
           @user.average_score = 0
           @user.open_jobs = 0
 
+
+
             sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
             set_flash_message(:notice, :success, :kind => "linkedin") if is_navigational_format?
 

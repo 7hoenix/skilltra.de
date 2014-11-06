@@ -1,0 +1,14 @@
+<div class="container-home">
+<h1>
+  <%= conversation.subject %>
+</h1>
+<ul>
+  <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
+    <% message = receipt.message %>
+    <p>
+      <%= message.body %>
+    </p>
+  <% end %>
+</ul>
+<%= render 'messages/form', conversation: conversation %>
+</div>

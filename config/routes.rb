@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  resources :teams
+
   resources :accounts
 
   resources :posts do
