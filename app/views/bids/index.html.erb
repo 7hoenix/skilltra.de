@@ -10,6 +10,7 @@
 
       <% if @post.user != current_user %>
       <div class="align-center"><%= link_to 'I can Help!', new_post_bid_path, class: "btn btn-primary btn-xl" %>
+        <%= link_to 'Message Me', new_conversation_path(:account => @post.user.email), class: "btn btn-success btn-xl" %>
       </div>
       <% end %>
 

@@ -1,3 +1,11 @@
+<li><%= link_to conversations_path do %>
+                 <span class="badge"><% if current_user.open_jobs %>
+                       <%= current_user.open_jobs %>
+                   <% end %>
+                 </span> Open Projects
+            <% end %>
+          </li>
+
 
 
 

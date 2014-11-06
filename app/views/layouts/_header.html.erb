@@ -32,11 +32,18 @@
                  </span> Open Projects
                 <% end %>
            </li>
-    <% end %>
-      <li><%= link_to "About", about_path %></li>
-      <li><%= link_to "Contact Us", contact_path %></li>
 
-      <% if user_signed_in? %>
+    <% end %>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          About <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><%= link_to "About", about_path %></li>
+            <li><%= link_to "Contact Us", contact_path %></li>
+          </ul>
+        </li>
+
+            <% if user_signed_in? %>
 
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">

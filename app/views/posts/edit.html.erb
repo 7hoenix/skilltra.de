@@ -5,5 +5,10 @@
     <%= render 'form' %>
 
     <%= link_to 'Show', @post %> |
+  <% if @post.user == current_user %>
+      <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-lg" do %>
+          Delete
+      <% end %>
+      <% end %>
 
 </div>
