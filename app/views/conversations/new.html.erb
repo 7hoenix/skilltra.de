@@ -1,4 +1,4 @@
 <div class="container-home">
-<h1>Message</h1>
+<h1>Message <%=  User.find_by_email(params[:account]).name %></h1>
 <%= render 'form' %>
 </div>

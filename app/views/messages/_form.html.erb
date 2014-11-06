@@ -1,7 +1,9 @@
-<%= simple_form_for :message, url: reply_conversation_path(conversation) do |f| %>
-  <%= f.input :body %>
-  <div class="form-actions">
+<%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
+   <div class="form-group">
+    <%= f.label "Reply", class: 'heading' %>
+    <%= f.text_field :body, class: 'form-control' %>
+    </div>
+    <div class="form-actions">
     <%= f.submit "Send", class: 'btn btn-success btn-lg' %>
-    <%= submit_tag 'Cancel', type: :reset, class: 'btn btn-danger btn-lg' %>
   </div>
 <% end %>
