@@ -1,10 +1,5 @@
 <div class="container-home">
   <%= link_to 'Back', accounts_path %>
-  <% if @user.account_completed == true %>
-      <h1 class="heading">Edit Profile</h1>
-  <% else %>
-    <h1 class="heading">Talk about yourself. Its ok to brag.</h1>
-    <% end %>
 
   <%= render 'form' %>
 
