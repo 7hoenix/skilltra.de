@@ -1,0 +1,36 @@
+<div class="container-home">
+
+  <h1 class="align-center">Do you have what it takes to be a <span class="text-orange">preferred</span> startup?</h1>
+    <h2>You Get:</h2>
+  <ul>
+      <li>Help with 1 - 5 small projects each month
+        <ul>
+          <li>Small Website help</li>
+          <li>UX help</li>
+          <li>Other</li>
+        </ul>
+      </li>
+      <li>You will be featured on our website</li>
+      <li>You will be the envy of all of your friends</li>
+    </ul>
+
+  <h2>The best candidates should be </h2>
+  <ul>
+    <li>A good mission</li>
+    <li>Have skills to trade down the road</li>
+    <li>A pay it forward mentality</li>
+  </ul>
+
+  <h2>If you would like to be considered please apply below:</h2>
+
+  <%= form_for(@preferred) |f| %>
+    <h3>Whats your startup called?</h3>
+    <%= f.text_field :startup_name %>
+
+    <h3>Why are you guys super awesome?</h3>
+
+  <% end %>
+
+
+
+</div>

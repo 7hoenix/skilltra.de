@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :bids
   end
 
+  resources :betas
+
 devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
   resources :conversations, only: [:index, :show, :new, :create] do
@@ -32,6 +34,8 @@ devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks"
   get "profile" => 'pages#profile'
 
   get "contact" => 'pages#contact'
+
+  get "preferred" => 'pages#preferred'
 
   get "editaccount" => 'accounts#new'
 

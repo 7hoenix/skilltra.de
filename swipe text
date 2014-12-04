@@ -1,3 +1,16 @@
+Copy from Main page
+
+
+Most founders take hours, days, or even weeks off from what they <strong>should</strong> be doing to learn some secondary skill they are never going to use again. You don't have to. Instead, play to your strengths. . . all the time.
+
+
+
+
+
+
+
+
+
 <li><%= link_to conversations_path do %>
                  <span class="badge"><% if current_user.open_jobs %>
                        <%= current_user.open_jobs %>
@@ -53,7 +66,7 @@ attr_accessor :name
       session["devise.facebook_data"] = request.env["omniauth.auth"]
       redirect_to edit_user_registration_url
     end
-end 
+end
 
 
 
@@ -72,25 +85,25 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :omniauthable, :omniauth_providers => [:facebook, :linkedin]
- 
+
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :trackable
        # :validatable,
- 
+
          has_many :posts, dependent: :destroy
          has_one :account, dependent: :destroy
          has_many :jobs, dependent: :destroy
          has_many :bids, dependent: :destroy
 
- 
- # This is for omniauth 
+
+ # This is for omniauth
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name   # assuming the user model has a name
       user.image = auth.info.image # assuming the user model has an image
-    
+
     end
   end
 
@@ -98,7 +111,7 @@ class User < ActiveRecord::Base
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?
-            
+
         end
       end
     end
@@ -123,7 +136,7 @@ class User < ActiveRecord::Base
       end
 
     end
-  end   
+  end
 end
 
 
@@ -172,8 +185,8 @@ def set_balance_for_current_user
 
 
 
- 
-<% if false %> 
+
+<% if false %>
         <%= link_to 'Show', post_bid_path(post) %>
         <%= link_to 'Edit', edit_post_bid_path(bid.id ) %>
         <%= link_to 'Destroy', bid, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -183,7 +196,7 @@ def set_balance_for_current_user
 
 
    <th><strong>What needs to be done</strong></th>
-        <th><strong>Bid Amount</strong></th>   
+        <th><strong>Bid Amount</strong></th>
       </tr>
 
 
@@ -193,7 +206,7 @@ def set_balance_for_current_user
 
 
 <p><strong><%= @post.user.name if @post.user %></strong></p>
-        <%= link_to("Bid on Post", new_post_bid_path(post)) %> 
+        <%= link_to("Bid on Post", new_post_bid_path(post)) %>
         <% if @post.user == current_user %>
           <%= link_to edit_post_path(@post) do %>
           <span class="glyphicon glyphicon-edit"></span>
@@ -204,7 +217,7 @@ def set_balance_for_current_user
             <% end %>
         <% else %>
 
-        <% end %> 
+        <% end %>
 
 
 
@@ -291,7 +304,7 @@ config.omniauth :facebook, Facebook.app_id, Facebook.secret
 
 
 
-   # This is for omniauth 
+   # This is for omniauth
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -306,7 +319,7 @@ config.omniauth :facebook, Facebook.app_id, Facebook.secret
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?
-            
+
 
       end
     end
@@ -359,15 +372,15 @@ config.omniauth :facebook, Facebook.app_id, Facebook.secret
       <p><strong>Primary Skill</strong></p>
   <div class="col-lg-6">
     <div class="input-group">
-        
 
-        <input type="radio" name="primarySkill" value="Programming">  Programming 
+
+        <input type="radio" name="primarySkill" value="Programming">  Programming
         <br>
          <input type="radio" name="primarySkill" value="Marketing">  Marketing
          <br>
-          <input type="radio" name="primarySkill" value="Design">  Design 
+          <input type="radio" name="primarySkill" value="Design">  Design
         <br>
-         <input type="radio" name="primarySkill" value="Biz Dev"> Biz Dev 
+         <input type="radio" name="primarySkill" value="Biz Dev"> Biz Dev
          <br>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
@@ -375,13 +388,13 @@ config.omniauth :facebook, Facebook.app_id, Facebook.secret
   <p><strong>Secondary Skill</strong></p>
   <div class="col-lg-6">
     <div class="input-group">
-        <input type="radio" name="secondarySkill" value="Programming">  Programming 
+        <input type="radio" name="secondarySkill" value="Programming">  Programming
         <br>
          <input type="radio" name="secondarySkill" value="Marketing">  Marketing
          <br>
-          <input type="radio" name="secondarySkill" value="Design">  Design 
+          <input type="radio" name="secondarySkill" value="Design">  Design
         <br>
-         <input type="radio" name="secondarySkill" value="Biz Dev"> Biz Dev 
+         <input type="radio" name="secondarySkill" value="Biz Dev"> Biz Dev
          <br>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
@@ -410,11 +423,11 @@ config.omniauth :facebook, Facebook.app_id, Facebook.secret
 </div>
 
 <%= image_tag current_user.image %>
- 
-  
+
+
     <h2><%= current_user.name %></h2>
     <p><%= current_user.email %></p>
-  
+
 
     <% @accounts.each do |account| %>
         <%= account.company %><br>

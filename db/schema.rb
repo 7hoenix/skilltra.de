@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031221709) do
+ActiveRecord::Schema.define(version: 20141120182023) do
 
   create_table "accounts", force: true do |t|
     t.string   "bio"
@@ -25,6 +25,11 @@ ActiveRecord::Schema.define(version: 20141031221709) do
   end
 
   add_index "accounts", ["user_id"], name: "index_accounts_on_user_id"
+
+  create_table "beta", force: true do |t|
+    t.string "email"
+    t.string "skill"
+  end
 
   create_table "bids", force: true do |t|
     t.integer  "bid"
@@ -116,6 +121,11 @@ ActiveRecord::Schema.define(version: 20141031221709) do
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
+  create_table "preferreds", force: true do |t|
+    t.string "startup_name"
+    t.string "description"
+  end
+
   create_table "reviews", force: true do |t|
     t.integer "score"
     t.integer "reviewee_id"
@@ -126,18 +136,18 @@ ActiveRecord::Schema.define(version: 20141031221709) do
   add_index "reviews", ["job_id"], name: "index_reviews_on_job_id"
 
   create_table "team_members", force: true do |t|
-    t.integer "user_id"
-    t.integer "team_id"
+    t.integer  "user_id"
+    t.integer  "team_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "accepted_at"
   end
 
   create_table "teams", force: true do |t|
     t.string  "team_name"
-    t.integer "member_id"
-    t.integer "user_id"
-    t.integer "team_id"
+    t.integer "owner_id"
+    t.string  "owner_name"
   end
-
-  add_index "teams", ["user_id"], name: "index_teams_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

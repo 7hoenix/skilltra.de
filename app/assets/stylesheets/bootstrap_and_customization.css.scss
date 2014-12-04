@@ -15,7 +15,7 @@ $navbar-default-brand-color:  #FF9900;
 
 $jumbotron-bg:                white;
 
-
+@import "bootstrap-sprockets";
 @import 'bootstrap';
 
 .center {
@@ -113,4 +113,8 @@ $jumbotron-bg:                white;
 
 .circle {
   border-radius: 300px;
+}
+
+.text-orange {
+  color: #FF9900;
 }

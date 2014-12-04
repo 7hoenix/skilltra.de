@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   before_action :on_load, only: [:main]
 
+
   def main
   end
 
@@ -17,6 +18,10 @@ class PagesController < ApplicationController
   end
 
   def accounts
+  end
+
+  def preferred
+    @preferred = Preferred.new
   end
 
   private
