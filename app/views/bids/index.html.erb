@@ -9,8 +9,13 @@
     </div>
 
       <% if @post.user != current_user %>
-      <div class="align-center"><%= link_to 'I can Help!', new_post_bid_path, class: "btn btn-primary btn-xl" %>
-        <%= link_to 'Message Me', new_conversation_path(:account => @post.user.email), class: "btn btn-success btn-xl" %>
+      <div class="align-center">
+        <%= link_to new_post_bid_path, class: "btn btn-primary btn-lg" do %>
+        <span class="glyphicon glyphicon-retweet"></span> Offer to Help
+        <% end %>
+        <%= link_to new_conversation_path(:account => @post.user.email), class: "btn btn-success btn-lg" do %>
+        <span class="glyphicon glyphicon-envelope"></span> <%= @post.user.name %>
+        <% end %>
       </div>
       <% end %>
 
@@ -75,10 +80,12 @@
 
         <% if bid.user_id == current_user.id %>
               <br>
-        <%= link_to 'Edit', edit_post_bid_path(@post, bid), class: "btn btn-default btn-lg" %>
-          <%= link_to 'Delete', post_bid_path(@post, bid), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-lg" %>
-
-
+            <%= link_to edit_post_bid_path(@post, bid), class: "btn btn-default btn-lg" do %>
+            <span class="glyphicon glyphicon-pencil"></span> Edit
+            <% end %>
+            <%= link_to post_bid_path(@post, bid), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-lg" do %>
+            <span class="glyphicon glyphicon-trash"></span> Delete
+            <% end %>
         <% else %>
             <br>
                 <% if @post.user == current_user %>
@@ -94,7 +101,7 @@
                                       :bid_id => $bid_id_send
 
                               ), class: "btn btn-primary btn-lg" do %>
-                      <span class="glyphicon glyphicon-plus"></span> Check It Out
+                      <span class="glyphicon glyphicon-expand"></span> Closer Look
                          <% end %>
                 <% end %>
           <% end %>
