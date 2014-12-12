@@ -76,4 +76,9 @@ class User < ActiveRecord::Base
 
     end
   end
+
+  def create_team
+      Team.create(owner_id: id)
+  end
+
 end

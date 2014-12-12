@@ -1,0 +1,27 @@
+
+<div class="container-home">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Title:</strong>
+    <%= @blog.title %>
+  </p>
+
+  <p>
+    <strong>Author:</strong>
+    <%= @blog.author %>
+  </p>
+
+  <p>
+    <strong>Content:</strong>
+    <%= @blog.content %>
+  </p>
+
+  <td><%= link_to 'View Comments', blog_comments_path(blog_id: @blog.id) %>
+    <td><%= link_to 'Add Comment', new_blog_comment_path(blog_id: @blog.id) %>
+
+  <% if current_user.id == 1 %>
+  <%= link_to 'Edit', edit_blog_path(@blog) %>
+  <%= link_to 'Back', blogs_path %>
+  <% end %>
+</div>

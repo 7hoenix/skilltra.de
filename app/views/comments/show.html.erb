@@ -1,0 +1,21 @@
+<div class="container-home">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @comment.content %>
+</p>
+
+<p>
+  <strong>Blog:</strong>
+  <%= @comment.blog_id %>
+</p>
+
+<p>
+  <strong>Commenter:</strong>
+  <%= @comment.commenter %>
+</p>
+
+<%= link_to 'Edit', edit_blog_comment_path(@comment) %> |
+<%= link_to 'Back', blog_comments_path %>
+</div>

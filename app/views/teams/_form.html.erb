@@ -17,7 +17,7 @@
       <%= f.text_area :team_name, class: "form-control" %>
     </div>
 
-    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :owner_id, :value => current_user.id %>
 
     <div class="form-group">
       <%= f.submit "Create My Team", class: "btn btn-primary btn-lg" %>

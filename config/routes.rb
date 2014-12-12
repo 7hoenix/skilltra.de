@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
+  resources :blogs do
+    resources :comments
+  end
+
   resources :jobs do
     resources :reviews
   end
+
+  resources :team_members
 
   resources :teams
 

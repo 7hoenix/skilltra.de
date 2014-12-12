@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120182023) do
+ActiveRecord::Schema.define(version: 20141210191141) do
 
   create_table "accounts", force: true do |t|
     t.string   "bio"
@@ -42,6 +42,24 @@ ActiveRecord::Schema.define(version: 20141120182023) do
 
   add_index "bids", ["post_id"], name: "index_bids_on_post_id"
   add_index "bids", ["user_id"], name: "index_bids_on_user_id"
+
+  create_table "blogs", force: true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.integer  "blog_id"
+    t.string   "commenter"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["blog_id"], name: "index_comments_on_blog_id"
 
   create_table "jobs", force: true do |t|
     t.string   "title"
@@ -146,7 +164,6 @@ ActiveRecord::Schema.define(version: 20141120182023) do
   create_table "teams", force: true do |t|
     t.string  "team_name"
     t.integer "owner_id"
-    t.string  "owner_name"
   end
 
   create_table "users", force: true do |t|
@@ -172,6 +189,7 @@ ActiveRecord::Schema.define(version: 20141120182023) do
     t.boolean  "account_completed"
     t.integer  "jobs_completed"
     t.integer  "open_jobs"
+    t.boolean  "team_completed"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

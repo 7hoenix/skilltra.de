@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
       if @team.save
         redirect_to @team, notice: 'Team was successfully created.'
       else
-        render :new, notice: 'Account was successfully created.'
+        render :new, notice: 'Team was successfully created.'
       end
   end
 
@@ -40,7 +40,7 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(:team_name, :team_id)
+    params.require(:team).permit(:team_name, :owner_id)
   end
 
 end

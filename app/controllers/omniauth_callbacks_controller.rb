@@ -15,13 +15,17 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         else
           @user.create_account
           @user.account_completed = false
-          @user.balance = 2
+          @user.balance = 1
           @user.jobs_completed = 0
           @user.average_score = 0
           @user.open_jobs = 0
+          @user.create_team
 
 
 
+
+
+            # redirect_to team_path(@user)
             sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
             set_flash_message(:notice, :success, :kind => "linkedin") if is_navigational_format?
 
@@ -33,4 +37,4 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       end
   end
 
-end 
+end

@@ -29,7 +29,7 @@ gem 'omniauth-linkedin'
 
 gem "mailboxer"
 gem 'simple_form'
-gem 'haml-rails'
+
 
 # OAuth 2
 #gem 'omniauth-linkedin-oauth2'
