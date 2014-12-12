@@ -1,10 +1,19 @@
 <div class="container-home">
-<h1>New comment</h1>
+  <div class="blog-header">
+    <h1 class="blog-title"><%= @blog.title %></h1>
+    <p class="lead blog-description">Author: <%= @blog.author %></p>
+  </div>
 
-<%= render 'form' %>
+  <div class="row">
 
+    <div class="col-sm-8 blog-main">
 
-<% if false %>
-<%= link_to 'Back', blog_comments_path(:blog_id => blog.id) %>
-<% end %>
+      <%= render 'form' %>
+
+    </div>
+
+    <%= render 'layouts/sidebar' %>
+
+  </div>
+
 </div>

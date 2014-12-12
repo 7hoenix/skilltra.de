@@ -21,6 +21,6 @@
  <%= f.hidden_field :commenter, :value => current_user.name %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Comment', class: 'btn btn-lg btn-primary' %>
   </div>
 <% end %>

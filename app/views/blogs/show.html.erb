@@ -1,27 +1,31 @@
-
+<p id="notice"><%= notice %></p>
 <div class="container-home">
-  <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Title:</strong>
-    <%= @blog.title %>
-  </p>
 
-  <p>
-    <strong>Author:</strong>
-    <%= @blog.author %>
-  </p>
+    <div class="blog-header">
+      <h1 class="blog-title"><%= @blog.title %></h1>
+      <p class="lead blog-description">Author: <%= @blog.author %></p>
+    </div>
 
-  <p>
-    <strong>Content:</strong>
-    <%= @blog.content %>
-  </p>
+    <div class="row">
 
-  <td><%= link_to 'View Comments', blog_comments_path(blog_id: @blog.id) %>
-    <td><%= link_to 'Add Comment', new_blog_comment_path(blog_id: @blog.id) %>
+      <div class="col-sm-8 blog-main">
 
-  <% if current_user.id == 1 %>
-  <%= link_to 'Edit', edit_blog_path(@blog) %>
-  <%= link_to 'Back', blogs_path %>
-  <% end %>
+        <%= @blog.content %>
+
+        <br>
+        <%= link_to "View Comments", blog_comments_path(:blog_id => @blog.id) %>
+        <br>
+        <%= link_to "Add Comment", new_blog_comment_path(:blog_id => @blog.id) %>
+
+        <% if current_user.id == 1 %>
+        <%= link_to 'Edit', edit_blog_path(@blog) %>
+        <%= link_to 'Back', blogs_path %>
+        <% end %>
+
+      </div>
+
+      <%= render 'layouts/sidebar' %>
+
+    </div>
 </div>

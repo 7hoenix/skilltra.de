@@ -25,6 +25,10 @@
             <% end %>
           </li>
             </li>
+						<li><%= link_to blogs_path do %>
+							<span class="glyphicon glyphicon-book"></span> Blog
+							<% end %>
+						</li>
            <li><%= link_to jobs_path do %>
                  <span class="badge"><% if current_user.open_jobs %>
                        <%= current_user.open_jobs %>
