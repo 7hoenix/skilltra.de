@@ -33,6 +33,6 @@
 </div><!-- /.row -->
 
 
-<% if current_user.id == 1 %>
-<td><%= link_to 'New Blog', new_blog_path %></td>
+<% if current_user && current_user.id == 1 %>
+  <td><%= link_to 'New Blog', new_blog_path %></td>
 <% end %>

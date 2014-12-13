@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :betas
 
-devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
   resources :conversations, only: [:index, :show, :new, :create] do
     member do

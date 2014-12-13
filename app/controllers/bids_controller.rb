@@ -1,5 +1,6 @@
 class BidsController < ApplicationController
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   #before_action :check_balance, only: [:create]
 
   def index
@@ -41,7 +42,7 @@ class BidsController < ApplicationController
     @users = User.all
     @user = User.find(bid_params[:user_id])
     @post = Post.find(bid_params[:post_id])
-    
+
 
   if @bid.bid > 0
 
@@ -92,5 +93,5 @@ class BidsController < ApplicationController
     def bid_params
       params.require(:bid).permit(:bid, :bidinfo, :post_id, :user_id)
     end
- 
+
 end

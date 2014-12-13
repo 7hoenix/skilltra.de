@@ -1,5 +1,6 @@
 class TeamMembersController < ApplicationController
   before_filter :setup_team_members, only: [:create]
+  before_action :authenticate_user!
 
   def create
     TeamMember.request(@user, @team)

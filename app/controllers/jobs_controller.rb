@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :check_balance, only: [:create]
+  before_action :authenticate_user!
  # before_action :set_balance_for_current_user, only: [:check_balance]
  # before_action :set_balance_for_bid_user, only: [:check_balance]
 
@@ -85,18 +86,18 @@ class JobsController < ApplicationController
 
       elsif @user.balance > @bid.bid
         redirect_to jobs_url, notice: "Stay Positive Bro"
-      
+
       else
         redirect_to jobs_url, notice: "Need More Credits!"
-      
+
       end
 
     end
 
     def set_balance_for_current_user
-    
+
       @user = User.find(job_params[:user_id])
-      
+
       @bid = Bid.find(job_params[:id])
 
         $newvalue = (@user.balance - @bid.bid)
@@ -104,7 +105,7 @@ class JobsController < ApplicationController
         Post.find(params[:job][:post_id]).delete
 
     end
-    
+
     def set_balance_for_bid_user
       @user = User.find(job_params[:bid_user_id])
 

@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   # after_action :project_completed, only: [:create]
   # before_action :set_review, only: [:my_reviews]
+  before_action :authenticate_user!
 
 
   def index

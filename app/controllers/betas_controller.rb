@@ -1,5 +1,5 @@
 class BetasController < ApplicationController
-
+  before_action :authenticate_user!
 
 def new
  @beta = Beta.new
