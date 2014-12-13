@@ -11,7 +11,7 @@
 
       <div class="col-sm-8 blog-main">
 
-        <%= @blog.content %>
+        <%= simple_format(@blog.content) %>
 
         <br>
         <%= link_to "View Comments", blog_comments_path(:blog_id => @blog.id) %>

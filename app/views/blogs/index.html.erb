@@ -14,7 +14,7 @@
       <h2 class="blog-post-title"><%= link_to blog.title, blog %></h2>
       <p class="blog-post-meta"><%=  %> <a href="#"><%= blog.author %></a></p>
 
-      <%= blog.content %>
+      <%= simple_format(blog.content) %>
       <br>
       <%= link_to "View Comments", blog_comments_path(:blog_id => blog.id) %>
       <br>
