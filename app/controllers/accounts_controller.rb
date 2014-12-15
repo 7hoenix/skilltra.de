@@ -28,8 +28,8 @@ class AccountsController < ApplicationController
             #may need to add @JOBS where userid = userid to display jobs worked on
 
   def show
-    @user = User.find(params[:id])
     @account = Account.find(params[:id])
+    @user = User.find(@account.user_id)
   end
 
   #CURRENT: Currently displays

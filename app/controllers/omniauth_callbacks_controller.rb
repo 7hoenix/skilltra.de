@@ -19,7 +19,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
           @user.jobs_completed = 0
           @user.average_score = 0
           @user.open_jobs = 0
-          @user.create_team
+          # @user.create_team
 
 
 

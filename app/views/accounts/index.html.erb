@@ -32,7 +32,7 @@
       </p>
     <% else %>
         <p>
-        <%= link_to account, class: "btn btn-default btn-lg" do %>
+        <%= link_to account_path(account.user_id), class: "btn btn-default btn-lg" do %>
         <span class="glyphicon glyphicon-expand"></span> View Profile
         <% end %>
       </p>
