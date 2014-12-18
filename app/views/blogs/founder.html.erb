@@ -1,0 +1,38 @@
+<div class="container-home">
+
+  <div class="blog-header">
+    <h1 class="blog-title">Founder's Corner</h1>
+    <p class="lead blog-description">To Your Startup Success</p>
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm-8 blog-main">
+
+      <% @blogs.reverse.each do |blog| %>
+      <div class="blog-post">
+        <h2 class="blog-post-title"><%= link_to blog.title, blog %></h2>
+        <p class="blog-post-meta"><%=  %> <a href="#"><%= blog.author %></a></p>
+
+        <%= simple_format(blog.content) %>
+        <br>
+        <%= link_to "View Comments", blog_comments_path(:blog_id => blog.id) %>
+        <br>
+        <%= link_to new_blog_comment_path(:blog_id => blog.id) do %>
+        <span class="glyphicon glyphicon-comment"></span> Comment
+        <% end %>
+      </div><!-- /.blog-post -->
+      <% end %>
+
+    </div><!-- /.blog-main -->
+
+
+    <%= render 'layouts/sidebar' %>
+
+
+  </div><!-- /.row -->
+
+
+  <% if current_user && current_user.id == 1 %>
+    <td><%= link_to 'New Blog', new_blog_path %></td>
+  <% end %>

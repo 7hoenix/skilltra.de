@@ -12,7 +12,6 @@ class AccountsController < ApplicationController
    # @account = Account.find(params[:id])
    # @user = User.find(params[:id])
     @users = User.all
-
   end
 
   def admin_accounts

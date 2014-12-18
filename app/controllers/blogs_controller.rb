@@ -1,6 +1,19 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+
+
+  def founder
+    @blogs = Blog.all
+  end
+
+
+
+
+
+
+
+
   # GET /blogs
   # GET /blogs.json
   def index

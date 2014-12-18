@@ -9,8 +9,8 @@ class TeamMember < ActiveRecord::Base
   def self.request(user, team)
     unless user == team or TeamMember.exists?(user, team)
       transaction do
-        create(:user => user, :team => team, :status => 'pending')
-        create(:user => team, :team => user, :status => 'requested')
+        create(:user_id => user.id, :team_id => team.id, :status => 'pending')
+        create(:user_id => team.id, :team_id => user.id, :status => 'requested')
       end
     end
   end

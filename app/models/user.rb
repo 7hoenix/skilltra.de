@@ -14,8 +14,9 @@ class User < ActiveRecord::Base
         has_many :reviews
 
         has_many :team_members
-        has_many :teams, through: :team_members
-
+        has_many :teams, through: :team_members, conditions: "status = 'accepted'"
+        has_many :requested_teams, through: :team_members, source: :team, conditions: "status = 'requested'"
+        has_many :pending_teams, through: :team_members, source: :team, conditions: "status = 'pending'"
 
   # def self.set_average_score(score)
   #   user.average_score = user.average_score + score.score

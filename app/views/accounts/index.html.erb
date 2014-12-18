@@ -41,7 +41,7 @@
         <% end %>
       </p>
 
-      <p><%= link_to "Add #{account.user.name} to your team", { :controller => 'team_members', :action => 'create', :id => account.user.id, :user_id => current_user.id },
+      <p><%= link_to "Add #{account.user.name} to your team", team_members_path(:team_id => account.user.id, :user_id => current_user.id), :method => :post,
       data: { confirm: "Send Team Request to #{account.user.name}?" } %>
       </p>
 

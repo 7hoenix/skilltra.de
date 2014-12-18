@@ -5,7 +5,7 @@ class TeamMembersController < ApplicationController
   def create
     TeamMember.request(@user, @team)
     flash[:notice] = "Team request sent."
-    redirect_to posts_path
+    redirect_to team_members_path
   end
 
   def index
@@ -16,7 +16,7 @@ class TeamMembersController < ApplicationController
 
   def setup_team_members
     @user = User.find_by_id(params[:user_id])
-    @team = User.find_by_id(params[:id])
+    @team = User.find_by_id(params[:team_id])
   end
 
   def team_member_params

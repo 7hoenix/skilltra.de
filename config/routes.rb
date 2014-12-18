@@ -49,6 +49,8 @@ Rails.application.routes.draw do
 
   get "reviewer" => 'reviews#people_reviewed'
 
+  get "founder" => 'blogs#founder'
+
 
   #admin dashboard routes below -- can probably be consolidated
   get "admin_dashboard" => 'admin#index'
