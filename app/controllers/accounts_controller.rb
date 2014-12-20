@@ -5,6 +5,20 @@ class AccountsController < ApplicationController
 #CURRENT: index page displays all accounts. requires user.all
 #POSSIBLE:  - more formatting of the page  look nicer - more columns or details may end up being added to the user.
 
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
 
   def index
     @accounts = Account.all.order("created_at DESC").paginate(:per_page => 22, :page => params[:page])

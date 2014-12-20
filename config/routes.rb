@@ -8,11 +8,11 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  resources :team_members
-
-  resources :teams
-
-  resources :accounts
+  resources :accounts do
+    member do
+      get :following, :followers
+    end
+  end
 
   resources :posts do
     resources :bids
@@ -21,6 +21,11 @@ Rails.application.routes.draw do
   resources :betas
 
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+
+  resources :relationships,       only: [:create, :destroy]
+
+
+
 
   resources :conversations, only: [:index, :show, :new, :create] do
     member do

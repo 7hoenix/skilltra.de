@@ -13,6 +13,8 @@
             <p id="notice"><%= notice %></p>
 
             <h3 class="align-left">
+              <%= render 'shared/stats' %>
+              <%= render 'follow_form' %>
                   <% if @user.image %>
                       <%= image_tag(@user.image, class: "circle") %>
                   <% else %>
@@ -58,6 +60,3 @@
       </div>
     </div>
   </div>
-
-
-

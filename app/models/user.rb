@@ -13,10 +13,31 @@ class User < ActiveRecord::Base
         has_many :bids, dependent: :destroy
         has_many :reviews
 
-        has_many :team_members
-        has_many :teams, through: :team_members, conditions: "status = 'accepted'"
-        has_many :requested_teams, through: :team_members, source: :team, conditions: "status = 'requested'"
-        has_many :pending_teams, through: :team_members, source: :team, conditions: "status = 'pending'"
+        has_many :active_relationships, class_name:  "Relationship",
+                                        foreign_key: "follower_id",
+                                        dependent:   :destroy
+        has_many :passive_relationships, class_name:  "Relationship",
+                                        foreign_key: "followed_id",
+                                        dependent:   :destroy
+        has_many :following, through: :active_relationships, source: :followed
+        has_many :followers, through: :passive_relationships, source: :follower
+
+
+
+  def follow(other_user)
+    active_relationships.create(followed_id: other_user.id)
+  end
+
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  def following?(other_user)
+    following.include?(other_user)
+  end
+
+
+
 
   # def self.set_average_score(score)
   #   user.average_score = user.average_score + score.score

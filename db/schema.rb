@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210191141) do
+ActiveRecord::Schema.define(version: 20141219193231) do
 
   create_table "accounts", force: true do |t|
     t.string   "bio"
@@ -144,6 +144,17 @@ ActiveRecord::Schema.define(version: 20141210191141) do
     t.string "description"
   end
 
+  create_table "relationships", force: true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+
   create_table "reviews", force: true do |t|
     t.integer "score"
     t.integer "reviewee_id"
@@ -152,19 +163,6 @@ ActiveRecord::Schema.define(version: 20141210191141) do
   end
 
   add_index "reviews", ["job_id"], name: "index_reviews_on_job_id"
-
-  create_table "team_members", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "team_id"
-    t.string   "status"
-    t.datetime "created_at"
-    t.datetime "accepted_at"
-  end
-
-  create_table "teams", force: true do |t|
-    t.string  "team_name"
-    t.integer "owner_id"
-  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -189,7 +187,6 @@ ActiveRecord::Schema.define(version: 20141210191141) do
     t.boolean  "account_completed"
     t.integer  "jobs_completed"
     t.integer  "open_jobs"
-    t.boolean  "team_completed"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
