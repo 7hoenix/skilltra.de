@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
         has_many :following, through: :active_relationships, source: :followed
         has_many :followers, through: :passive_relationships, source: :follower
 
+        has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>", square: '200x200#' }
+
+        # Validates the attached image is image/jpg, image/png, etc
+        validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 
   def follow(other_user)
@@ -86,13 +90,13 @@ class User < ActiveRecord::Base
       if registered_user
         return registered_user
       else
-
         user = User.create(name: auth.info.first_name,
                             provider: auth.provider,
                             uid: auth.uid,
                             email: auth.info.email,
-                           image: auth.info.image,
+                            image: auth.info.image,
                             password: Devise.friendly_token[0,20],
+                            avatar: auth.info.image
                           )
       end
 

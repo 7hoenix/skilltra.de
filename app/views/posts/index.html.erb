@@ -10,8 +10,8 @@
           <p><b><%= post.category %></b></p><br>
           <div class="col-md-6">
           <% if post.user %>
-                <% if post.user.image %>
-                <p><%= link_to image_tag(post.user.image, class: "circle"), account_path(post.user_id) %></p>
+                <% if post.user.avatar %>
+                <p><%= link_to image_tag(post.user.avatar, class: "circle"), account_path(post.user_id) %></p>
                 <% else %>
                 <p><%= image_tag('userdefaultimagesm.png', class: "circle") %></p>
                 <% end %>

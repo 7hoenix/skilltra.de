@@ -6,7 +6,7 @@
     <h3><%= account.user.name %></h3>
              <div class="col-md-6">
     <% if account.user.image %>
-        <p><%= image_tag account.user.image, class: "circle" %></p>
+        <p><%= image_tag account.user.avatar, class: "circle" %></p>
     <% else %>
         <p><%= image_tag('userdefaultimagesm.png', class: "circle") %></p>
     <% end %>

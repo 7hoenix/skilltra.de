@@ -10,8 +10,8 @@
                 <div class="panel-body">
 
                   <% if @post.user %>
-                      <% if @post.user.image %>
-                          <p><%= image_tag(@post.user.image, class: "circle") %></p>
+                      <% if @post.user.avatar %>
+                          <p><%= image_tag(@post.user.avatar, class: "circle") %></p>
                       <% else %>
                           <p><%= image_tag('userdefaultimagesm.png', class: "circle") %></p>
                       <% end %>

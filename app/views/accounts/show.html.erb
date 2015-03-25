@@ -16,7 +16,7 @@
               <%= render 'shared/stats' %>
               <%= render 'follow_form' %>
                   <% if @user.image %>
-                      <%= image_tag(@user.image, class: "circle") %>
+                      <%= image_tag(@user.avatar, class: "circle") %>
                   <% else %>
                       <%= image_tag('userdefaultimagesm.png', class: "circle") %>
                   <% end %>
