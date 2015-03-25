@@ -15,7 +15,7 @@
             <h3 class="align-left">
               <%= render 'shared/stats' %>
               <%= render 'follow_form' %>
-                  <% if @user.image %>
+                  <% if @user.avatar %>
                       <%= image_tag(@user.avatar, class: "circle") %>
                   <% else %>
                       <%= image_tag('userdefaultimagesm.png', class: "circle") %>
