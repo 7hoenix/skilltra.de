@@ -95,7 +95,7 @@ class AccountsController < ApplicationController
 
 
     def account_params
-      params.require(:account).permit(:bio, :primarySkill, :secondarySkill, :company, :completed)
+      params.require(:account).permit(:bio, :primarySkill, :secondarySkill, :company, :completed, :avatar)
     end
 
 end
