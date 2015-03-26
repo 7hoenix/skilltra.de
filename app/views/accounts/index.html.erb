@@ -33,11 +33,11 @@
     <% else %>
         <p>
         <%= link_to account_path(account.user_id), class: "btn btn-default btn-lg" do %>
-        <span class="glyphicon glyphicon-expand"></span> View Profile
+        <span class="glyphicon glyphicon-expand"></span> <%= account.user.name %>'s Profile
         <% end %>
       </p>
         <p><%= link_to new_conversation_path(:account => account.user.email), class: "btn btn-success btn-lg" do %>
-        <span class="glyphicon glyphicon-envelope"></span> <%= account.user.name %>
+        <span class="glyphicon glyphicon-envelope"></span> Message <%= account.user.name %>
         <% end %>
       </p>
 
