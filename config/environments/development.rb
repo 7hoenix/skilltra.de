@@ -41,13 +41,5 @@ Rails.application.configure do
   # Required for DEVISE
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
-  # Sets PAPERCLIP to upload images to Amazon S3
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => ENV['skilltradeuserphotos'],
-      :access_key_id => ENV['AKIAJSNGWF5CQQGZFWPQ'],
-      :secret_access_key => ENV['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']
-    }
-  }
+
 end
