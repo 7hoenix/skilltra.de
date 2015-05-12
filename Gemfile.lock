@@ -243,7 +243,6 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk (~> 1.20.0)
   bootstrap-sass
-  carrierwave
   coffee-rails (~> 4.0.0)
   devise
   facebook

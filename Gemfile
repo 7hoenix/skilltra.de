@@ -48,8 +48,6 @@ gem 'letter_opener', group: :development
 gem 'paperclip', github: 'thoughtbot/paperclip'
 
 
-gem 'carrierwave'
-
 gem 'fog-aws'
 
 # Amazon Web Services
