@@ -1,0 +1,19 @@
+<div class="container-home">
+
+  <div class="row">
+
+    <div class="col-sm-8 blog-main">
+
+      <% unless user_signed_in? %>
+          <%= render 'shared/landing' %>
+      <% else %>
+        <%= render 'form' %>
+      <% end %>
+
+    </div>
+
+
+
+  </div>
+
+</div>

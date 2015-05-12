@@ -1,0 +1,14 @@
+<div class="container-home">
+  <%= form_for @skill do |f| %>
+
+  <div class="form-group">
+    <%= f.label 'skill name' %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label 'next' %>
+    <%= f.submit %>
+  <% end %>
+  </div>
+</div>

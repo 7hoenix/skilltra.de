@@ -4,25 +4,25 @@
 
 
 <% if @account.user == current_user %>
-<%= form_for(@account) do |f| %>
-  <% if @account.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+    <%= form_for(@account) do |f| %>
+        <% if @account.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
 
-      <ul>
-      <% @account.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+              <ul>
+                <% @account.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+        <h1 class="align-left"> Get Verified </h1>
         <h1 class="align-center">Who are you?</h1>
 
         <!--<div class="btn-group form-group" data-toggle="buttons-radio">-->
-          <!--<button type="button" class="btn btn-primary">Hacker</button>-->
-          <!--<button type="button" class="btn btn-primary">Hipster</button>-->
-          <!--<button type="button" class="btn btn-primary">Hustler</button>-->
+        <!--<button type="button" class="btn btn-primary">Hacker</button>-->
+        <!--<button type="button" class="btn btn-primary">Hipster</button>-->
+        <!--<button type="button" class="btn btn-primary">Hustler</button>-->
         <!--</div>-->
 
         <!--<div class="btn-group" data-toggle="buttons-radio">-->
@@ -31,9 +31,17 @@
 
 
 
- <div class="form-group">
-    <%= f.select(:primarySkill, options_for_select([['Programming','Programming'],['Biz Dev','Biz Dev'],['Design','Design'],['Marketing','Marketing'],['UX','UX']]), {}, { class:"form-control" }) %>
-  </div>
+        <div class="form-group">
+
+          <%= f.fields_for :skills, @skills do |user_skill| %>
+
+              <%= user_skill.label user_skill.name %>
+              <%= @skills.order('name ASC').all.collect { |c| [c.name, c.id] } %>
+              <%= user_skill.check_box :name %>
+          <% end %>
+
+
+        </div>
 
 
         <h1 class="align-center">Give a few examples of what you would be willing to trade.</h1>
@@ -47,7 +55,7 @@
 
 
 
-<% end %>
+    <% end %>
 
 
 
@@ -61,13 +69,16 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <h4 class="modal-title" id="myModalLabel">Take the 5 mins to write a great profile</h4>
           </div>
           <div class="modal-body">
             <ul>
-              <li>Remember that some founders won't know technical terms in your area, try to use plain english. </li>
-              <li>Try to think in terms of what someone that doesn't know <strong>should</strong> be looking for (remember they may not know even what to ask for).</li>
+              <li>Remember that some founders won't know technical terms in your area, try to use plain english.</li>
+              <li>Try to think in terms of what someone that doesn't know <strong>should</strong> be looking for
+                (remember they may not know even what to ask for).
+              </li>
             </ul>
           </div>
           <div class="modal-footer">
@@ -77,5 +88,5 @@
       </div>
     </div>
 <% else %>
-<h3>You can't edit other peoples stuff!<br> Otherwise no one can have nice things. . .</h3>
+    <h3>You can't edit other peoples stuff!<br> Otherwise no one can have nice things. . .</h3>
 <% end %>

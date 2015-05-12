@@ -1,7 +1,34 @@
 <div class="container-home">
   <%= link_to 'Back', accounts_path %>
 
-  <%= render 'form' %>
 
-    <%= link_to 'Show', @account, class: "btn btn-default btn-lg" %>
+<div id="navbar">
+<ul>
+    <li><a href="/">Step 1</a></li>
+    <li><a href=" ">Step 2</a></li>
+    <li><a href=" ">Step 3</a></li>
+</ul>
+</div>
+
+
+  <% case @account.verified %>
+  <% when 1 %>
+      <%= render 'shared/viral_form1' %>
+  <% when 2 %>
+      <%= render 'shared/viral_form2' %>
+  <% when 3 %>
+      <%= render 'shared/viral_form3' %>
+  <% when 4 %>
+      <%= render 'shared/viral_form4' %>
+  <% when 5 %>
+      <%= render 'shared/viral_form5' %>
+  <% when 6 %>
+      <%= render 'shared/viral_form6' %>
+  <% else %>
+      "cake"
+  <% end %>
+
+
+  <%= button_to 'Start Over', action: 'start_over' %>
+
 </div>

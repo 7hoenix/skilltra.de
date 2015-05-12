@@ -1,6 +1,11 @@
 <div class="container-home">
 
+
+
   <%= link_to 'Back', accounts_path %>
+
+
+  <% if @account.verified == true %>
 
   <div class="row">
     <div class="col-md-offset-2 col-md-8">
@@ -13,14 +18,15 @@
             <p id="notice"><%= notice %></p>
 
             <h3 class="align-left">
-              <%= render 'shared/stats' %>
-              <%= render 'follow_form' %>
                   <% if @user.avatar %>
                       <%= image_tag(@user.avatar, class: "circle") %>
                   <% else %>
                       <%= image_tag('userdefaultimagesm.png', class: "circle") %>
                   <% end %>
               <%= @user.name %><br>
+              <h2>
+                <%= @account.company %>
+              </h2>
               Favors Done: <% if @user.jobs_completed %>
                   <%= @user.jobs_completed %><br>
               <% else %>
@@ -41,6 +47,10 @@
             </p>
 
             </div>
+
+            <% else %>
+            <%= render 'shared/viral_form2' %>
+            <% end %>
 
             <% if @account.user==current_user %>
               <% if @user.account_completed == false %>

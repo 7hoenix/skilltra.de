@@ -1,0 +1,45 @@
+
+  <div class="container-home">
+    <%= link_to 'Back', users_path %>
+
+
+    <div id="navbar">
+      <ul>
+        <li><a href="/">Step 1</a></li>
+        <li><a href=" ">Step 2</a></li>
+        <li><a href=" ">Step 3</a></li>
+      </ul>
+    </div>
+
+    <% session[:reviewed_user] = @user.id %>
+    <%= session[:reviewed_user] %>
+
+
+
+    <% unless user_signed_in? %>
+        <%= render 'shared/viral_loop/landing' %>
+    <% else %>
+        <% case @survey.page_count %>
+        <% when 1 %>
+            <%= render 'shared/viral_loop/viral_instructions' %>
+        <% when 2 %>
+            <%= render 'shared/viral_loop/viral_form2' %>
+        <% when 3 %>
+            <%= render 'shared//viral_loop/viral_form3' %>
+        <% when 4 %>
+            <%= render 'shared/viral_loop/viral_form4' %>
+        <% when 5 %>
+            <%= render 'shared/viral_loop/viral_form5' %>
+        <% when 6 %>
+            <%= render 'shared/viral_loop/viral_form6' %>
+        <% when 7 %>
+            <%= render 'shared/viral_loop/viral_form7' %>
+        <% else %>
+            "cake"
+        <% end %>
+    <% end %>
+
+    <% if false %>
+        <%= button_to 'Start Over', action: 'start_over' %>
+    <% end %>
+  </div>

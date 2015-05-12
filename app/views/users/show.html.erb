@@ -1,0 +1,66 @@
+<div class="container-home">
+
+
+
+  <%= link_to 'Back', users_path %>
+
+
+  <% if @user.verified == true %>
+
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <div class="panel panel-default">
+
+            <div class="panel-heading center">
+
+              <div class="panel-body">
+
+                <p id="notice"><%= notice %></p>
+
+                <h3 class="align-left">
+                  <% if @user.avatar %>
+                      <%= image_tag(@user.avatar, class: "circle") %>
+                  <% else %>
+                      <%= image_tag('userdefaultimagesm.png', class: "circle") %>
+                  <% end %>
+                  <%= @user.name %><br>
+                  <h2>
+                    <%= @user.company %>
+                  </h2>
+                  Favors Done: <% if @user.jobs_completed %>
+                      <%= @user.jobs_completed %><br>
+                  <% else %>
+                      I haven't done any favors yet!<br>
+                  <% end %>
+
+                  Average Score: <% if @user.average_score %>
+                      <%= @user.average_score %>
+                  <% else %>
+                      I'm too new!
+                  <% end %>
+                </h3>
+
+              </div>
+
+  <% else %>
+      cankles
+  <% end %>
+
+  <% if @user == current_user %>
+      <% if @user.account_completed == false %>
+          <%= link_to 'Update Profile', edit_user_path(@user), class: "btn btn-primary btn-lg" %><br>
+          <%= link_to 'Browse Jobs', posts_path, class: "btn btn-default btn-lg" %>
+      <% else %>
+          <%= link_to 'Browse Jobs', posts_path, class: "btn btn-primary btn-lg" %><br>
+          <%= link_to 'Update Profile', edit_user_path(@user), class: "btn btn-default btn-lg" %>
+
+      <% end %>
+  <% end %>
+
+
+  </div>
+
+  </div>
+  </div>
+  </div>
+</div>

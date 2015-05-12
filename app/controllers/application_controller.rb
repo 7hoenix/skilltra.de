@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     stored_location_for(resource) ||
       if resource.is_a?(User) && resource.account_completed == false
-        edit_account_path(resource)
+        edit_user_path(resource)
       else
         posts_path
       end

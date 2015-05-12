@@ -1,0 +1,23 @@
+<%= form_for [@user, @survey] do |f| %>
+    <% if @survey.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+          <ul>
+            <% @survey.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+    <%= f.hidden_field :user_id, :value => @user.id %>
+    <%= f.hidden_field :reviewed_id, :value => @user.id %>
+
+
+
+    <div class="actions">
+      <%= f.submit 'Create Survey', class: 'btn btn-lg btn-primary' %>
+    </div>
+<% end %>

@@ -1,0 +1,44 @@
+<%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+
+
+
+    <div class="form-group">
+      <h3 class="align-center">Great now go through and send the below email to each of the 5 people listed below.</h3>
+
+      <% @some_users = @user.service_professionally_names.split("\r") %>
+      <% @some_users.each do |name| %>
+          <%= name.capitalize %>
+          <br>
+      <% end %>
+      <h3>Subject</h3>
+      <p>I could really use your help for a moment</p>
+
+      <h3>Email</h3>
+      <p>I've just decided to trade the skill sets with others on Skill Trade! To help facilitate this, I’d love to get a few minutes of your honest and anonymous feedback.
+
+        Please click the link below as an expression of your care and interest in me and my future growth.
+
+        Give 3 minutes of feedback on me here: http://skilltra.de/users/<%= @user.id %>/surveys/new.
+
+        Thank you so much for your time. I look forward to hearing from you soon!
+        YOUR NAME HERE
+      </p>
+      <h3>Hit next once you send out all 5 of those.</h3>
+      <%= f.hidden_field :user, :value => @user.id %>
+      <%= f.submit 'next', class: "btn btn-primary btn-lg" %>
+    </div>
+
+<% end %>

@@ -11,24 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326191752) do
-
-  create_table "accounts", force: true do |t|
-    t.string   "bio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.string   "company"
-    t.string   "primarySkill"
-    t.string   "secondarySkill"
-    t.boolean  "completed"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-  end
-
-  add_index "accounts", ["user_id"], name: "index_accounts_on_user_id"
+ActiveRecord::Schema.define(version: 20150506230848) do
 
   create_table "beta", force: true do |t|
     t.string "email"
@@ -168,13 +151,30 @@ ActiveRecord::Schema.define(version: 20150326191752) do
 
   add_index "reviews", ["job_id"], name: "index_reviews_on_job_id"
 
+  create_table "skills", force: true do |t|
+    t.string "name"
+  end
+
+  create_table "surveys", force: true do |t|
+    t.integer "reviewed_id"
+    t.integer "reviewer_id"
+    t.string  "testimonial"
+    t.string  "skill_set"
+    t.integer "months_of_experience"
+    t.integer "projects_completed"
+    t.integer "page_count"
+    t.integer "user_id"
+  end
+
+  add_index "surveys", ["user_id"], name: "index_surveys_on_user_id"
+
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                            default: "", null: false
+    t.string   "encrypted_password",               default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                    default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -185,16 +185,24 @@ ActiveRecord::Schema.define(version: 20150326191752) do
     t.string   "company"
     t.string   "provider"
     t.string   "uid"
+    t.boolean  "completed"
+    t.integer  "verified"
+    t.string   "skill_set"
+    t.integer  "months_of_experience"
+    t.integer  "projects_completed"
+    t.text     "testimonial"
+    t.text     "same_skill_names"
+    t.text     "different_skill_names"
+    t.text     "service_professionally_names"
+    t.text     "service_not_professionally_names"
+    t.text     "mentor_names"
     t.string   "image"
     t.integer  "balance"
     t.float    "average_score"
     t.boolean  "account_completed"
     t.integer  "jobs_completed"
     t.integer  "open_jobs"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

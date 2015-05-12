@@ -1,0 +1,26 @@
+<%= form_for [@user, @survey] do |f| %>
+    <% if @survey.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+            <% @survey.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+
+
+
+    <div class="form-group">
+
+      <h3 class="align-center">If you've worked with <%= @user.name %> how many jobs have you done together? </h3>
+
+      <%= f.select :projects_completed, [['One', 1], ['Two', 2], ['Three', 3], ['Four', 4], ['Five', 5], ['Six', 6], ['Seven', 7], ['Eight', 8], ['Nine', 9], ['Ten', 10], ['Haven\'t worked together', 0]] %>
+      <%= f.submit 'next', class: "btn btn-primary btn-lg" %>
+    </div>
+
+<% end %>

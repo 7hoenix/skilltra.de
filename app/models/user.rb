@@ -1,45 +1,27 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+
   devise :omniauthable
 
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :trackable
-       # :validatable,
 
         has_many :posts, dependent: :destroy
         has_one :account, dependent: :destroy
         has_many :jobs, dependent: :destroy
         has_many :bids, dependent: :destroy
         has_many :reviews
+        has_one :survey
 
-        has_many :active_relationships, class_name:  "Relationship",
-                                        foreign_key: "follower_id",
-                                        dependent:   :destroy
-        has_many :passive_relationships, class_name:  "Relationship",
-                                        foreign_key: "followed_id",
-                                        dependent:   :destroy
-        has_many :following, through: :active_relationships, source: :followed
-        has_many :followers, through: :passive_relationships, source: :follower
-
-        has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>", square: '200x200#' }
+        #has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>", square: '200x200#' }
 
         # Validates the attached image is image/jpg, image/png, etc
-        validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+        #validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 
-  def follow(other_user)
-    active_relationships.create(followed_id: other_user.id)
-  end
-
-  def unfollow(other_user)
-    active_relationships.find_by(followed_id: other_user.id).destroy
-  end
-
-  def following?(other_user)
-    following.include?(other_user)
-  end
-
+        mount_uploader :avatar, AvatarUploader
 
 
 

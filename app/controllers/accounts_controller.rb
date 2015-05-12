@@ -1,24 +1,15 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: [:show, :edit, :update, :destroy]
+  before_action :set_account, only: [:show, :edit, :update, :destroy, :start_over]
   before_action :authenticate_user!
 
 #CURRENT: index page displays all accounts. requires user.all
 #POSSIBLE:  - more formatting of the page  look nicer - more columns or details may end up being added to the user.
 
-  def following
-    @title = "Following"
-    @user  = User.find(params[:id])
-    @users = @user.following.paginate(page: params[:page])
-    render 'show_follow'
-  end
 
-  def followers
-    @title = "Followers"
-    @user  = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
-    render 'show_follow'
+  def start_over
+    @account.verified = 1
+    @account.save
   end
-
 
   def index
     @accounts = Account.all.order("created_at DESC").paginate(:per_page => 22, :page => params[:page])
@@ -48,14 +39,19 @@ class AccountsController < ApplicationController
   #CURRENT: Currently displays
 
   def new
+    @account.verified = 1
   end
 
   def edit
+
     @user = User.find(params[:id])
+    @skills = Skill.all
   end
 
   def create
+    binding.pry
     @account = Account.new(account_params)
+
       if @account.save
         redirect_to @account, notice: 'Account was successfully created.'
       else
@@ -65,6 +61,7 @@ class AccountsController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @testimonial = User.find(params[:id])
 
       if @account.update(account_params)
         @user.account_completed = true
@@ -72,7 +69,15 @@ class AccountsController < ApplicationController
 
         @account.completed = true
         @account.save
-        redirect_to @account, notice: 'Thank you for updating your account. Keep being awesome.'
+
+
+        if @account.verified <= 6
+          @account.verified += 1
+          @account.save
+          redirect_to edit_account_path(@account)
+        else
+          redirect_to @account, notice: 'Thank you for updating your account. Keep being awesome.'
+        end
       else
         render :edit
       end
@@ -95,7 +100,7 @@ class AccountsController < ApplicationController
 
 
     def account_params
-      params.require(:account).permit(:bio, :primarySkill, :secondarySkill, :company, :completed, :avatar)
+      params.require(:account).permit(:bio, :primarySkill, :secondarySkill, :company, :completed, :avatar, :need1, :need2, :need3, :trade1, :trade2, :trade3, :skill_set, :months_of_experience, :projects_completed)
     end
 
 end

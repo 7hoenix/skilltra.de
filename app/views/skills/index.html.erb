@@ -1,0 +1,8 @@
+<div class="container-home">
+  <% @skills.each do |skill| %>
+  <p><%= "Get help with #{skill.name}" %></p>
+  <% end %>
+  <%= link_to new_skill_path do %>
+  <span class="glyphicon glyphicon-comment"></span> New skill
+  <% end %>
+</div>

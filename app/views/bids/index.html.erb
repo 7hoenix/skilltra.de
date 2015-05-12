@@ -38,9 +38,9 @@
           <% end %>
 
 
-      <% @accounts.each do |account| %>
- <% if account.user_id =$BidUserId %>
-  <% $account_company = account.company %>
+      <% @users.each do |user| %>
+ <% if user.id =$BidUserId %>
+  <% $account_company = user.company %>
   <% end %>
   <% end %>
 
@@ -49,7 +49,6 @@
             <% @users.each do |user| %>
             <% if user.id == bid.user_id %>
            <h3><%= user.name %></h3>
-           <h4><%= user.account.primarySkill %></h4>
                   <div class="col-md-6">
               <% if user.image %>
                   <p><%= image_tag user.image, class: "circle" %></p>
@@ -69,7 +68,6 @@
                       <p>I'm Still New!</p>
                   <% end %>
            <h4>Strengths</h4>
-           <%= user.account.bio %>
 
                 <% end %>
                 <% end %>
@@ -97,7 +95,7 @@
                                       :bid_amount => bid.bid,
                                       :bid_user => $BidUserName,
                                       :BidUserId => $BidUserId,
-                                      :account_company => $account_company,
+
                                       :bid_id => $bid_id_send
 
                               ), class: "btn btn-primary btn-lg" do %>

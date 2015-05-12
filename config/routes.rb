@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :skills
+
   resources :blogs do
     resources :comments
   end
@@ -8,23 +10,21 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  resources :accounts do
-    member do
-      get :following, :followers
-    end
-  end
-
   resources :posts do
     resources :bids
   end
 
   resources :betas
 
+
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
+  resources :users do
+    resources :surveys
+  end
+
+
   resources :relationships,       only: [:create, :destroy]
-
-
 
 
   resources :conversations, only: [:index, :show, :new, :create] do
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
       post :trash
       post :untrash
     end
-    end
+  end
 
  #makes fb work
  #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -48,13 +48,14 @@ Rails.application.routes.draw do
 
   get "preferred" => 'pages#preferred'
 
-  get "editaccount" => 'accounts#new'
 
   get "reviews" => 'reviews#my_reviews'
 
   get "reviewer" => 'reviews#people_reviewed'
 
   get "founder" => 'blogs#founder'
+
+  get "/users/:id/verified_back" => 'users#verified_back', as: :verified_back
 
 
   #admin dashboard routes below -- can probably be consolidated

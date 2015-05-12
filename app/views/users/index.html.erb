@@ -1,0 +1,51 @@
+<div class="container-home">
+  <div id="accounts" class="transitions-enabled">
+    <% @users.each do |user| %>
+        <div class="box panel panel-default">
+          <div class="panel-body">
+            <h3><%= user.name %></h3>
+            <div class="col-md-6">
+              <% if user.avatar %>
+                  <p><%= image_tag user.avatar, class: "circle" %></p>
+              <% else %>
+                  <p><%= image_tag('userdefaultimagesm.png', class: "circle") %></p>
+              <% end %>
+            </div>
+            <% if user.jobs_completed %>
+                <p><%= user.jobs_completed %> Favors done</p>
+            <% else %>
+                <p>I haven't done any favors yet!</p>
+            <% end %>
+
+            <% if user.jobs_completed %>
+                <p><%= user.average_score %> Average Score</p>
+            <% else %>
+                <p>I'm Still New!</p>
+            <% end %>
+
+            <% if user == current_user %>
+                <p><%= link_to edit_user_path(user), class: "btn btn-primary btn-lg" do %>
+                      <span class="glyphicon glyphicon-pencil"></span> Update Profile
+                  <% end %>
+                </p>
+            <% else %>
+                <p>
+                  <%= link_to user_path(user.id), class: "btn btn-default btn-lg" do %>
+                      <span class="glyphicon glyphicon-expand"></span> <%= user.name %>'s Profile
+                  <% end %>
+                </p>
+                <p><%= link_to new_conversation_path(:user => user.email), class: "btn btn-success btn-lg" do %>
+                      <span class="glyphicon glyphicon-envelope"></span> Message <%= user.name %>
+                  <% end %>
+                </p>
+
+            <% end %>
+
+          </div>
+        </div>
+    <% end %>
+
+
+  </div>
+  <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+</div>

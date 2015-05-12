@@ -1,0 +1,25 @@
+<%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+    <div class="form-group">
+      <h3 class="align-center">Please share an example of work that <%= @user.name %> did for you. "<%= @user.name %> helped me plan through strategy for a brand I was working on."</h3>
+
+      <%= f.hidden_field :reviewer_id, :value => current_user.id %>
+      <%= f.hidden_field :reviewed_id, :value => @user.id %>
+
+      <%= f.text_field :testimonial, class: "form-control" %>
+      <%= f.submit 'next', class: "btn btn-primary btn-lg" %>
+    </div>
+
+<% end %>

@@ -11,6 +11,7 @@ class PostsController < ApplicationController
     @posts = Post.all.order("created_at DESC").paginate(:per_page => 8, :page => params[:page])
     end
     @post = Post.all
+
   end
 
   def show

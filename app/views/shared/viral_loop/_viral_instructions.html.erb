@@ -1,0 +1,44 @@
+<!-- Header -->
+
+<!-- /.container -->
+
+<%= form_for [@user, @survey] do |f| %>
+    <% if @survey.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+          <ul>
+            <% @survey.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="intro-message">
+        <h1>Instructions</h1>
+        <h3>You are going to go through this survey and provide real feedback. Please be as honest as possible.</h3>
+        <hr class="intro-divider">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+    <div class="form-group">
+      <h3 class="align-center">What skill set would you be excited to receive feedback on? </h3>
+
+      <%= f.hidden_field :reviewed_id, :value => @user.id %>
+      <%= f.hidden_field :user_id, :value => @user.id %>
+
+      <%= f.submit 'get started', class: "btn btn-primary btn-lg" %>
+    </div>
+
+<% end %>

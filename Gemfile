@@ -6,6 +6,7 @@ ruby "2.1.2"
 gem 'rails', '4.1.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: [:development, :test]
+gem 'pry', '~> 0.10.1', group: [:development, :test]
 
 # Required for Heroku
 gem 'pg', group: :production
@@ -45,6 +46,11 @@ gem 'letter_opener', group: :development
 
 # Installing paperclip for IMAGES
 gem 'paperclip', github: 'thoughtbot/paperclip'
+
+
+gem 'carrierwave'
+
+gem 'fog-aws'
 
 # Amazon Web Services
 gem 'aws-sdk', '~> 1.20.0'

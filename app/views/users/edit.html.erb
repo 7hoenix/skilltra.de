@@ -1,0 +1,44 @@
+<div class="container-home">
+  <%= link_to 'Back', users_path %>
+
+
+  <div id="navbar">
+    <ul>
+      <li><a href="/">Step 1</a></li>
+      <li><a href=" ">Step 2</a></li>
+      <li><a href=" ">Step 3</a></li>
+    </ul>
+  </div>
+
+  <% unless user_signed_in? %>
+      <%= render 'shared/landing' %>
+  <% else %>
+      <% case @user.verified %>
+      <% when 1 %>
+        <%= render 'users/viral_loop/viral_instructions' %>
+      <% when 2 %>
+          <%= render 'users/viral_loop/viral_form2' %>
+      <% when 3 %>
+          <%= render 'users/viral_loop/viral_form3' %>
+      <% when 4 %>
+          <%= render 'users/viral_loop/viral_form4' %>
+      <% when 5 %>
+          <%= render 'users/viral_loop/viral_form5' %>
+      <% when 6 %>
+          <%= render 'users/viral_loop/viral_form6' %>
+      <% when 7 %>
+          <%= render 'users/viral_loop/viral_form7' %>
+      <% when 8 %>
+          <%= render 'users/viral_loop/viral_form8' %>
+      <% when 9 %>
+          <%= render 'users/viral_loop/viral_form9' %>
+      <% when 10 %>
+          <%= render 'users/viral_loop/viral_form10' %>
+      <% else %>
+          <%= render 'users/viral_loop/congratulations' %>
+      <% end %>
+  <% end %>
+
+
+  <%= link_to 'back', verified_back_path(@user) %>
+</div>

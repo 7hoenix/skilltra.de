@@ -1,3 +1,83 @@
+class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+
+
+
+
+  def linkedin
+    ###connect to linkedin ominauth -begin login
+      auth = env["omniauth.auth"]
+      @user = User.connect_to_linkedin(request.env["omniauth.auth"], current_user)
+##
+      if @user.persisted?
+
+        if @user.balance
+                sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
+                set_flash_message(:notice, :success, :kind => "linkedin") if is_navigational_format?
+        else
+          @user.account_completed = false
+          @user.balance = 3
+          @user.jobs_completed = 0
+          @user.average_score = 0
+          @user.open_jobs = 0
+
+          @user.verified = 1
+
+
+            # redirect_to team_path(@user)
+            sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
+            set_flash_message(:notice, :success, :kind => "linkedin") if is_navigational_format?
+
+        end
+
+      else
+        session["devise.linkedin_uid"] = request.env["omniauth.auth"]
+        redirect_to new_user_registration_url
+      end
+  end
+
+end
+
+
+
+
+
+
+
+
+
+
+      <%= f.check_box :need1, {multiple: true}, 2, nil %> Headline Writing
+
+      <%= f.check_box :need1, {multiple: true}, 3, nil %> Wordpress Site Setup
+
+      <%= f.check_box :need1, {multiple: true}, 4, nil %> Web Analytics Setup
+
+      <%= f.check_box :need1, {multiple: true}, 5, nil %> Testimonials / Reviews
+
+
+
+
+<li><%= link_to 'Get verified', edit_account_path(@account), class: "btn btn-primary btn-lg" %></li>
+
+
+
+
+
+if :need1
+
+  puts "LOOK HERE"
+  puts @account.update(account_params)[:account]
+#  @account[:need1]
+#  "account"=>{"need1"=>["1"]}
+
+
+end
+
+
+
+
+
+
 class TeamMembers < ActiveRecord::Base
   belongs_to :user
   belongs_to :team, class_name => "USER", :foreign_key => "team_id"
